@@ -107,6 +107,9 @@ composer-install:
 composer-update:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
+composer-authentication:
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer require symfony/security-bundle"
+
 info:
 	@make exec cmd="bin/console --version"
 	@make exec cmd="php --version"

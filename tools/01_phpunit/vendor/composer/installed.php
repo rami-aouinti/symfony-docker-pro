@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '6a2920794517210cbf4110cbc13e34fd8b61caa2',
+        'reference' => 'c8515cc40a13d70acf1bf8e3b81b03272e676260',
         'name' => 'dimadeush/docker-apache-php-symfony-tools',
         'dev' => true,
     ),
     'versions' => array(
         'dimadeush/docker-apache-php-symfony-tools' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '6a2920794517210cbf4110cbc13e34fd8b61caa2',
+            'reference' => 'c8515cc40a13d70acf1bf8e3b81b03272e676260',
             'dev_requirement' => false,
         ),
         'doctrine/instantiator' => array(
@@ -95,12 +95,12 @@
             'dev_requirement' => true,
         ),
         'phpspec/prophecy' => array(
-            'pretty_version' => '1.13.0',
-            'version' => '1.13.0.0',
+            'pretty_version' => '1.14.0',
+            'version' => '1.14.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpspec/prophecy',
             'aliases' => array(),
-            'reference' => 'be1996ed8adc35c3fd795488a653f4b518be70ea',
+            'reference' => 'd86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e',
             'dev_requirement' => true,
         ),
         'phpunit/php-code-coverage' => array(
@@ -149,12 +149,12 @@
             'dev_requirement' => true,
         ),
         'phpunit/phpunit' => array(
-            'pretty_version' => '9.5.8',
-            'version' => '9.5.8.0',
+            'pretty_version' => '9.5.9',
+            'version' => '9.5.9.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
-            'reference' => '191768ccd5c85513b4068bdbe99bb6390c7d54fb',
+            'reference' => 'ea8c2dfb1065eb35a79b3681eee6e6fb0a6f273b',
             'dev_requirement' => true,
         ),
         'roave/security-advisories' => array(
@@ -165,7 +165,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '295e62200d6e91c0bd5b3d78715b00c3bdc8f28f',
+            'reference' => '94b1ad0f093b41a6cfccbe1272026cbc1ebaad5c',
             'dev_requirement' => true,
         ),
         'sebastian/cli-parser' => array(
@@ -340,21 +340,21 @@
             'dev_requirement' => true,
         ),
         'symfony/dom-crawler' => array(
-            'pretty_version' => 'v5.3.4',
-            'version' => '5.3.4.0',
+            'pretty_version' => 'v5.3.7',
+            'version' => '5.3.7.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/dom-crawler',
             'aliases' => array(),
-            'reference' => '2dd8890bd01be59a5221999c05ccf0fcafcb354f',
+            'reference' => 'c7eef3a60ccfdd8eafe07f81652e769ac9c7146c',
             'dev_requirement' => true,
         ),
         'symfony/phpunit-bridge' => array(
-            'pretty_version' => 'v5.3.4',
-            'version' => '5.3.4.0',
+            'pretty_version' => 'v5.3.7',
+            'version' => '5.3.7.0',
             'type' => 'symfony-bridge',
             'install_path' => __DIR__ . '/../symfony/phpunit-bridge',
             'aliases' => array(),
-            'reference' => 'bc368b765a651424b19f5759953ce2873e7d448b',
+            'reference' => '2a1ff6e5a4521be1350bfce75784938e590d6342',
             'dev_requirement' => true,
         ),
         'symfony/polyfill-ctype' => array(

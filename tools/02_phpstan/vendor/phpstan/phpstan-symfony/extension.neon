@@ -4,6 +4,9 @@ parameters:
 	exceptions:
 		uncheckedExceptionClasses:
 			- 'Symfony\Component\Console\Exception\InvalidArgumentException'
+	featureToggles:
+		skipCheckGenericClasses:
+			- Symfony\Component\HttpFoundation\InputBag
 	symfony:
 		container_xml_path: null
 		constant_hassers: true
@@ -240,3 +243,7 @@ services:
 	-
 		factory: PHPStan\Type\Symfony\ParameterDynamicReturnTypeExtension(Symfony\Bundle\FrameworkBundle\Controller\Controller, 'getParameter', null, %symfony.constant_hassers%)
 		tags: [phpstan.broker.dynamicMethodReturnTypeExtension]
+	-
+		class: PHPStan\Symfony\InputBagStubFilesExtension
+		tags:
+			- phpstan.stubFilesExtension
