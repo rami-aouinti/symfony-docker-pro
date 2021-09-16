@@ -1,0 +1,20 @@
+
+input[type="checkbox"], input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+
+#dukecity .action-container a {
+  display: inline-block;
+  width: 24px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#dukecity .action-container a i {
+font-size: 1.4rem;
+}
+
+.jumbotron {
+  margin-bottom: auto;
+}
