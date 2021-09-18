@@ -18,4 +18,11 @@ class ExampleTest extends FunctionalTestCase
         // check for 401 due to allow only for user with admin role
         $this->assertSame(401, $client->getResponse()->getStatusCode());
     }
+
+    public function testHome(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/');
+        $this->assertSame(200, $client->getResponse()->getStatusCode());
+    }
 }
