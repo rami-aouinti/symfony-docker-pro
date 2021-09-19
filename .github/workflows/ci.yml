@@ -46,8 +46,6 @@ jobs:
               run: make phpcpd
             - name: Run PHP mess detector
               run: make phpmd
-            - name: Run PHPStan static analysis tool
-              run: make phpstan
             - name: Run Phpinsights PHP quality checks
               run: make phpinsights
             - name: Stop the docker images

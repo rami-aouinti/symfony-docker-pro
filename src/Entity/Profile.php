@@ -10,15 +10,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProfileRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Profile
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private ?int $id;
+    use EntityTrait;
 
     /**
      * @ORM\Column(type="string",     length=20)
@@ -36,11 +32,6 @@ class Profile
      * @ORM\OneToOne(targetEntity=User::class, inversedBy="profile", cascade={"persist", "remove"})
      */
     private ?User $user;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getFirstname(): ?string
     {

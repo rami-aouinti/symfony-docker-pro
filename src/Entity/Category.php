@@ -11,20 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Category
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private ?int $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private ?string $name;
+    use EntityTrait;
+    use EntityNameTrait;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -34,33 +26,11 @@ class Category
     /**
      * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="category")
      */
-    private $products;
+    private ArrayCollection $products;
 
     public function __construct()
     {
         $this->products = new ArrayCollection();
-    }
-
-    public function __toString(): string
-    {
-        return $this->name;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     public function getImage(): ?string
@@ -76,7 +46,7 @@ class Category
     }
 
     /**
-     * @return Collection|Product[]
+     * @return Collection
      */
     public function getProducts(): Collection
     {

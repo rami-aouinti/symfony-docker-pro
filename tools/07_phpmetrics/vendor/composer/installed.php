@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '76f1c761d2c0399031dcaa9f547597ca56676273',
+        'reference' => 'dd979940d2653dfe18f0b2b09eb2e1575826ac68',
         'name' => 'dimadeush/docker-apache-php-symfony-tools',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '76f1c761d2c0399031dcaa9f547597ca56676273',
+            'reference' => 'dd979940d2653dfe18f0b2b09eb2e1575826ac68',
             'dev_requirement' => false,
         ),
         'halleck45/php-metrics' => array(

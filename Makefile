@@ -110,6 +110,9 @@ composer-update:
 composer-install-faker:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer require fzaninotto/faker"
 
+composer-install-gdmo:
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer require stof/doctrine-extensions-bundle"
+
 info:
 	@make exec cmd="bin/console --version"
 	@make exec cmd="php --version"
@@ -145,7 +148,7 @@ migrate-update-test:
 	@make exec cmd="php bin/console doctrine:schema:update --env=test --force"
 
 fixtures:
-	@make exec cmd="php bin/console doctrine:fixtures:load"
+	@make exec cmd="php bin/console doctrine:fixtures:load -n"
 
 fixtures-test:
 	@make exec cmd="php bin/console doctrine:fixtures:load --env=test -n"
