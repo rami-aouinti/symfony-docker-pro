@@ -3,23 +3,28 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <table>
-            <tr>
-                <th>product</th>
-                <th>price</th>
-                <th>category</th>
-            </tr>
-
-            {% for product in products %}
-                <tr>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.price }}</td>
-                    {% for category in product.category %}
-                    <td>{{ category.name }}</td>
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
+<header>
+    {{ include('layouts/nav.html.twig') }}
+    {{ include('layouts/jumbotron.html.twig') }}
+</header>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for product in products %}
+        <div class="col">
+            <div class="card h-100">
+                <img
+                    src="https://mdbootstrap.com/img/new/standard/city/044.jpg"
+                    class="card-img-top"
+                    alt="..."
+                />
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.price }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{% for category in product.category %}{{ category.name }}{% endfor %}</small>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -21,7 +21,7 @@ class Product
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="products")
      */
-    private ArrayCollection $category;
+    private $category;
 
     /**
      * @ORM\Column(type="float")

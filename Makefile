@@ -113,6 +113,9 @@ composer-install-faker:
 composer-install-gdmo:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer require stof/doctrine-extensions-bundle"
 
+composer-install-webencore:
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer require symfony/webpack-encore-bundle"
+
 info:
 	@make exec cmd="bin/console --version"
 	@make exec cmd="php --version"

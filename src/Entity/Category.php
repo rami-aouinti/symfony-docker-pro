@@ -26,7 +26,7 @@ class Category
     /**
      * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="category")
      */
-    private ArrayCollection $products;
+    private $products;
 
     public function __construct()
     {
