@@ -12,10 +12,10 @@ class UserFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        for($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $user = (new User())
-                ->setEmail("user$i@gmail.com")
-                ->setPassword("password");
+                ->setEmail("user${i}@gmail.com")
+                ->setPassword('password');
             $manager->persist($user);
         }
         $manager->flush();

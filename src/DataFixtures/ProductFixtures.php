@@ -17,7 +17,7 @@ class ProductFixtures extends Fixture
             $category = (new Category())
                 ->setName('category')
                 ->setImage('image');
-            for ($j = 0; $j < 10 ; $j++) {
+            for ($j = 0; $j < 10; $j++) {
                 $product = (new Product())
                     ->setName('product')
                     ->setPrice(50)

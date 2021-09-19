@@ -9,9 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ProductRepositoryTest extends KernelTestCase
 {
-    public function testCount() {
+    public function testCount()
+    {
         self::bootKernel();
         $products = self::$container->get(ProductRepository::class)->count([]);
-        $this->assertEquals(100, $products);
+        $this->assertSame(100, $products);
     }
 }

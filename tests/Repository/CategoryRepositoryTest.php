@@ -9,9 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class CategoryRepositoryTest extends KernelTestCase
 {
-    public function testCount() {
+    public function testCount()
+    {
         self::bootKernel();
         $categories = self::$container->get(CategoryRepository::class)->count([]);
-        $this->assertEquals(10, $categories);
+        $this->assertSame(10, $categories);
     }
 }

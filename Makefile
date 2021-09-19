@@ -166,6 +166,11 @@ phpcs: ## Run PHP CodeSniffer
 	@make exec-bash cmd="./vendor/bin/phpcs --version && ./vendor/bin/phpcs --standard=PSR12 --colors -p src tests"
 ###< phpcs ###
 
+###> phpcs ###
+phpcbf: ## Run PHP CodeSniffer
+	@make exec-bash cmd="./vendor/bin/phpcbf -p src tests"
+###< phpcs ###
+
 ###> ecs ###
 ecs: ## Run Easy Coding Standard
 	@make exec-bash cmd="./vendor/bin/ecs --version && ./vendor/bin/ecs --clear-cache check src tests"

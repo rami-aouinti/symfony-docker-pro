@@ -13,8 +13,11 @@ class HomeController extends AbstractController
     public function index(): Response
     {
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('home/index.html.twig', [
+
+        return $this->render(
+            'home/index.html.twig', [
             'products' => $products,
-        ]);
+            ]
+        );
     }
 }

@@ -10,7 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ProfileTest extends KernelTestCase
 {
-    public function testValidEntity() {
+    public function testValidEntity()
+    {
         $user = new User();
         $profile = (new Profile())
             ->setFirstname('Mohamed')
@@ -21,7 +22,8 @@ class ProfileTest extends KernelTestCase
         $this->assertCount(0, $error);
     }
 
-    public function testNoValidEntity() {
+    public function testNoValidEntity()
+    {
         $user = new User();
         $profile = (new Profile())
             ->setFirstname('Mohamed Ramias23432')

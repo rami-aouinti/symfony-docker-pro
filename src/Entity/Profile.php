@@ -21,13 +21,13 @@ class Profile
     private ?int $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string",     length=20)
      * @Assert\Regex("/^[a-zA-Z]*$/")
      */
     private ?string $firstname;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string",     length=20)
      * @Assert\Regex("/^[a-zA-Z]*$/")
      */
     private ?string $lastname;
