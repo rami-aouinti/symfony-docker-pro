@@ -15,8 +15,9 @@ class HomeController extends AbstractController
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
 
         return $this->render(
-            'home/index.html.twig', [
-            'products' => $products,
+            'home/index.html.twig',
+            [
+                'products' => $products,
             ]
         );
     }
