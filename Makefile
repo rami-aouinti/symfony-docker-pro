@@ -167,8 +167,8 @@ phpcs: ## Run PHP CodeSniffer
 ###< phpcs ###
 
 ###> phpcs ###
-phpcbf: ## Run PHP CodeSniffer
-	@make exec-bash cmd="./vendor/bin/phpcbf -p src tests"
+phpcbf: ## Run PHP CodeSniffer to fix issues
+	@make exec-bash cmd="./vendor/bin/phpcbf --standard=PSR12 --colors -p src tests"
 ###< phpcs ###
 
 ###> ecs ###
