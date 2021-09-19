@@ -19,10 +19,10 @@ class ExampleTest extends FunctionalTestCase
         $this->assertSame(401, $client->getResponse()->getStatusCode());
     }
 
-    public function testHome(): void
+    /*public function testHome(): void
     {
         $client = static::createClient();
         $client->request('GET', '/home');
         $this->assertSame(200, $client->getResponse()->getStatusCode());
-    }
+    }*/
 }
