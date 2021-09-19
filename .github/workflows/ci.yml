@@ -30,6 +30,10 @@ jobs:
               run: make wait-for-db
             - name: Run migrations
               run: make drop-migrate
+            - name: Run migrations-test
+              run: make migrate-update-test
+            - name: Run migrations-fixtures
+              run: make fixtures-test
             - name: Setup transports for Messenger component
               run: make messenger-setup-transports
             - name: Run test suite

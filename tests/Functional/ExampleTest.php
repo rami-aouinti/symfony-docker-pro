@@ -22,7 +22,7 @@ class ExampleTest extends FunctionalTestCase
     public function testHome(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/');
+        $client->request('GET', '/home');
         $this->assertSame(200, $client->getResponse()->getStatusCode());
     }
 }
