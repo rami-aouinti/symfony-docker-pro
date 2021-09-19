@@ -148,7 +148,7 @@ fixtures:
 	@make exec cmd="php bin/console doctrine:fixtures:load"
 
 fixtures-test:
-	@make exec cmd="php bin/console doctrine:fixtures:load --env=test"
+	@make exec cmd="php bin/console doctrine:fixtures:load --env=test -n"
 
 messenger-setup-transports:
 	@make exec cmd="php bin/console messenger:setup-transports"
