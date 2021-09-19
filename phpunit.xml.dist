@@ -46,5 +46,13 @@
         <testsuite name="Functional">
             <directory suffix="Test.php">./tests/Functional</directory>
         </testsuite>
+
+        <testsuite name="Repository">
+            <directory suffix="Test.php">./tests/Repository</directory>
+        </testsuite>
+
+        <testsuite name="Entity">
+            <directory suffix="Test.php">./tests/Entity</directory>
+        </testsuite>
     </testsuites>
 </phpunit>

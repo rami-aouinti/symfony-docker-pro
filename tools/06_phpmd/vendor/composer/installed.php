@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9112d553c448133b150440891ddd732d897cdcac',
+        'reference' => '76f1c761d2c0399031dcaa9f547597ca56676273',
         'name' => 'dimadeush/docker-apache-php-symfony-tools',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9112d553c448133b150440891ddd732d897cdcac',
+            'reference' => '76f1c761d2c0399031dcaa9f547597ca56676273',
             'dev_requirement' => false,
         ),
         'pdepend/pdepend' => array(
@@ -80,7 +80,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '295e62200d6e91c0bd5b3d78715b00c3bdc8f28f',
+            'reference' => '94b1ad0f093b41a6cfccbe1272026cbc1ebaad5c',
             'dev_requirement' => true,
         ),
         'symfony/config' => array(
@@ -93,12 +93,12 @@
             'dev_requirement' => true,
         ),
         'symfony/dependency-injection' => array(
-            'pretty_version' => 'v5.3.4',
-            'version' => '5.3.4.0',
+            'pretty_version' => 'v5.3.7',
+            'version' => '5.3.7.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/dependency-injection',
             'aliases' => array(),
-            'reference' => '5a825e4b386066167a8b55487091cb62beec74c2',
+            'reference' => 'a665946279f566d94ed5eb98999cfa65c6fa5a78',
             'dev_requirement' => true,
         ),
         'symfony/deprecation-contracts' => array(

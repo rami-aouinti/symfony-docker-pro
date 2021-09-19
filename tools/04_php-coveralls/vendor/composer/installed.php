@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9112d553c448133b150440891ddd732d897cdcac',
+        'reference' => '76f1c761d2c0399031dcaa9f547597ca56676273',
         'name' => 'dimadeush/docker-apache-php-symfony-tools',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9112d553c448133b150440891ddd732d897cdcac',
+            'reference' => '76f1c761d2c0399031dcaa9f547597ca56676273',
             'dev_requirement' => false,
         ),
         'guzzlehttp/guzzle' => array(
@@ -141,7 +141,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '295e62200d6e91c0bd5b3d78715b00c3bdc8f28f',
+            'reference' => '94b1ad0f093b41a6cfccbe1272026cbc1ebaad5c',
             'dev_requirement' => true,
         ),
         'symfony/config' => array(
@@ -154,12 +154,12 @@
             'dev_requirement' => true,
         ),
         'symfony/console' => array(
-            'pretty_version' => 'v5.3.6',
-            'version' => '5.3.6.0',
+            'pretty_version' => 'v5.3.7',
+            'version' => '5.3.7.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/console',
             'aliases' => array(),
-            'reference' => '51b71afd6d2dc8f5063199357b9880cea8d8bfe2',
+            'reference' => '8b1008344647462ae6ec57559da166c2bfa5e16a',
             'dev_requirement' => true,
         ),
         'symfony/deprecation-contracts' => array(
@@ -262,12 +262,12 @@
             'dev_requirement' => true,
         ),
         'symfony/string' => array(
-            'pretty_version' => 'v5.3.3',
-            'version' => '5.3.3.0',
+            'pretty_version' => 'v5.3.7',
+            'version' => '5.3.7.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/string',
             'aliases' => array(),
-            'reference' => 'bd53358e3eccec6a670b5f33ab680d8dbe1d4ae1',
+            'reference' => '8d224396e28d30f81969f083a58763b8b9ceb0a5',
             'dev_requirement' => true,
         ),
         'symfony/yaml' => array(

@@ -107,6 +107,9 @@ composer-install:
 composer-update:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer update"
 
+composer-install-faker:
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer require fzaninotto/faker"
+
 info:
 	@make exec cmd="bin/console --version"
 	@make exec cmd="php --version"
@@ -135,7 +138,16 @@ migrate:
 	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing"
 	@make exec cmd="php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing --env=test"
 
+migrate-update:
+	@make exec cmd="php bin/console doctrine:schema:update --force"
+
+migrate-update-test:
+	@make exec cmd="php bin/console doctrine:schema:update --env=test --force"
+
 fixtures:
+	@make exec cmd="php bin/console doctrine:fixtures:load"
+
+fixtures-test:
 	@make exec cmd="php bin/console doctrine:fixtures:load --env=test"
 
 messenger-setup-transports:
