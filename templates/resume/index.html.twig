@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume index{% endblock %}
+
+{% block body %}
+    <h1>Resume index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Street</th>
+                <th>Housenumber</th>
+                <th>Postcode</th>
+                <th>State</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Company</th>
+                <th>Company_name</th>
+                <th>Company_lastname</th>
+                <th>Company_address</th>
+                <th>Resume_date</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Signature</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for resume in resumes %}
+            <tr>
+                <td>{{ resume.id }}</td>
+                <td>{{ resume.firstname }}</td>
+                <td>{{ resume.lastname }}</td>
+                <td>{{ resume.street }}</td>
+                <td>{{ resume.housenumber }}</td>
+                <td>{{ resume.postcode }}</td>
+                <td>{{ resume.state }}</td>
+                <td>{{ resume.phone }}</td>
+                <td>{{ resume.email }}</td>
+                <td>{{ resume.company }}</td>
+                <td>{{ resume.companyName }}</td>
+                <td>{{ resume.companyLastname }}</td>
+                <td>{{ resume.companyAddress }}</td>
+                <td>{{ resume.resumeDate ? resume.resumeDate|date('Y-m-d') : '' }}</td>
+                <td>{{ resume.title }}</td>
+                <td>{{ resume.content }}</td>
+                <td>{{ resume.signature }}</td>
+                <td>
+                    <a href="{{ path('resume_show', {'id': resume.id}) }}">show</a>
+                    <a href="{{ path('resume_edit', {'id': resume.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('resume_new') }}">Create new</a>
+{% endblock %}

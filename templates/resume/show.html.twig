@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume{% endblock %}
+
+{% block body %}
+    <h1>Resume</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ resume.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ resume.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ resume.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td>{{ resume.street }}</td>
+            </tr>
+            <tr>
+                <th>Housenumber</th>
+                <td>{{ resume.housenumber }}</td>
+            </tr>
+            <tr>
+                <th>Postcode</th>
+                <td>{{ resume.postcode }}</td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td>{{ resume.state }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ resume.phone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ resume.email }}</td>
+            </tr>
+            <tr>
+                <th>Company</th>
+                <td>{{ resume.company }}</td>
+            </tr>
+            <tr>
+                <th>Company_name</th>
+                <td>{{ resume.companyName }}</td>
+            </tr>
+            <tr>
+                <th>Company_lastname</th>
+                <td>{{ resume.companyLastname }}</td>
+            </tr>
+            <tr>
+                <th>Company_address</th>
+                <td>{{ resume.companyAddress }}</td>
+            </tr>
+            <tr>
+                <th>Resume_date</th>
+                <td>{{ resume.resumeDate ? resume.resumeDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ resume.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ resume.content }}</td>
+            </tr>
+            <tr>
+                <th>Signature</th>
+                <td>{{ resume.signature }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('resume_index') }}">back to list</a>
+
+    <a href="{{ path('resume_edit', {'id': resume.id}) }}">edit</a>
+
+    {{ include('resume/_delete_form.html.twig') }}
+{% endblock %}
