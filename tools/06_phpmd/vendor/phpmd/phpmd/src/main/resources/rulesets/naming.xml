@@ -343,7 +343,7 @@ not clear naming.
 <![CDATA[
 public class Foo {
 	Object bar;
-	// bar is data or an action or both?
+	// bar is product or an action or both?
 	void bar() {
 	}
 }

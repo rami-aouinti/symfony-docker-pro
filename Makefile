@@ -113,6 +113,9 @@ composer-install-faker:
 composer-install-gdmo:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer require stof/doctrine-extensions-bundle"
 
+composer-install-paginator:
+	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer require knplabs/knp-paginator-bundle"
+
 composer-install-webencore:
 	@make exec-bash cmd="COMPOSER_MEMORY_LIMIT=-1 composer require symfony/webpack-encore-bundle"
 
@@ -131,6 +134,9 @@ logs-mysql:
 
 logs-rabbitmq:
 	@docker logs -f ${COMPOSE_PROJECT_NAME}_rabbitmq
+
+clean-cache:
+	@make exec cmd="php bin/console cache:clear"
 
 drop-migrate:
 	@make exec cmd="php bin/console doctrine:schema:drop --full-database --force"

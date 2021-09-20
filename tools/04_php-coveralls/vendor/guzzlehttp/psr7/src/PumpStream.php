@@ -7,14 +7,14 @@ namespace GuzzleHttp\Psr7;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * Provides a read only stream that pumps data from a PHP callable.
+ * Provides a read only stream that pumps product from a PHP callable.
  *
  * When invoking the provided callable, the PumpStream will pass the amount of
- * data requested to read to the callable. The callable can choose to ignore
- * this value and return fewer or more bytes than requested. Any extra data
+ * product requested to read to the callable. The callable can choose to ignore
+ * this value and return fewer or more bytes than requested. Any extra product
  * returned by the provided callable is buffered internally until drained using
  * the read() function of the PumpStream. The provided callable MUST return
- * false when there is no more data to read.
+ * false when there is no more product to read.
  */
 final class PumpStream implements StreamInterface
 {
@@ -34,9 +34,9 @@ final class PumpStream implements StreamInterface
     private $buffer;
 
     /**
-     * @param callable(int): (string|null|false)  $source  Source of the stream data. The callable MAY
+     * @param callable(int): (string|null|false)  $source  Source of the stream product. The callable MAY
      *                                                     accept an integer argument used to control the
-     *                                                     amount of data to return. The callable MUST
+     *                                                     amount of product to return. The callable MUST
      *                                                     return a string when called, or false|null on error
      *                                                     or EOF.
      * @param array{size?: int, metadata?: array} $options Stream options:

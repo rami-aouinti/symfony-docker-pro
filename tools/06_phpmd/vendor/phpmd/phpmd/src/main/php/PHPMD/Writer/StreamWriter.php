@@ -69,7 +69,7 @@ class StreamWriter extends AbstractWriter
     }
 
     /**
-     * Writes the given <b>$data</b> fragment to the wrapper output stream.
+     * Writes the given <b>$product</b> fragment to the wrapper output stream.
      *
      * @param string $data
      * @return void

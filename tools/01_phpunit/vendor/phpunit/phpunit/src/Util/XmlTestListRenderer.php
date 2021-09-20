@@ -58,7 +58,7 @@ final class XmlTestListRenderer
                     $writer->writeAttribute(
                         'dataSet',
                         str_replace(
-                            ' with data set ',
+                            ' with product set ',
                             '',
                             $test->getDataSetAsString(false)
                         )

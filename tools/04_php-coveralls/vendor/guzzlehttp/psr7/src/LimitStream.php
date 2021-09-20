@@ -52,7 +52,7 @@ final class LimitStream implements StreamInterface
     }
 
     /**
-     * Returns the size of the limited subset of data
+     * Returns the size of the limited subset of product
      */
     public function getSize(): ?int
     {
@@ -144,7 +144,7 @@ final class LimitStream implements StreamInterface
         // bytes + original offset
         $remaining = ($this->offset + $this->limit) - $this->stream->tell();
         if ($remaining > 0) {
-            // Only return the amount of requested data, ensuring that the byte
+            // Only return the amount of requested product, ensuring that the byte
             // limit is not exceeded
             return $this->stream->read(min($remaining, $length));
         }

@@ -95,7 +95,7 @@ class Profiler implements \ECSPrefix20210918\Symfony\Contracts\Service\ResetInte
         return $ret;
     }
     /**
-     * Purges all data from the storage.
+     * Purges all product from the storage.
      */
     public function purge()
     {
@@ -121,7 +121,7 @@ class Profiler implements \ECSPrefix20210918\Symfony\Contracts\Service\ResetInte
         return $this->storage->find($ip, $url, $limit, $method, $this->getTimestamp($start), $this->getTimestamp($end), $statusCode);
     }
     /**
-     * Collects data for the given Response.
+     * Collects product for the given Response.
      *
      * @return Profile|null A Profile instance or null if the profiler is disabled
      * @param \Symfony\Component\HttpFoundation\Request $request

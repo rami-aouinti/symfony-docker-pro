@@ -90,7 +90,7 @@ final class Cache implements \PhpCsFixer\Cache\CacheInterface
         $requiredKeys = ['php', 'version', 'indent', 'lineEnding', 'rules', 'hashes'];
         $missingKeys = \array_diff_key(\array_flip($requiredKeys), $data);
         if (\count($missingKeys)) {
-            throw new \InvalidArgumentException(\sprintf('JSON data is missing keys "%s"', \implode('", "', $missingKeys)));
+            throw new \InvalidArgumentException(\sprintf('JSON product is missing keys "%s"', \implode('", "', $missingKeys)));
         }
         $signature = new \PhpCsFixer\Cache\Signature($data['php'], $data['version'], $data['indent'], $data['lineEnding'], $data['rules']);
         $cache = new self($signature);

@@ -59,7 +59,7 @@ class RootPackageLoader extends ArrayLoader
 
     /**
      * @template PackageClass of RootPackage
-     * @param  array                        $config package data
+     * @param  array                        $config package product
      * @param  class-string<PackageClass>   $class  FQCN to be instantiated
      * @param  string                       $cwd    cwd of the root package to be used to guess the version if it is not provided
      * @return RootPackage|RootAliasPackage

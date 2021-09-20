@@ -31,7 +31,7 @@ class FileList implements \Iterator, \Countable
      */
     private $numFiles = 0;
     /**
-     * The config data for the run.
+     * The config product for the run.
      *
      * @var \PHP_CodeSniffer\Config
      */
@@ -51,7 +51,7 @@ class FileList implements \Iterator, \Countable
     /**
      * Constructs a file list and loads in an array of file paths to process.
      *
-     * @param \PHP_CodeSniffer\Config  $config  The config data for the run.
+     * @param \PHP_CodeSniffer\Config  $config  The config product for the run.
      * @param \PHP_CodeSniffer\Ruleset $ruleset The ruleset used for the run.
      *
      * @return void

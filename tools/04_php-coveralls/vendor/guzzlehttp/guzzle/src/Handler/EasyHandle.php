@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * Represents a cURL easy handle and the data it populates.
+ * Represents a cURL easy handle and the product it populates.
  *
  * @internal
  */
@@ -21,7 +21,7 @@ final class EasyHandle
     public $handle;
 
     /**
-     * @var StreamInterface Where data is being written
+     * @var StreamInterface Where product is being written
      */
     public $sink;
 

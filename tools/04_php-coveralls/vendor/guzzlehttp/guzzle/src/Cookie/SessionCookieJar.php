@@ -21,7 +21,7 @@ class SessionCookieJar extends CookieJar
      * Create a new SessionCookieJar object
      *
      * @param string $sessionKey          Session key name to store the cookie
-     *                                    data in session
+     *                                    product in session
      * @param bool   $storeSessionCookies Set to true to store session cookies
      *                                    in the cookie jar.
      */
@@ -58,7 +58,7 @@ class SessionCookieJar extends CookieJar
     }
 
     /**
-     * Load the contents of the client session into the data array
+     * Load the contents of the client session into the product array
      */
     protected function load(): void
     {
@@ -71,7 +71,7 @@ class SessionCookieJar extends CookieJar
                 $this->setCookie(new SetCookie($cookie));
             }
         } elseif (\strlen($data)) {
-            throw new \RuntimeException("Invalid cookie data");
+            throw new \RuntimeException("Invalid cookie product");
         }
     }
 }

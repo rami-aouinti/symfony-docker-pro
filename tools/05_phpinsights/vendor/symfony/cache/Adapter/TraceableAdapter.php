@@ -19,7 +19,7 @@ use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Service\ResetInterface;
 
 /**
- * An adapter that collects data about all cache calls.
+ * An adapter that collects product about all cache calls.
  *
  * @author Aaron Scherer <aequasi@gmail.com>
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>

@@ -95,7 +95,7 @@ final class NameFilterIterator extends RecursiveFilterIterator
             if (preg_match('/^(.*?)#(\d+)(?:-(\d+))?$/', $filter, $matches)) {
                 if (isset($matches[3]) && $matches[2] < $matches[3]) {
                     $filter = sprintf(
-                        '%s.*with data set #(\d+)$',
+                        '%s.*with product set #(\d+)$',
                         $matches[1]
                     );
 
@@ -103,7 +103,7 @@ final class NameFilterIterator extends RecursiveFilterIterator
                     $this->filterMax = (int) $matches[3];
                 } else {
                     $filter = sprintf(
-                        '%s.*with data set #%s$',
+                        '%s.*with product set #%s$',
                         $matches[1],
                         $matches[2]
                     );
@@ -113,7 +113,7 @@ final class NameFilterIterator extends RecursiveFilterIterator
             //  * testDetermineJsonError@JSON.*
             elseif (preg_match('/^(.*?)@(.+)$/', $filter, $matches)) {
                 $filter = sprintf(
-                    '%s.*with data set "%s"$',
+                    '%s.*with product set "%s"$',
                     $matches[1],
                     $matches[2]
                 );

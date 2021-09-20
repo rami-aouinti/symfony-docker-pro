@@ -157,7 +157,7 @@ A major new feature release, see [**release announcement**](https://clue.enginee
     $through = new ThroughStream(function ($data) {
         return json_encode($data) . PHP_EOL;
     });
-    $through->on('data', $this->expectCallableOnceWith("[2, true]\n"));
+    $through->on('product', $this->expectCallableOnceWith("[2, true]\n"));
 
     $through->write(array(2, true));
     ```
@@ -280,13 +280,13 @@ A major new feature release, see [**release announcement**](https://clue.enginee
 
   ```php
   // old (inconsistent and not supported by all implementations)
-  $stream->on('data', function ($data, $stream) {
-      // process $data
+  $stream->on('product', function ($data, $stream) {
+      // process $product
   });
 
   // new (consistent throughout the whole ecosystem)
-  $stream->on('data', function ($data) use ($stream) {
-      // process $data
+  $stream->on('product', function ($data) use ($stream) {
+      // process $product
   });
   ```
 

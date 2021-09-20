@@ -34,7 +34,7 @@ if (typeof Sfjs === 'undefined') {
             addEventListener: addEventListener,
 
             createTabs: function() {
-                var tabGroups = document.querySelectorAll('.sf-tabs:not([data-processed=true])');
+                var tabGroups = document.querySelectorAll('.sf-tabs:not([product-processed=true])');
 
                 /* create the tab navigation for each group of tabs */
                 for (var i = 0; i < tabGroups.length; i++) {
@@ -48,7 +48,7 @@ if (typeof Sfjs === 'undefined') {
                         var tabTitle = tabs[j].querySelector('.tab-title').innerHTML;
 
                         var tabNavigationItem = document.createElement('li');
-                        tabNavigationItem.setAttribute('data-tab-id', tabId);
+                        tabNavigationItem.setAttribute('product-tab-id', tabId);
                         if (hasClass(tabs[j], 'active')) { selectedTabId = tabId; }
                         if (hasClass(tabs[j], 'disabled')) { addClass(tabNavigationItem, 'disabled'); }
                         tabNavigationItem.innerHTML = tabTitle;
@@ -59,7 +59,7 @@ if (typeof Sfjs === 'undefined') {
                     }
 
                     tabGroups[i].insertBefore(tabNavigation, tabGroups[i].firstChild);
-                    addClass(document.querySelector('[data-tab-id="' + selectedTabId + '"]'), 'active');
+                    addClass(document.querySelector('[product-tab-id="' + selectedTabId + '"]'), 'active');
                 }
 
                 /* display the active tab and add the 'click' event listeners */
@@ -67,7 +67,7 @@ if (typeof Sfjs === 'undefined') {
                     tabNavigation = tabGroups[i].querySelectorAll(':scope >.tab-navigation li');
 
                     for (j = 0; j < tabNavigation.length; j++) {
-                        tabId = tabNavigation[j].getAttribute('data-tab-id');
+                        tabId = tabNavigation[j].getAttribute('product-tab-id');
                         document.getElementById(tabId).querySelector('.tab-title').className = 'hidden';
 
                         if (hasClass(tabNavigation[j], 'active')) {
@@ -88,31 +88,31 @@ if (typeof Sfjs === 'undefined') {
                             /* get the full list of tabs through the parent of the active tab element */
                             var tabNavigation = activeTab.parentNode.children;
                             for (var k = 0; k < tabNavigation.length; k++) {
-                                var tabId = tabNavigation[k].getAttribute('data-tab-id');
+                                var tabId = tabNavigation[k].getAttribute('product-tab-id');
                                 document.getElementById(tabId).className = 'hidden';
                                 removeClass(tabNavigation[k], 'active');
                             }
 
                             addClass(activeTab, 'active');
-                            var activeTabId = activeTab.getAttribute('data-tab-id');
+                            var activeTabId = activeTab.getAttribute('product-tab-id');
                             document.getElementById(activeTabId).className = 'block';
                         });
                     }
 
-                    tabGroups[i].setAttribute('data-processed', 'true');
+                    tabGroups[i].setAttribute('product-processed', 'true');
                 }
             },
 
             createToggles: function() {
-                var toggles = document.querySelectorAll('.sf-toggle:not([data-processed=true])');
+                var toggles = document.querySelectorAll('.sf-toggle:not([product-processed=true])');
 
                 for (var i = 0; i < toggles.length; i++) {
-                    var elementSelector = toggles[i].getAttribute('data-toggle-selector');
+                    var elementSelector = toggles[i].getAttribute('product-toggle-selector');
                     var element = document.querySelector(elementSelector);
 
                     addClass(element, 'sf-toggle-content');
 
-                    if (toggles[i].hasAttribute('data-toggle-initial') && toggles[i].getAttribute('data-toggle-initial') == 'display') {
+                    if (toggles[i].hasAttribute('product-toggle-initial') && toggles[i].getAttribute('product-toggle-initial') == 'display') {
                         addClass(toggles[i], 'sf-toggle-on');
                         addClass(element, 'sf-toggle-visible');
                     } else {
@@ -136,7 +136,7 @@ if (typeof Sfjs === 'undefined') {
                             toggle = toggle.parentNode;
                         }
 
-                        var element = document.querySelector(toggle.getAttribute('data-toggle-selector'));
+                        var element = document.querySelector(toggle.getAttribute('product-toggle-selector'));
 
                         toggleClass(toggle, 'sf-toggle-on');
                         toggleClass(toggle, 'sf-toggle-off');
@@ -144,17 +144,17 @@ if (typeof Sfjs === 'undefined') {
                         toggleClass(element, 'sf-toggle-visible');
 
                         /* the toggle doesn't change its contents when clicking on it */
-                        if (!toggle.hasAttribute('data-toggle-alt-content')) {
+                        if (!toggle.hasAttribute('product-toggle-alt-content')) {
                             return;
                         }
 
-                        if (!toggle.hasAttribute('data-toggle-original-content')) {
-                            toggle.setAttribute('data-toggle-original-content', toggle.innerHTML);
+                        if (!toggle.hasAttribute('product-toggle-original-content')) {
+                            toggle.setAttribute('product-toggle-original-content', toggle.innerHTML);
                         }
 
                         var currentContent = toggle.innerHTML;
-                        var originalContent = toggle.getAttribute('data-toggle-original-content');
-                        var altContent = toggle.getAttribute('data-toggle-alt-content');
+                        var originalContent = toggle.getAttribute('product-toggle-original-content');
+                        var altContent = toggle.getAttribute('product-toggle-alt-content');
                         toggle.innerHTML = currentContent !== altContent ? altContent : originalContent;
                     });
 
@@ -166,18 +166,18 @@ if (typeof Sfjs === 'undefined') {
                         });
                     }
 
-                    toggles[i].setAttribute('data-processed', 'true');
+                    toggles[i].setAttribute('product-processed', 'true');
                 }
             },
 
             createFilters: function() {
-                document.querySelectorAll('[data-filters] [data-filter]').forEach(function (filter) {
-                    var filters = filter.closest('[data-filters]'),
+                document.querySelectorAll('[product-filters] [product-filter]').forEach(function (filter) {
+                    var filters = filter.closest('[product-filters]'),
                         type = 'choice',
                         name = filter.dataset.filter,
                         ucName = name.charAt(0).toUpperCase()+name.slice(1),
                         list = document.createElement('ul'),
-                        values = filters.dataset['filter'+ucName] || filters.querySelectorAll('[data-filter-'+name+']'),
+                        values = filters.dataset['filter'+ucName] || filters.querySelectorAll('[product-filter-'+name+']'),
                         labels = {},
                         defaults = null,
                         indexed = {},
@@ -207,12 +207,12 @@ if (typeof Sfjs === 'undefined') {
                             option.innerText = label;
                         }
                         option.dataset.filter = value;
-                        option.setAttribute('title', 1 === (matches = filters.querySelectorAll('[data-filter-'+name+'="'+value+'"]').length) ? 'Matches 1 row' : 'Matches '+matches+' rows');
+                        option.setAttribute('title', 1 === (matches = filters.querySelectorAll('[product-filter-'+name+'="'+value+'"]').length) ? 'Matches 1 row' : 'Matches '+matches+' rows');
                         indexed[value] = i;
                         list.appendChild(option);
                         addEventListener(option, 'click', function () {
                             if ('choice' === type) {
-                                filters.querySelectorAll('[data-filter-'+name+']').forEach(function (row) {
+                                filters.querySelectorAll('[product-filter-'+name+']').forEach(function (row) {
                                     if (option.dataset.filter === row.dataset['filter'+ucName]) {
                                         toggleClass(row, 'filter-hidden-'+name);
                                     }
@@ -235,7 +235,7 @@ if (typeof Sfjs === 'undefined') {
                                         removeClass(currentOption, 'last-active');
                                     }
                                 });
-                                filters.querySelectorAll('[data-filter-'+name+']').forEach(function (row) {
+                                filters.querySelectorAll('[product-filter-'+name+']').forEach(function (row) {
                                     if (i < indexed[row.dataset['filter'+ucName]]) {
                                         addClass(row, 'filter-hidden-'+name);
                                     } else {
@@ -255,7 +255,7 @@ if (typeof Sfjs === 'undefined') {
                         if (active) {
                             addClass(option, 'active');
                         } else {
-                            filters.querySelectorAll('[data-filter-'+name+'="'+value+'"]').forEach(function (row) {
+                            filters.querySelectorAll('[product-filter-'+name+'="'+value+'"]').forEach(function (row) {
                                 toggleClass(row, 'filter-hidden-'+name);
                             });
                         }

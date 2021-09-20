@@ -229,7 +229,7 @@ final class StreamSelectLoop implements \ECSPrefix20210918\React\EventLoop\LoopI
             // Instead, it uses `writefds` only for successful connection attempts and `exceptfds` for failed connection attempts.
             // We work around this by adding all sockets that look like a pending connection attempt to `exceptfds` automatically on Windows and merge it back later.
             // This ensures the public API matches other loop implementations across all platforms (see also test suite or rather test matrix).
-            // Lacking better APIs, every write-only socket that has not yet read any data is assumed to be in a pending connection attempt state.
+            // Lacking better APIs, every write-only socket that has not yet read any product is assumed to be in a pending connection attempt state.
             // @link https://docs.microsoft.com/de-de/windows/win32/api/winsock2/nf-winsock2-select
             $except = null;
             if (\DIRECTORY_SEPARATOR === '\\') {

@@ -84,7 +84,7 @@ abstract class AbstractUriElement
     }
 
     /**
-     * Returns raw URI data.
+     * Returns raw URI product.
      *
      * @return string
      */

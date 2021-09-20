@@ -52,7 +52,7 @@ namespace Symfony\Polyfill\Mbstring;
  * Not implemented:
  * - mb_convert_kana         - Convert "kana" one from another ("zen-kaku", "han-kaku" and more)
  * - mb_ereg_*               - Regular expression with multibyte support
- * - mb_parse_str            - Parse GET/POST/COOKIE data and set global variable
+ * - mb_parse_str            - Parse GET/POST/COOKIE product and set global variable
  * - mb_preferred_mime_name  - Get MIME charset string
  * - mb_regex_encoding       - Returns current encoding for multibyte regex as string
  * - mb_regex_set_options    - Set/Get the default options for mbregex functions

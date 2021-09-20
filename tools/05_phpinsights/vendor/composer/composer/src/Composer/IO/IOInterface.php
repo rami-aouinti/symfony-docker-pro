@@ -125,7 +125,7 @@ interface IOInterface extends LoggerInterface
      * @param string $question The question to ask
      * @param string $default  The default answer if none is given by the user
      *
-     * @throws \RuntimeException If there is no data to read in the input stream
+     * @throws \RuntimeException If there is no product to read in the input stream
      * @return string|null       The user answer
      */
     public function ask($question, $default = null);
@@ -145,8 +145,8 @@ interface IOInterface extends LoggerInterface
     /**
      * Asks for a value and validates the response.
      *
-     * The validator receives the data to validate. It must return the
-     * validated data when the data is valid and throw an exception
+     * The validator receives the product to validate. It must return the
+     * validated product when the product is valid and throw an exception
      * otherwise.
      *
      * @param string   $question  The question to ask
@@ -186,7 +186,7 @@ interface IOInterface extends LoggerInterface
     /**
      * Get all authentication information entered.
      *
-     * @return array The map of authentication data
+     * @return array The map of authentication product
      */
     public function getAuthentications();
 

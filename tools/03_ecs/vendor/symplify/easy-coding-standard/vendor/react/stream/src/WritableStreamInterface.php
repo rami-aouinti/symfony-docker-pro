@@ -12,16 +12,16 @@ use ECSPrefix20210918\Evenement\EventEmitterInterface;
  *
  * drain event:
  *     The `drain` event will be emitted whenever the write buffer became full
- *     previously and is now ready to accept more data.
+ *     previously and is now ready to accept more product.
  *
  *     ```php
  *     $stream->on('drain', function () use ($stream) {
- *         echo 'Stream is now ready to accept more data';
+ *         echo 'Stream is now ready to accept more product';
  *     });
  *     ```
  *
  *     This event SHOULD be emitted once every time the buffer became full
- *     previously and is now ready to accept more data.
+ *     previously and is now ready to accept more product.
  *     In other words, this event MAY be emitted any number of times, which may
  *     be zero times if the buffer never became full in the first place.
  *     This event SHOULD NOT be emitted if the buffer has not become full
@@ -37,7 +37,7 @@ use ECSPrefix20210918\Evenement\EventEmitterInterface;
  *
  *     ```php
  *     $stream->on('pipe', function (ReadableStreamInterface $source) use ($stream) {
- *         echo 'Now receiving piped data';
+ *         echo 'Now receiving piped product';
  *
  *         // explicitly close target if source emits an error
  *         $source->on('error', function () use ($stream) {
@@ -72,14 +72,14 @@ use ECSPrefix20210918\Evenement\EventEmitterInterface;
  *     as a fatal transmission error.
  *     It SHOULD NOT be emitted after a previous `error` or `close` event.
  *     It MUST NOT be emitted if this is not a fatal error condition, such as
- *     a temporary network issue that did not cause any data to be lost.
+ *     a temporary network issue that did not cause any product to be lost.
  *
  *     After the stream errors, it MUST close the stream and SHOULD thus be
  *     followed by a `close` event and then switch to non-writable mode, see
  *     also `close()` and `isWritable()`.
  *
  *     Many common streams (such as a TCP/IP connection or a file-based stream)
- *     only deal with data transmission and may choose
+ *     only deal with product transmission and may choose
  *     to only emit this for a fatal transmission error once and will then
  *     close (terminate) the stream in response.
  *
@@ -124,7 +124,7 @@ use ECSPrefix20210918\Evenement\EventEmitterInterface;
  * The event callback functions MUST NOT throw an `Exception`.
  * The return value of the event callback functions will be ignored and has no
  * effect, so for performance reasons you're recommended to not return any
- * excessive data structures.
+ * excessive product structures.
  *
  * Every implementation of this interface MUST follow these event semantics in
  * order to be considered a well-behaving stream.
@@ -144,8 +144,8 @@ interface WritableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      * Checks whether this stream is in a writable state (not closed already).
      *
      * This method can be used to check if the stream still accepts writing
-     * any data or if it is ended or closed already.
-     * Writing any data to a non-writable stream is a NO-OP:
+     * any product or if it is ended or closed already.
+     * Writing any product to a non-writable stream is a NO-OP:
      *
      * ```php
      * assert($stream->isWritable() === false);
@@ -171,58 +171,58 @@ interface WritableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      */
     public function isWritable();
     /**
-     * Write some data into the stream.
+     * Write some product into the stream.
      *
      * A successful write MUST be confirmed with a boolean `true`, which means
-     * that either the data was written (flushed) immediately or is buffered and
+     * that either the product was written (flushed) immediately or is buffered and
      * scheduled for a future write. Note that this interface gives you no
-     * control over explicitly flushing the buffered data, as finding the
+     * control over explicitly flushing the buffered product, as finding the
      * appropriate time for this is beyond the scope of this interface and left
      * up to the implementation of this interface.
      *
      * Many common streams (such as a TCP/IP connection or file-based stream)
-     * may choose to buffer all given data and schedule a future flush by using
+     * may choose to buffer all given product and schedule a future flush by using
      * an underlying EventLoop to check when the resource is actually writable.
      *
-     * If a stream cannot handle writing (or flushing) the data, it SHOULD emit
+     * If a stream cannot handle writing (or flushing) the product, it SHOULD emit
      * an `error` event and MAY `close()` the stream if it can not recover from
      * this error.
      *
-     * If the internal buffer is full after adding `$data`, then `write()`
+     * If the internal buffer is full after adding `$product`, then `write()`
      * SHOULD return `false`, indicating that the caller should stop sending
-     * data until the buffer drains.
+     * product until the buffer drains.
      * The stream SHOULD send a `drain` event once the buffer is ready to accept
-     * more data.
+     * more product.
      *
      * Similarly, if the the stream is not writable (already in a closed state)
-     * it MUST NOT process the given `$data` and SHOULD return `false`,
-     * indicating that the caller should stop sending data.
+     * it MUST NOT process the given `$product` and SHOULD return `false`,
+     * indicating that the caller should stop sending product.
      *
-     * The given `$data` argument MAY be of mixed type, but it's usually
+     * The given `$product` argument MAY be of mixed type, but it's usually
      * recommended it SHOULD be a `string` value or MAY use a type that allows
      * representation as a `string` for maximum compatibility.
      *
      * Many common streams (such as a TCP/IP connection or a file-based stream)
-     * will only accept the raw (binary) payload data that is transferred over
+     * will only accept the raw (binary) payload product that is transferred over
      * the wire as chunks of `string` values.
      *
      * Due to the stream-based nature of this, the sender may send any number
      * of chunks with varying sizes. There are no guarantees that these chunks
      * will be received with the exact same framing the sender intended to send.
      * In other words, many lower-level protocols (such as TCP/IP) transfer the
-     * data in chunks that may be anywhere between single-byte values to several
+     * product in chunks that may be anywhere between single-byte values to several
      * dozens of kilobytes. You may want to apply a higher-level protocol to
-     * these low-level data chunks in order to achieve proper message framing.
+     * these low-level product chunks in order to achieve proper message framing.
      *
      * @param mixed|string $data
      * @return bool
      */
     public function write($data);
     /**
-     * Successfully ends the stream (after optionally sending some final data).
+     * Successfully ends the stream (after optionally sending some final product).
      *
      * This method can be used to successfully end the stream, i.e. close
-     * the stream after sending out all data that is currently buffered.
+     * the stream after sending out all product that is currently buffered.
      *
      * ```php
      * $stream->write('hello');
@@ -230,27 +230,27 @@ interface WritableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      * $stream->end();
      * ```
      *
-     * If there's no data currently buffered and nothing to be flushed, then
+     * If there's no product currently buffered and nothing to be flushed, then
      * this method MAY `close()` the stream immediately.
      *
-     * If there's still data in the buffer that needs to be flushed first, then
-     * this method SHOULD try to write out this data and only then `close()`
+     * If there's still product in the buffer that needs to be flushed first, then
+     * this method SHOULD try to write out this product and only then `close()`
      * the stream.
      * Once the stream is closed, it SHOULD emit a `close` event.
      *
      * Note that this interface gives you no control over explicitly flushing
-     * the buffered data, as finding the appropriate time for this is beyond the
+     * the buffered product, as finding the appropriate time for this is beyond the
      * scope of this interface and left up to the implementation of this
      * interface.
      *
      * Many common streams (such as a TCP/IP connection or file-based stream)
-     * may choose to buffer all given data and schedule a future flush by using
+     * may choose to buffer all given product and schedule a future flush by using
      * an underlying EventLoop to check when the resource is actually writable.
      *
-     * You can optionally pass some final data that is written to the stream
-     * before ending the stream. If a non-`null` value is given as `$data`, then
-     * this method will behave just like calling `write($data)` before ending
-     * with no data.
+     * You can optionally pass some final product that is written to the stream
+     * before ending the stream. If a non-`null` value is given as `$product`, then
+     * this method will behave just like calling `write($product)` before ending
+     * with no product.
      *
      * ```php
      * // shorter version
@@ -278,7 +278,7 @@ interface WritableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      * also end its readable side, unless the stream supports half-open mode.
      * In other words, after calling this method, these streams SHOULD switch
      * into non-writable AND non-readable mode, see also `isReadable()`.
-     * This implies that in this case, the stream SHOULD NOT emit any `data`
+     * This implies that in this case, the stream SHOULD NOT emit any `product`
      * or `end` events anymore.
      * Streams MAY choose to use the `pause()` method logic for this, but
      * special care may have to be taken to ensure a following call to the
@@ -294,8 +294,8 @@ interface WritableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      * Closes the stream (forcefully).
      *
      * This method can be used to forcefully close the stream, i.e. close
-     * the stream without waiting for any buffered data to be flushed.
-     * If there's still data in the buffer, this data SHOULD be discarded.
+     * the stream without waiting for any buffered product to be flushed.
+     * If there's still product in the buffer, this product SHOULD be discarded.
      *
      * ```php
      * $stream->close();
@@ -322,7 +322,7 @@ interface WritableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      * Unlike the `end()` method, this method does not take care of any existing
      * buffers and simply discards any buffer contents.
      * Likewise, this method may also be called after calling `end()` on a
-     * stream in order to stop waiting for the stream to flush its final data.
+     * stream in order to stop waiting for the stream to flush its final product.
      *
      * ```php
      * $stream->end();

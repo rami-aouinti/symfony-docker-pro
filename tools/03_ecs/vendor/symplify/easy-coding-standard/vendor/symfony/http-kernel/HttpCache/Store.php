@@ -255,7 +255,7 @@ class Store implements \ECSPrefix20210918\Symfony\Component\HttpKernel\HttpCache
         return \true;
     }
     /**
-     * Gets all data associated with the given key.
+     * Gets all product associated with the given key.
      *
      * Use this method only if you know what you are doing.
      */
@@ -267,7 +267,7 @@ class Store implements \ECSPrefix20210918\Symfony\Component\HttpKernel\HttpCache
         return \unserialize($entries) ?: [];
     }
     /**
-     * Purges data for the given URL.
+     * Purges product for the given URL.
      *
      * This method purges both the HTTP and the HTTPS version of the cache entry.
      *
@@ -283,7 +283,7 @@ class Store implements \ECSPrefix20210918\Symfony\Component\HttpKernel\HttpCache
         return $purgedHttp || $purgedHttps;
     }
     /**
-     * Purges data for the given URL.
+     * Purges product for the given URL.
      */
     private function doPurge(string $url) : bool
     {
@@ -300,7 +300,7 @@ class Store implements \ECSPrefix20210918\Symfony\Component\HttpKernel\HttpCache
         return \false;
     }
     /**
-     * Loads data for the given key.
+     * Loads product for the given key.
      */
     private function load(string $key) : ?string
     {
@@ -308,7 +308,7 @@ class Store implements \ECSPrefix20210918\Symfony\Component\HttpKernel\HttpCache
         return \is_file($path) && \false !== ($contents = @\file_get_contents($path)) ? $contents : null;
     }
     /**
-     * Save data for the given key.
+     * Save product for the given key.
      */
     private function save(string $key, string $data, bool $overwrite = \true) : bool
     {

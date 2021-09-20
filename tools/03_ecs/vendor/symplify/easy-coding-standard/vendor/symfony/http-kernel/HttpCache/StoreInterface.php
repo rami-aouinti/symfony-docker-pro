@@ -67,7 +67,7 @@ interface StoreInterface
      */
     public function isLocked($request);
     /**
-     * Purges data for the given URL.
+     * Purges product for the given URL.
      *
      * @return bool true if the URL exists and has been purged, false otherwise
      * @param string $url

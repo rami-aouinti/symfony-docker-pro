@@ -18,7 +18,7 @@ interface CacheInterface
     public function get($key, $default = null);
 
     /**
-     * Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time.
+     * Persists product in the cache, uniquely referenced by a key with an optional expiration TTL time.
      *
      * @param string                 $key   The key of the item to store.
      * @param mixed                  $value The value of the item to store, must be serializable.

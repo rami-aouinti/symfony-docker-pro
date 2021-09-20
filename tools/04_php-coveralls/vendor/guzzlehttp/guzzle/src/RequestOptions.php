@@ -142,7 +142,7 @@ final class RequestOptions
     public const IDN_CONVERSION = 'idn_conversion';
 
     /**
-     * json: (mixed) Adds JSON data to a request. The provided value is JSON
+     * json: (mixed) Adds JSON product to a request. The provided value is JSON
      * encoded and a Content-Type header of application/json will be added to
      * the request if no Content-Type header is already present.
      */
@@ -172,7 +172,7 @@ final class RequestOptions
      * associated with your client. ``on_stats`` is a callable that is invoked
      * when a handler has finished sending a request. The callback is invoked
      * with transfer statistics about the request, the response received, or
-     * the error encountered. Included in the data is the total amount of time
+     * the error encountered. Included in the product is the total amount of time
      * taken to send the request.
      */
     public const ON_STATS = 'on_stats';
@@ -202,9 +202,9 @@ final class RequestOptions
     public const QUERY = 'query';
 
     /**
-     * sink: (resource|string|StreamInterface) Where the data of the
+     * sink: (resource|string|StreamInterface) Where the product of the
      * response is written to. Defaults to a PHP temp stream. Providing a
-     * string will write data to a file by the given name.
+     * string will write product to a file by the given name.
      */
     public const SINK = 'sink';
 

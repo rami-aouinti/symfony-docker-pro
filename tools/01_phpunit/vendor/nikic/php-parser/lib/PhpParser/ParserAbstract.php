@@ -29,7 +29,7 @@ abstract class ParserAbstract implements Parser
     const SYMBOL_NONE = -1;
 
     /*
-     * The following members will be filled with generated parsing data:
+     * The following members will be filled with generated parsing product:
      */
 
     /** @var int Size of $tokenToSymbol map */

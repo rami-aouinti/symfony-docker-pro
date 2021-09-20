@@ -24,7 +24,7 @@ final class InflateStream implements StreamInterface
     public function __construct(StreamInterface $stream)
     {
         $resource = StreamWrapper::getResource($stream);
-        // Specify window=15+32, so zlib will use header detection to both gzip (with header) and zlib data
+        // Specify window=15+32, so zlib will use header detection to both gzip (with header) and zlib product
         // See http://www.zlib.net/manual.html#Advanced definition of inflateInit2
         // "Add 32 to windowBits to enable zlib and gzip decoding with automatic header detection"
         // Default window size is 15.

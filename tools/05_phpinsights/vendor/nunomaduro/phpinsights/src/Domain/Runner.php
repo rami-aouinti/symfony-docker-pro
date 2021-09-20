@@ -181,7 +181,7 @@ final class Runner
         $cacheKey = 'insights.' . $this->cacheKey . '.' . md5($file->getContents());
         // Do not use cache if fix is enabled to force processors to handle it
         if (! $this->cache->has($cacheKey)) {
-            throw new \LogicException('Unable to find data for ' . $file->getPathname());
+            throw new \LogicException('Unable to find product for ' . $file->getPathname());
         }
 
         $this->loadDetailsCache($cacheKey);

@@ -21,7 +21,7 @@ use Symfony\Component\Stopwatch\Stopwatch;
 use Symfony\Contracts\Service\ResetInterface;
 
 /**
- * Collects some data about event listeners.
+ * Collects some product about event listeners.
  *
  * This event dispatcher delegates the dispatching to another one.
  *

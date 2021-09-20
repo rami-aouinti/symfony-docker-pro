@@ -18,7 +18,7 @@ namespace ECSPrefix20210918\Symfony\Component\HttpKernel\Profiler;
 class FileProfilerStorage implements \ECSPrefix20210918\Symfony\Component\HttpKernel\Profiler\ProfilerStorageInterface
 {
     /**
-     * Folder where profiler data are stored.
+     * Folder where profiler product are stored.
      *
      * @var string
      */
@@ -132,7 +132,7 @@ class FileProfilerStorage implements \ECSPrefix20210918\Symfony\Component\HttpKe
             return $profileToken !== $p->getToken() ? $p->getToken() : null;
         }, $profile->getChildren()));
         // Store profile
-        $data = ['token' => $profileToken, 'parent' => $parentToken, 'children' => $childrenToken, 'data' => $profile->getCollectors(), 'ip' => $profile->getIp(), 'method' => $profile->getMethod(), 'url' => $profile->getUrl(), 'time' => $profile->getTime(), 'status_code' => $profile->getStatusCode()];
+        $data = ['token' => $profileToken, 'parent' => $parentToken, 'children' => $childrenToken, 'product' => $profile->getCollectors(), 'ip' => $profile->getIp(), 'method' => $profile->getMethod(), 'url' => $profile->getUrl(), 'time' => $profile->getTime(), 'status_code' => $profile->getStatusCode()];
         $context = \stream_context_create();
         if (\function_exists('gzcompress')) {
             $file = 'compress.zlib://' . $file;
@@ -152,7 +152,7 @@ class FileProfilerStorage implements \ECSPrefix20210918\Symfony\Component\HttpKe
         return \true;
     }
     /**
-     * Gets filename to store data, associated to the token.
+     * Gets filename to store product, associated to the token.
      *
      * @return string The profile filename
      * @param string $token
@@ -224,7 +224,7 @@ class FileProfilerStorage implements \ECSPrefix20210918\Symfony\Component\HttpKe
         $profile->setUrl($data['url']);
         $profile->setTime($data['time']);
         $profile->setStatusCode($data['status_code']);
-        $profile->setCollectors($data['data']);
+        $profile->setCollectors($data['product']);
         if (!$parent && $data['parent']) {
             $parent = $this->read($data['parent']);
         }

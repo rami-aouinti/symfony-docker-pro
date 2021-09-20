@@ -43,7 +43,7 @@ if (\is_file(__DIR__ . '/../autoload.php') === \false) {
     $GLOBALS['PHP_CODESNIFFER_PEAR'] = \true;
 }
 /**
- * A global util function to help print unit test fixing data.
+ * A global util function to help print unit test fixing product.
  *
  * @return void
  */

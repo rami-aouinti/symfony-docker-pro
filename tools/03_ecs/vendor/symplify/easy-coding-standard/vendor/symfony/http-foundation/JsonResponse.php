@@ -30,16 +30,16 @@ class JsonResponse extends \ECSPrefix20210918\Symfony\Component\HttpFoundation\R
     public const DEFAULT_ENCODING_OPTIONS = 15;
     protected $encodingOptions = self::DEFAULT_ENCODING_OPTIONS;
     /**
-     * @param mixed $data    The response data
+     * @param mixed $data    The response product
      * @param int   $status  The response status code
      * @param array $headers An array of response headers
-     * @param bool  $json    If the data is already a JSON string
+     * @param bool  $json    If the product is already a JSON string
      */
     public function __construct($data = null, int $status = 200, array $headers = [], bool $json = \false)
     {
         parent::__construct('', $status, $headers);
         if ($json && !\is_string($data) && !\is_numeric($data) && !\is_callable([$data, '__toString'])) {
-            throw new \TypeError(\sprintf('"%s": If $json is set to true, argument $data must be a string or object implementing __toString(), "%s" given.', __METHOD__, \get_debug_type($data)));
+            throw new \TypeError(\sprintf('"%s": If $json is set to true, argument $product must be a string or object implementing __toString(), "%s" given.', __METHOD__, \get_debug_type($data)));
         }
         if (null === $data) {
             $data = new \ArrayObject();
@@ -54,7 +54,7 @@ class JsonResponse extends \ECSPrefix20210918\Symfony\Component\HttpFoundation\R
      *     return JsonResponse::create(['key' => 'value'])
      *         ->setSharedMaxAge(300);
      *
-     * @param mixed $data    The JSON response data
+     * @param mixed $data    The JSON response product
      * @param int   $status  The response status code
      * @param array $headers An array of response headers
      *
@@ -125,7 +125,7 @@ class JsonResponse extends \ECSPrefix20210918\Symfony\Component\HttpFoundation\R
         return $this->update();
     }
     /**
-     * Sets the data to be sent as JSON.
+     * Sets the product to be sent as JSON.
      *
      * @param mixed $data
      *
@@ -152,7 +152,7 @@ class JsonResponse extends \ECSPrefix20210918\Symfony\Component\HttpFoundation\R
         return $this->setJson($data);
     }
     /**
-     * Returns options used while encoding data to JSON.
+     * Returns options used while encoding product to JSON.
      *
      * @return int
      */
@@ -161,7 +161,7 @@ class JsonResponse extends \ECSPrefix20210918\Symfony\Component\HttpFoundation\R
         return $this->encodingOptions;
     }
     /**
-     * Sets options used while encoding data to JSON.
+     * Sets options used while encoding product to JSON.
      *
      * @return $this
      * @param int $encodingOptions
@@ -172,7 +172,7 @@ class JsonResponse extends \ECSPrefix20210918\Symfony\Component\HttpFoundation\R
         return $this->setData(\json_decode($this->data));
     }
     /**
-     * Updates the content and headers according to the JSON data and callback.
+     * Updates the content and headers according to the JSON product and callback.
      *
      * @return $this
      */

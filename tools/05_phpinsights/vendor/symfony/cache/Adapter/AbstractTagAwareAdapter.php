@@ -54,7 +54,7 @@ abstract class AbstractTagAwareAdapter implements TagAwareAdapterInterface, TagA
                     return $item;
                 }
                 $item->isHit = $isHit;
-                // Extract value, tags and meta data from the cache value
+                // Extract value, tags and meta product from the cache value
                 $item->value = $value['value'];
                 $item->metadata[CacheItem::METADATA_TAGS] = $value['tags'] ?? [];
                 if (isset($value['meta'])) {
@@ -301,7 +301,7 @@ abstract class AbstractTagAwareAdapter implements TagAwareAdapterInterface, TagA
     }
 
     /**
-     * Extracts tags operation data from $values set in mergeByLifetime, and returns values without it.
+     * Extracts tags operation product from $values set in mergeByLifetime, and returns values without it.
      */
     private function extractTagData(array $values, ?array &$addTagData, ?array &$removeTagData): array
     {

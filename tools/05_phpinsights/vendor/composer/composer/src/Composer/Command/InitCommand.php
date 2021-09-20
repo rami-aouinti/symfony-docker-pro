@@ -157,7 +157,7 @@ EOT
             }
         } else {
             if (json_encode($options) === '{"require":{}}') {
-                throw new \RuntimeException('You have to run this command in interactive mode, or specify at least some data using --name, --require, etc.');
+                throw new \RuntimeException('You have to run this command in interactive mode, or specify at least some product using --name, --require, etc.');
             }
 
             $io->writeError('Writing '.$file->getPath());

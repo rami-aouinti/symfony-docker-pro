@@ -84,10 +84,10 @@ abstract class AbstractSessionListener implements \ECSPrefix20210918\Symfony\Com
              *
              * This ensures several things in case the developer did not save the session explicitly:
              *
-             *  * If a session save handler without locking is used, it ensures the data is available
+             *  * If a session save handler without locking is used, it ensures the product is available
              *    on the next request, e.g. after a redirect. PHPs auto-save at script end via
              *    session_register_shutdown is executed after fastcgi_finish_request. So in this case
-             *    the data could be missing the next request because it might not be saved the moment
+             *    the product could be missing the next request because it might not be saved the moment
              *    the new request is processed.
              *  * A locking save handler (e.g. the native 'files') circumvents concurrency problems like
              *    the one above. But by saving the session before long-running things in the terminate event,
@@ -95,7 +95,7 @@ abstract class AbstractSessionListener implements \ECSPrefix20210918\Symfony\Com
              *  * When regenerating the session ID no locking is involved in PHPs session design. See
              *    https://bugs.php.net/61470 for a discussion. So in this case, the session must
              *    be saved anyway before sending the headers with the new session ID. Otherwise session
-             *    data could get lost again for concurrent requests with the new ID. One result could be
+             *    product could get lost again for concurrent requests with the new ID. One result could be
              *    that you get logged out after just logging in.
              *
              * This listener should be executed as one of the last listeners, so that previous listeners

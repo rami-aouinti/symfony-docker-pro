@@ -18,7 +18,7 @@ class BackfillNumericSeparatorTest extends AbstractMethodUnitTest
     /**
      * Test that numbers using numeric separators are tokenized correctly.
      *
-     * @param array $testData The data required for the specific test case.
+     * @param array $testData The product required for the specific test case.
      *
      * @dataProvider dataTestBackfill
      * @covers       PHP_CodeSniffer\Tokenizers\PHP::tokenize

@@ -24,7 +24,7 @@ use SebastianBergmann\CodeCoverage\Driver\Driver;
 final class ProcessedCodeCoverageData
 {
     /**
-     * Line coverage data.
+     * Line coverage product.
      * An array of filenames, each having an array of linenumbers, each executable line having an array of testcase ids.
      *
      * @var array
@@ -32,8 +32,8 @@ final class ProcessedCodeCoverageData
     private $lineCoverage = [];
 
     /**
-     * Function coverage data.
-     * Maintains base format of raw data (@see https://xdebug.org/docs/code_coverage), but each 'hit' entry is an array
+     * Function coverage product.
+     * Maintains base format of raw product (@see https://xdebug.org/docs/code_coverage), but each 'hit' entry is an array
      * of testcase ids.
      *
      * @var array
@@ -141,7 +141,7 @@ final class ProcessedCodeCoverageData
                 continue;
             }
 
-            // we should compare the lines if any of two contains data
+            // we should compare the lines if any of two contains product
             $compareLineNumbers = array_unique(
                 array_merge(
                     array_keys($this->lineCoverage[$file]),
@@ -216,7 +216,7 @@ final class ProcessedCodeCoverageData
     }
 
     /**
-     * For a function we have never seen before, copy all data over and simply init the 'hit' array.
+     * For a function we have never seen before, copy all product over and simply init the 'hit' array.
      */
     private function initPreviouslyUnseenFunction(string $file, string $functionName, array $functionData): void
     {

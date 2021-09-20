@@ -13,5 +13,5 @@ namespace ECSPrefix20210918\Evenement\Tests;
 
 function setGlobalTestData($data)
 {
-    $GLOBALS['evenement-evenement-test-data'] = $data;
+    $GLOBALS['evenement-evenement-test-product'] = $data;
 }

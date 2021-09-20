@@ -148,25 +148,25 @@ final class Test
         );
 
         // If there is no @covers annotation but a @coversNothing annotation on
-        // the test method then code coverage data does not need to be collected
+        // the test method then code coverage product does not need to be collected
         if (isset($annotations['method']['coversNothing'])) {
             return false;
         }
 
         // If there is at least one @covers annotation then
-        // code coverage data needs to be collected
+        // code coverage product needs to be collected
         if (isset($annotations['method']['covers'])) {
             return true;
         }
 
         // If there is no @covers annotation but a @coversNothing annotation
-        // then code coverage data does not need to be collected
+        // then code coverage product does not need to be collected
         if (isset($annotations['class']['coversNothing'])) {
             return false;
         }
 
         // If there is no @coversNothing annotation then
-        // code coverage data may be collected
+        // code coverage product may be collected
         return true;
     }
 
@@ -312,7 +312,7 @@ final class Test
     }
 
     /**
-     * Returns the provided data for a method.
+     * Returns the provided product for a method.
      *
      * @throws Exception
      * @psalm-param class-string $className

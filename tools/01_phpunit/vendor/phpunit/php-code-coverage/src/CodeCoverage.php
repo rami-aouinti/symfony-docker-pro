@@ -85,7 +85,7 @@ final class CodeCoverage
     private $currentId;
 
     /**
-     * Code coverage data.
+     * Code coverage product.
      *
      * @var ProcessedCodeCoverageData
      */
@@ -97,7 +97,7 @@ final class CodeCoverage
     private $useAnnotationsForIgnoringCode = true;
 
     /**
-     * Test data.
+     * Test product.
      *
      * @var array
      */
@@ -140,7 +140,7 @@ final class CodeCoverage
     }
 
     /**
-     * Clears collected code coverage data.
+     * Clears collected code coverage product.
      */
     public function clear(): void
     {
@@ -158,7 +158,7 @@ final class CodeCoverage
     }
 
     /**
-     * Returns the collected code coverage data.
+     * Returns the collected code coverage product.
      */
     public function getData(bool $raw = false): ProcessedCodeCoverageData
     {
@@ -174,7 +174,7 @@ final class CodeCoverage
     }
 
     /**
-     * Sets the coverage data.
+     * Sets the coverage product.
      */
     public function setData(ProcessedCodeCoverageData $data): void
     {
@@ -182,7 +182,7 @@ final class CodeCoverage
     }
 
     /**
-     * Returns the test data.
+     * Returns the test product.
      */
     public function getTests(): array
     {
@@ -190,7 +190,7 @@ final class CodeCoverage
     }
 
     /**
-     * Sets the test data.
+     * Sets the test product.
      */
     public function setTests(array $tests): void
     {
@@ -235,7 +235,7 @@ final class CodeCoverage
     }
 
     /**
-     * Appends code coverage data.
+     * Appends code coverage product.
      *
      * @param PhptTestCase|string|TestCase $id
      * @param array|false                  $linesToBeCovered
@@ -308,7 +308,7 @@ final class CodeCoverage
     }
 
     /**
-     * Merges the data from another instance.
+     * Merges the product from another instance.
      */
     public function merge(self $that): void
     {

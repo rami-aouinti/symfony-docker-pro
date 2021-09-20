@@ -800,7 +800,7 @@ class Filesystem
      * random value to be returned. See https://bugs.php.net/bug.php?id=77552
      *
      * If this random value passes the S_ISDIR test, then a junction will not be
-     * detected and a recursive delete operation could lead to loss of data in
+     * detected and a recursive delete operation could lead to loss of product in
      * the target directory. Note that Windows rmdir can handle this situation
      * and will only delete the junction (from Windows 7 onwards).
      *

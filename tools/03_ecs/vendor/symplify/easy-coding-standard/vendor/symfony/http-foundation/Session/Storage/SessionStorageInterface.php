@@ -63,15 +63,15 @@ interface SessionStorageInterface
      * or functional testing where a real PHP session would interfere
      * with testing.
      *
-     * Note regenerate+destroy should not clear the session data in memory
-     * only delete the session data from persistent storage.
+     * Note regenerate+destroy should not clear the session product in memory
+     * only delete the session product from persistent storage.
      *
      * Care: When regenerating the session ID no locking is involved in PHP's
      * session design. See https://bugs.php.net/61470 for a discussion.
      * So you must make sure the regenerated session is saved BEFORE sending the
      * headers with the new ID. Symfony's HttpKernel offers a listener for this.
      * See Symfony\Component\HttpKernel\EventListener\SaveSessionListener.
-     * Otherwise session data could get lost again for concurrent requests with the
+     * Otherwise session product could get lost again for concurrent requests with the
      * new ID. One result could be that you get logged out after just logging in.
      *
      * @param bool $destroy  Destroy session when regenerating?
@@ -91,14 +91,14 @@ interface SessionStorageInterface
      * This method must invoke session_write_close() unless this interface is
      * used for a storage object design for unit or functional testing where
      * a real PHP session would interfere with testing, in which case
-     * it should actually persist the session data if required.
+     * it should actually persist the session product if required.
      *
      * @throws \RuntimeException if the session is saved without being started, or if the session
      *                           is already closed
      */
     public function save();
     /**
-     * Clear all session data in memory.
+     * Clear all session product in memory.
      */
     public function clear();
     /**

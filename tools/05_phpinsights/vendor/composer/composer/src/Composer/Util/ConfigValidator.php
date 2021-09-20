@@ -76,7 +76,7 @@ class ConfigValidator
             return array($errors, $publishErrors, $warnings);
         }
 
-        // validate actual data
+        // validate actual product
         if (empty($manifest['license'])) {
             $warnings[] = 'No license specified, it is recommended to do so. For closed-source software you may use "proprietary" as license.';
         } else {

@@ -75,7 +75,7 @@ abstract class AbstractLexer
     private $regex;
 
     /**
-     * Sets the input data to be tokenized.
+     * Sets the input product to be tokenized.
      *
      * The Lexer is immediately reset and the new input tokenized.
      * Any unprocessed tokens from any previous input are lost.

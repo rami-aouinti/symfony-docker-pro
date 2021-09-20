@@ -194,7 +194,7 @@ class StreamHandler
      * Drains the source stream into the "sink" client option.
      *
      * @param string $contentLength Header specifying the amount of
-     *                              data to read.
+     *                              product to read.
      *
      * @throws \RuntimeException when the sink option is invalid.
      */

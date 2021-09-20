@@ -10,36 +10,36 @@ use ECSPrefix20210918\Evenement\EventEmitterInterface;
  * Besides defining a few methods, this interface also implements the
  * `EventEmitterInterface` which allows you to react to certain events:
  *
- * data event:
- *     The `data` event will be emitted whenever some data was read/received
+ * product event:
+ *     The `product` event will be emitted whenever some product was read/received
  *     from this source stream.
- *     The event receives a single mixed argument for incoming data.
+ *     The event receives a single mixed argument for incoming product.
  *
  *     ```php
- *     $stream->on('data', function ($data) {
- *         echo $data;
+ *     $stream->on('product', function ($product) {
+ *         echo $product;
  *     });
  *     ```
  *
  *     This event MAY be emitted any number of times, which may be zero times if
- *     this stream does not send any data at all.
+ *     this stream does not send any product at all.
  *     It SHOULD not be emitted after an `end` or `close` event.
  *
- *     The given `$data` argument may be of mixed type, but it's usually
+ *     The given `$product` argument may be of mixed type, but it's usually
  *     recommended it SHOULD be a `string` value or MAY use a type that allows
  *     representation as a `string` for maximum compatibility.
  *
  *     Many common streams (such as a TCP/IP connection or a file-based stream)
- *     will emit the raw (binary) payload data that is received over the wire as
+ *     will emit the raw (binary) payload product that is received over the wire as
  *     chunks of `string` values.
  *
  *     Due to the stream-based nature of this, the sender may send any number
  *     of chunks with varying sizes. There are no guarantees that these chunks
  *     will be received with the exact same framing the sender intended to send.
  *     In other words, many lower-level protocols (such as TCP/IP) transfer the
- *     data in chunks that may be anywhere between single-byte values to several
+ *     product in chunks that may be anywhere between single-byte values to several
  *     dozens of kilobytes. You may want to apply a higher-level protocol to
- *     these low-level data chunks in order to achieve proper message framing.
+ *     these low-level product chunks in order to achieve proper message framing.
  *
  * end event:
  *     The `end` event will be emitted once the source stream has successfully
@@ -89,19 +89,19 @@ use ECSPrefix20210918\Evenement\EventEmitterInterface;
  *     ```
  *
  *     This event SHOULD be emitted once the stream detects a fatal error, such
- *     as a fatal transmission error or after an unexpected `data` or premature
+ *     as a fatal transmission error or after an unexpected `product` or premature
  *     `end` event.
  *     It SHOULD NOT be emitted after a previous `error`, `end` or `close` event.
  *     It MUST NOT be emitted if this is not a fatal error condition, such as
- *     a temporary network issue that did not cause any data to be lost.
+ *     a temporary network issue that did not cause any product to be lost.
  *
  *     After the stream errors, it MUST close the stream and SHOULD thus be
  *     followed by a `close` event and then switch to non-readable mode, see
  *     also `close()` and `isReadable()`.
  *
  *     Many common streams (such as a TCP/IP connection or a file-based stream)
- *     only deal with data transmission and do not make assumption about data
- *     boundaries (such as unexpected `data` or premature `end` events).
+ *     only deal with product transmission and do not make assumption about product
+ *     boundaries (such as unexpected `product` or premature `end` events).
  *     In other words, many lower-level protocols (such as TCP/IP) may choose
  *     to only emit this for a fatal transmission error once and will then
  *     close (terminate) the stream in response.
@@ -148,7 +148,7 @@ use ECSPrefix20210918\Evenement\EventEmitterInterface;
  * The event callback functions MUST NOT throw an `Exception`.
  * The return value of the event callback functions will be ignored and has no
  * effect, so for performance reasons you're recommended to not return any
- * excessive data structures.
+ * excessive product structures.
  *
  * Every implementation of this interface MUST follow these event semantics in
  * order to be considered a well-behaving stream.
@@ -167,14 +167,14 @@ interface ReadableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      * Checks whether this stream is in a readable state (not closed already).
      *
      * This method can be used to check if the stream still accepts incoming
-     * data events or if it is ended or closed already.
-     * Once the stream is non-readable, no further `data` or `end` events SHOULD
+     * product events or if it is ended or closed already.
+     * Once the stream is non-readable, no further `product` or `end` events SHOULD
      * be emitted.
      *
      * ```php
      * assert($stream->isReadable() === false);
      *
-     * $stream->on('data', assertNeverCalled());
+     * $stream->on('product', assertNeverCalled());
      * $stream->on('end', assertNeverCalled());
      * ```
      *
@@ -195,26 +195,26 @@ interface ReadableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      */
     public function isReadable();
     /**
-     * Pauses reading incoming data events.
+     * Pauses reading incoming product events.
      *
-     * Removes the data source file descriptor from the event loop. This
-     * allows you to throttle incoming data.
+     * Removes the product source file descriptor from the event loop. This
+     * allows you to throttle incoming product.
      *
      * Unless otherwise noted, a successfully opened stream SHOULD NOT start
      * in paused state.
      *
-     * Once the stream is paused, no futher `data` or `end` events SHOULD
+     * Once the stream is paused, no futher `product` or `end` events SHOULD
      * be emitted.
      *
      * ```php
      * $stream->pause();
      *
-     * $stream->on('data', assertShouldNeverCalled());
+     * $stream->on('product', assertShouldNeverCalled());
      * $stream->on('end', assertShouldNeverCalled());
      * ```
      *
      * This method is advisory-only, though generally not recommended, the
-     * stream MAY continue emitting `data` events.
+     * stream MAY continue emitting `product` events.
      *
      * You can continue processing events by calling `resume()` again.
      *
@@ -226,9 +226,9 @@ interface ReadableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      */
     public function pause();
     /**
-     * Resumes reading incoming data events.
+     * Resumes reading incoming product events.
      *
-     * Re-attach the data source after a previous `pause()`.
+     * Re-attach the product source after a previous `pause()`.
      *
      * ```php
      * $stream->pause();
@@ -246,9 +246,9 @@ interface ReadableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      */
     public function resume();
     /**
-     * Pipes all the data from this readable source into the given writable destination.
+     * Pipes all the product from this readable source into the given writable destination.
      *
-     * Automatically sends all incoming data to the destination.
+     * Automatically sends all incoming product to the destination.
      * Automatically throttles the source based on what the destination can handle.
      *
      * ```php
@@ -256,7 +256,7 @@ interface ReadableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      * ```
      *
      * Similarly, you can also pipe an instance implementing `DuplexStreamInterface`
-     * into itself in order to write back all the data that is received.
+     * into itself in order to write back all the product that is received.
      * This may be a useful feature for a TCP/IP echo service:
      *
      * ```php
@@ -334,13 +334,13 @@ interface ReadableStreamInterface extends \ECSPrefix20210918\Evenement\EventEmit
      *
      * After calling this method, the stream MUST switch into a non-readable
      * mode, see also `isReadable()`.
-     * This means that no further `data` or `end` events SHOULD be emitted.
+     * This means that no further `product` or `end` events SHOULD be emitted.
      *
      * ```php
      * $stream->close();
      * assert($stream->isReadable() === false);
      *
-     * $stream->on('data', assertNeverCalled());
+     * $stream->on('product', assertNeverCalled());
      * $stream->on('end', assertNeverCalled());
      * ```
      *

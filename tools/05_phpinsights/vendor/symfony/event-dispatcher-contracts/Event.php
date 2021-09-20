@@ -14,9 +14,9 @@ namespace Symfony\Contracts\EventDispatcher;
 use Psr\EventDispatcher\StoppableEventInterface;
 
 /**
- * Event is the base class for classes containing event data.
+ * Event is the base class for classes containing event product.
  *
- * This class contains no event data. It is used by events that do not pass
+ * This class contains no event product. It is used by events that do not pass
  * state information to an event handler when an event is raised.
  *
  * You can call the method stopPropagation() to abort the execution of

@@ -795,7 +795,7 @@ class Table
     }
 
     /**
-     * Called after rendering to cleanup cache data.
+     * Called after rendering to cleanup cache product.
      */
     private function cleanup()
     {

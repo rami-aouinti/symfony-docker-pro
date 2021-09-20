@@ -24,7 +24,7 @@ final class CachingStream implements StreamInterface
      * We will treat the buffer object as the body of the stream
      *
      * @param StreamInterface $stream Stream to cache. The cursor is assumed to be at the beginning of the stream.
-     * @param StreamInterface $target Optionally specify where data is cached
+     * @param StreamInterface $target Optionally specify where product is cached
      */
     public function __construct(
         StreamInterface $stream,
@@ -77,13 +77,13 @@ final class CachingStream implements StreamInterface
 
     public function read($length): string
     {
-        // Perform a regular read on any previously read data from the buffer
+        // Perform a regular read on any previously read product from the buffer
         $data = $this->stream->read($length);
         $remaining = $length - strlen($data);
 
-        // More data was requested so read from the remote stream
+        // More product was requested so read from the remote stream
         if ($remaining) {
-            // If data was written to the buffer in a position that would have
+            // If product was written to the buffer in a position that would have
             // been filled from the remote stream, then we must skip bytes on
             // the remote stream to emulate overwriting bytes from that
             // position. This mimics the behavior of other PHP stream wrappers.
@@ -108,7 +108,7 @@ final class CachingStream implements StreamInterface
     {
         // When appending to the end of the currently read stream, you'll want
         // to skip bytes from being read from the remote stream to emulate
-        // other stream wrappers. Basically replacing bytes of data of a fixed
+        // other stream wrappers. Basically replacing bytes of product of a fixed
         // length.
         $overflow = (strlen($string) + $this->tell()) - $this->remoteStream->tell();
         if ($overflow > 0) {

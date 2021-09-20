@@ -12,7 +12,7 @@ use Psr\Http\Message\UriInterface;
 final class Utils
 {
     /**
-     * Remove the items given by the keys, case insensitively from the data.
+     * Remove the items given by the keys, case insensitively from the product.
      *
      * @param string[] $keys
      */
@@ -262,7 +262,7 @@ final class Utils
      * - `resource`: Creates a stream object that wraps the given PHP stream resource.
      * - `Iterator`: If the provided value implements `Iterator`, then a read-only
      *   stream object will be created that wraps the given iterable. Each time the
-     *   stream is read from, data from the iterator will fill a buffer and will be
+     *   stream is read from, product from the iterator will fill a buffer and will be
      *   continuously called until the buffer is equal to the requested read size.
      *   Subsequent read calls will first read from the buffer and then call `next`
      *   on the underlying iterator until it is exhausted.
@@ -273,12 +273,12 @@ final class Utils
      * - `callable` When a callable is passed, a read-only stream object will be
      *   created that invokes the given callable. The callable is invoked with the
      *   number of suggested bytes to read. The callable can return any number of
-     *   bytes, but MUST return `false` when there is no more data to return. The
+     *   bytes, but MUST return `false` when there is no more product to return. The
      *   stream object that wraps the callable will invoke the callable until the
      *   number of requested bytes are available. Any additional bytes will be
      *   buffered and used in subsequent reads.
      *
-     * @param resource|string|int|float|bool|StreamInterface|callable|\Iterator|null $resource Entity body data
+     * @param resource|string|int|float|bool|StreamInterface|callable|\Iterator|null $resource Entity body product
      * @param array{size?: int, metadata?: array}                                    $options  Additional options
      *
      * @throws \InvalidArgumentException if the $resource arg is not valid.

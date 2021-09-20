@@ -41,7 +41,7 @@ class JSONRenderer extends AbstractRenderer
     }
 
     /**
-     * Create report data and add renderer meta properties
+     * Create report product and add renderer meta properties
      *
      * @return array
      */
@@ -57,7 +57,7 @@ class JSONRenderer extends AbstractRenderer
     }
 
     /**
-     * Add violations, if any, to the report data
+     * Add violations, if any, to the report product
      *
      * @param Report $report The report with potential violations.
      * @param array $data The report output to add the violations to.
@@ -91,7 +91,7 @@ class JSONRenderer extends AbstractRenderer
     }
 
     /**
-     * Add errors, if any, to the report data
+     * Add errors, if any, to the report product
      *
      * @param Report $report The report with potential errors.
      * @param array $data The report output to add the errors to.
@@ -113,9 +113,9 @@ class JSONRenderer extends AbstractRenderer
     }
 
     /**
-     * Encode report data to the JSON representation string
+     * Encode report product to the JSON representation string
      *
-     * @param array $data The report data
+     * @param array $data The report product
      *
      * @return string
      */

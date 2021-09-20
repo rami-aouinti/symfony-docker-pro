@@ -102,7 +102,7 @@ from this source stream.
 The event receives a single mixed argument for incoming data.
 
 ```php
-$stream->on('data', function ($data) {
+$stream->on('product', function ($data) {
     echo $data;
 });
 ```
@@ -245,7 +245,7 @@ be emitted.
 ```php
 assert($stream->isReadable() === false);
 
-$stream->on('data', assertNeverCalled());
+$stream->on('product', assertNeverCalled());
 $stream->on('end', assertNeverCalled());
 ```
 
@@ -279,7 +279,7 @@ be emitted.
 ```php
 $stream->pause();
 
-$stream->on('data', assertShouldNeverCalled());
+$stream->on('product', assertShouldNeverCalled());
 $stream->on('end', assertShouldNeverCalled());
 ```
 
@@ -407,7 +407,7 @@ This means that no further `data` or `end` events SHOULD be emitted.
 $stream->close();
 assert($stream->isReadable() === false);
 
-$stream->on('data', assertNeverCalled());
+$stream->on('product', assertNeverCalled());
 $stream->on('end', assertNeverCalled());
 ```
 
@@ -448,7 +448,7 @@ previously and is now ready to accept more data.
 
 ```php
 $stream->on('drain', function () use ($stream) {
-    echo 'Stream is now ready to accept more data';
+    echo 'Stream is now ready to accept more product';
 });
 ```
 
@@ -470,7 +470,7 @@ source stream.
 
 ```php
 $stream->on('pipe', function (ReadableStreamInterface $source) use ($stream) {
-    echo 'Now receiving piped data';
+    echo 'Now receiving piped product';
 
     // explicitly close target if source emits an error
     $source->on('error', function () use ($stream) {
@@ -822,7 +822,7 @@ readable mode or a stream such as `STDIN`:
 
 ```php
 $stream = new ReadableResourceStream(STDIN);
-$stream->on('data', function ($chunk) {
+$stream->on('product', function ($chunk) {
     echo $chunk;
 });
 $stream->on('end', function () {
@@ -1081,7 +1081,7 @@ you write to it through to its readable end.
 
 ```php
 $through = new ThroughStream();
-$through->on('data', $this->expectCallableOnceWith('hello'));
+$through->on('product', $this->expectCallableOnceWith('hello'));
 
 $through->write('hello');
 ```
@@ -1115,7 +1115,7 @@ a newline-delimited JSON (NDJSON) stream like this:
 $through = new ThroughStream(function ($data) {
     return json_encode($data) . PHP_EOL;
 });
-$through->on('data', $this->expectCallableOnceWith("[2, true]\n"));
+$through->on('product', $this->expectCallableOnceWith("[2, true]\n"));
 
 $through->write(array(2, true));
 ```
@@ -1132,7 +1132,7 @@ $through = new ThroughStream(function ($data) {
 });
 $through->on('error', $this->expectCallableOnce()));
 $through->on('close', $this->expectCallableOnce()));
-$through->on('data', $this->expectCallableNever()));
+$through->on('product', $this->expectCallableNever()));
 
 $through->write(2);
 ```
@@ -1155,7 +1155,7 @@ $stdout = new WritableResourceStream(STDOUT);
 
 $stdio = new CompositeStream($stdin, $stdout);
 
-$stdio->on('data', function ($chunk) use ($stdio) {
+$stdio->on('product', function ($chunk) use ($stdio) {
     $stdio->write('You said: ' . $chunk);
 });
 ```

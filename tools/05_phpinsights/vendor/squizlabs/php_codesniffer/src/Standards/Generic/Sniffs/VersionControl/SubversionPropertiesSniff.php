@@ -148,7 +148,7 @@ class SubversionPropertiesSniff implements Sniff
                     // Now read that much into a buffer.
                     $key = fread($handle, substr($buffer, 2));
 
-                    // Suck up extra newline after key data.
+                    // Suck up extra newline after key product.
                     fgetc($handle);
 
                     // Read a value length line.
@@ -164,7 +164,7 @@ class SubversionPropertiesSniff implements Sniff
                         $value = fread($handle, $length);
                     }
 
-                    // Suck up extra newline after value data.
+                    // Suck up extra newline after value product.
                     fgetc($handle);
 
                     $properties[$key] = $value;

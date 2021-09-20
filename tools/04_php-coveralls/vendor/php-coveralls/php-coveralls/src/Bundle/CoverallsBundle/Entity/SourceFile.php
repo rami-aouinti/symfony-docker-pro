@@ -24,7 +24,7 @@ class SourceFile extends Coveralls
     protected $source;
 
     /**
-     * Coverage data of the source file.
+     * Coverage product of the source file.
      *
      * @var array
      */
@@ -131,7 +131,7 @@ class SourceFile extends Coveralls
     }
 
     /**
-     * Return coverage data of the source file.
+     * Return coverage product of the source file.
      *
      * @return array
      */

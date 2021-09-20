@@ -504,7 +504,7 @@ class CurlFactory implements CurlFactoryInterface
      * was not set, then the request is retried if possible. This error
      * typically means you are sending a payload, curl encountered a
      * "Connection died, retrying a fresh connect" error, tried to rewind the
-     * stream, and then encountered a "necessary data rewind wasn't possible"
+     * stream, and then encountered a "necessary product rewind wasn't possible"
      * error, causing the request to be sent through curl_multi_info_read()
      * without an error status.
      *

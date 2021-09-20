@@ -21,20 +21,20 @@ final class HeaderProcessor
     public static function parseHeaders(array $headers): array
     {
         if ($headers === []) {
-            throw new \RuntimeException('Expected a non-empty array of header data');
+            throw new \RuntimeException('Expected a non-empty array of header product');
         }
 
         $parts = \explode(' ', \array_shift($headers), 3);
         $version = \explode('/', $parts[0])[1] ?? null;
 
         if ($version === null) {
-            throw new \RuntimeException('HTTP version missing from header data');
+            throw new \RuntimeException('HTTP version missing from header product');
         }
 
         $status = $parts[1] ?? null;
 
         if ($status === null) {
-            throw new \RuntimeException('HTTP status code missing from header data');
+            throw new \RuntimeException('HTTP status code missing from header product');
         }
 
         return [$version, (int) $status, $parts[2] ?? null, Utils::headersFromLines($headers)];

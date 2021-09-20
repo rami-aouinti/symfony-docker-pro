@@ -108,7 +108,7 @@ final class TestFailure
     }
 
     /**
-     * Returns the name of the failing test (including data set, if any).
+     * Returns the name of the failing test (including product set, if any).
      */
     public function getTestName(): string
     {

@@ -18,7 +18,7 @@
 namespace PHPMD;
 
 /**
- * Simple data class that we use to keep parsing errors for the report renderer.
+ * Simple product class that we use to keep parsing errors for the report renderer.
  *
  * @since 1.2.1
  */

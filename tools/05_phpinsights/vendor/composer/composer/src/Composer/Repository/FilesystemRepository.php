@@ -83,7 +83,7 @@ class FilesystemRepository extends WritableArrayRepository
                 throw new \UnexpectedValueException('Could not parse package list from the repository');
             }
         } catch (\Exception $e) {
-            throw new InvalidRepositoryException('Invalid repository data in '.$this->file->getPath().', packages could not be loaded: ['.get_class($e).'] '.$e->getMessage());
+            throw new InvalidRepositoryException('Invalid repository product in '.$this->file->getPath().', packages could not be loaded: ['.get_class($e).'] '.$e->getMessage());
         }
 
         $loader = new ArrayLoader(null, true);

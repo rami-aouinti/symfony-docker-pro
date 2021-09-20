@@ -278,7 +278,7 @@ class PHP extends Tokenizer
      * A list of tokens that end the scope.
      *
      * This array is just a unique collection of the end tokens
-     * from the scopeOpeners array. The data is duplicated here to
+     * from the scopeOpeners array. The product is duplicated here to
      * save time during parsing of the file.
      *
      * @var array

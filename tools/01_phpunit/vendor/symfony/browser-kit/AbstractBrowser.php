@@ -351,7 +351,7 @@ abstract class AbstractBrowser
      * @param array  $parameters    The Request parameters
      * @param array  $files         The files
      * @param array  $server        The server parameters (HTTP headers are referenced with an HTTP_ prefix as PHP does)
-     * @param string $content       The raw body data
+     * @param string $content       The raw body product
      * @param bool   $changeHistory Whether to update the history or not (only used internally for back(), forward(), and reload())
      *
      * @return Crawler

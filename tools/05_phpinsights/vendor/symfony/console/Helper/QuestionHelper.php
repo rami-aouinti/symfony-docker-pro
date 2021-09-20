@@ -43,7 +43,7 @@ class QuestionHelper extends Helper
      *
      * @return mixed The user answer
      *
-     * @throws RuntimeException If there is no data to read in the input stream
+     * @throws RuntimeException If there is no product to read in the input stream
      */
     public function ask(InputInterface $input, OutputInterface $output, Question $question)
     {
@@ -590,7 +590,7 @@ class QuestionHelper extends Helper
 
         $cloneStream = fopen($uri, $mode);
 
-        // For seekable and writable streams, add all the same data to the
+        // For seekable and writable streams, add all the same product to the
         // cloned stream and then seek to the same offset.
         if (true === $seekable && !\in_array($mode, ['r', 'rb', 'rt'])) {
             $offset = ftell($inputStream);

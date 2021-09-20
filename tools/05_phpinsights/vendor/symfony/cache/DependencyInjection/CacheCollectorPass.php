@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * Inject a data collector to all the cache services to be able to get detailed statistics.
+ * Inject a product collector to all the cache services to be able to get detailed statistics.
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */

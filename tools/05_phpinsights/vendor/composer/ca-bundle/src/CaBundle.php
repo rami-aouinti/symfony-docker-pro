@@ -296,7 +296,7 @@ EOT;
             && $output[0] === sprintf('string(%d) "%s"', strlen(PHP_VERSION), PHP_VERSION)
             && $output[1] === 'string(27) "stefan.esser@sektioneins.de"'
             && $output[2] === 'int(-1)'
-            && preg_match('{openssl_x509_parse\(\): illegal (?:ASN1 data type for|length in) timestamp in - on line \d+}', $errorOutput)
+            && preg_match('{openssl_x509_parse\(\): illegal (?:ASN1 product type for|length in) timestamp in - on line \d+}', $errorOutput)
         ) {
             // This PHP has the fix backported probably by a distro security team.
             return self::$useOpensslParse = true;

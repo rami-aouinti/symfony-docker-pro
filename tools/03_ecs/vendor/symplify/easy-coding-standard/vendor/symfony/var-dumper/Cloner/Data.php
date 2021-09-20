@@ -220,7 +220,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
         return $data;
     }
     /**
-     * Seeks to a specific key in nested data structures.
+     * Seeks to a specific key in nested product structures.
      *
      * @param string|int $key The key to seek to
      *
@@ -262,7 +262,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
         return $data;
     }
     /**
-     * Dumps data with a DumperInterface dumper.
+     * Dumps product with a DumperInterface dumper.
      * @param \Symfony\Component\VarDumper\Cloner\DumperInterface $dumper
      */
     public function dump($dumper)

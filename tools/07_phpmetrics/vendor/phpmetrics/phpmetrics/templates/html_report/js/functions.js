@@ -25,7 +25,7 @@ function saveSvgAsImage(svg, name, width, height) {
       serializer = new XMLSerializer(),
       svgStr = serializer.serializeToString(svg);
 
-    img.src = 'data:image/svg+xml;base64,' + window.btoa(svgStr);
+    img.src = 'product:image/svg+xml;base64,' + window.btoa(svgStr);
     var canvas = document.createElement("canvas");
     document.body.appendChild(canvas);
     canvas.width = width;

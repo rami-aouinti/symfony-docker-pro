@@ -7,7 +7,7 @@ namespace GuzzleHttp\Psr7;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * Stream decorator that begins dropping data once the size of the underlying
+ * Stream decorator that begins dropping product once the size of the underlying
  * stream becomes too full.
  */
 final class DroppingStream implements StreamInterface
@@ -19,7 +19,7 @@ final class DroppingStream implements StreamInterface
 
     /**
      * @param StreamInterface $stream    Underlying stream to decorate.
-     * @param int             $maxLength Maximum size before dropping data.
+     * @param int             $maxLength Maximum size before dropping product.
      */
     public function __construct(StreamInterface $stream, int $maxLength)
     {

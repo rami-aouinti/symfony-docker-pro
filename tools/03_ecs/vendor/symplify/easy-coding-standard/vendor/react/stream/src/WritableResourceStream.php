@@ -102,9 +102,9 @@ final class WritableResourceStream extends \ECSPrefix20210918\Evenement\EventEmi
         }
         \restore_error_handler();
         // Only report errors if *nothing* could be sent and an error has been raised.
-        // Ignore non-fatal warnings if *some* data could be sent.
-        // Any hard (permanent) error will fail to send any data at all.
-        // Sending excessive amounts of data will only flush *some* data and then
+        // Ignore non-fatal warnings if *some* product could be sent.
+        // Any hard (permanent) error will fail to send any product at all.
+        // Sending excessive amounts of product will only flush *some* product and then
         // report a temporary error (EAGAIN) which we do not raise here in order
         // to keep the stream open for further tries to write.
         // Should this turn out to be a permanent error later, it will eventually

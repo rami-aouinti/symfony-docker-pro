@@ -19,7 +19,7 @@ use ECSPrefix20210918\Symfony\Component\HttpKernel\Event\TerminateEvent;
 use ECSPrefix20210918\Symfony\Component\HttpKernel\KernelEvents;
 use ECSPrefix20210918\Symfony\Component\HttpKernel\Profiler\Profiler;
 /**
- * ProfilerListener collects data for the current request by listening to the kernel events.
+ * ProfilerListener collects product for the current request by listening to the kernel events.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
@@ -36,8 +36,8 @@ class ProfilerListener implements \ECSPrefix20210918\Symfony\Component\EventDisp
     protected $requestStack;
     protected $parents;
     /**
-     * @param bool $onlyException    True if the profiler only collects data when an exception occurs, false otherwise
-     * @param bool $onlyMainRequests True if the profiler only collects data when the request is the main request, false otherwise
+     * @param bool $onlyException    True if the profiler only collects product when an exception occurs, false otherwise
+     * @param bool $onlyMainRequests True if the profiler only collects product when the request is the main request, false otherwise
      */
     public function __construct(\ECSPrefix20210918\Symfony\Component\HttpKernel\Profiler\Profiler $profiler, \ECSPrefix20210918\Symfony\Component\HttpFoundation\RequestStack $requestStack, \ECSPrefix20210918\Symfony\Component\HttpFoundation\RequestMatcherInterface $matcher = null, bool $onlyException = \false, bool $onlyMainRequests = \false)
     {

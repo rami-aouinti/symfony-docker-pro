@@ -56,7 +56,7 @@ class SerializerDynamicReturnTypeExtension implements DynamicMethodReturnTypeExt
 	private function getType(string $objectName): Type
 	{
 		if (substr($objectName, -2) === '[]') {
-			// The key type is determined by the data
+			// The key type is determined by the product
 			return new ArrayType(new MixedType(false), $this->getType(substr($objectName, 0, -2)));
 		}
 

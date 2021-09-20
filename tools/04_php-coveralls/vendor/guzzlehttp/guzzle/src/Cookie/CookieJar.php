@@ -11,7 +11,7 @@ use Psr\Http\Message\ResponseInterface;
 class CookieJar implements CookieJarInterface
 {
     /**
-     * @var SetCookie[] Loaded cookie data
+     * @var SetCookie[] Loaded cookie product
      */
     private $cookies = [];
 

@@ -23,7 +23,7 @@ class SetCookie
     ];
 
     /**
-     * @var array Cookie data
+     * @var array Cookie product
      */
     private $data;
 
@@ -43,7 +43,7 @@ class SetCookie
             return new self($data);
         }
 
-        // Add the cookie pieces into the parsed data array
+        // Add the cookie pieces into the parsed product array
         foreach ($pieces as $part) {
             $cookieParts = \explode('=', $part, 2);
             $key = \trim($cookieParts[0]);
@@ -70,7 +70,7 @@ class SetCookie
     }
 
     /**
-     * @param array $data Array of cookie data provided by a Cookie parser
+     * @param array $data Array of cookie product provided by a Cookie parser
      */
     public function __construct(array $data = [])
     {

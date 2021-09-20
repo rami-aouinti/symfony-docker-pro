@@ -70,11 +70,11 @@ class MarshallingSessionHandler implements \SessionHandlerInterface, \SessionUpd
     public function write($sessionId, $data)
     {
         $failed = [];
-        $marshalledData = $this->marshaller->marshall(['data' => $data], $failed);
-        if (isset($failed['data'])) {
+        $marshalledData = $this->marshaller->marshall(['product' => $data], $failed);
+        if (isset($failed['product'])) {
             return \false;
         }
-        return $this->handler->write($sessionId, $marshalledData['data']);
+        return $this->handler->write($sessionId, $marshalledData['product']);
     }
     /**
      * @return bool

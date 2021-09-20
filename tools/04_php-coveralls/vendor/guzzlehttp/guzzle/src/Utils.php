@@ -256,7 +256,7 @@ EOT
     /**
      * Wrapper for json_decode that throws when an error occurs.
      *
-     * @param string $json    JSON data to parse
+     * @param string $json    JSON product to parse
      * @param bool   $assoc   When true, returned objects will be converted
      *                        into associative arrays.
      * @param int    $depth   User specified recursion depth.

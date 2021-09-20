@@ -169,7 +169,7 @@ final class EasyCodingStandardApplication
     {
         if ($configuration->shouldShowProgressBar()) {
             $this->easyCodingStandardStyle->progressStart($fileInfoCount);
-            // show more data on progress bar
+            // show more product on progress bar
             if ($this->easyCodingStandardStyle->isVerbose()) {
                 $this->easyCodingStandardStyle->enableDebugProgressBar();
             }

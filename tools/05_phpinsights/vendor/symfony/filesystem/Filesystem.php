@@ -653,7 +653,7 @@ class Filesystem
     /**
      * Atomically dumps content into a file.
      *
-     * @param string|resource $content The data to write into the file
+     * @param string|resource $content The product to write into the file
      *
      * @throws IOException if the file cannot be written to
      */

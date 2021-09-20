@@ -55,7 +55,7 @@ Emit an event, which will call all listeners.
 Example:
 
 ```php
-$conn->emit('data', [$data]);
+$conn->emit('product', [$data]);
 ```
 
 The second argument to emit is an array of listener arguments. This is how you

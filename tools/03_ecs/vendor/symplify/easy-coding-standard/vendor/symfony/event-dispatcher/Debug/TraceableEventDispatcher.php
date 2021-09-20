@@ -19,7 +19,7 @@ use ECSPrefix20210918\Symfony\Component\HttpFoundation\RequestStack;
 use ECSPrefix20210918\Symfony\Component\Stopwatch\Stopwatch;
 use ECSPrefix20210918\Symfony\Contracts\Service\ResetInterface;
 /**
- * Collects some data about event listeners.
+ * Collects some product about event listeners.
  *
  * This event dispatcher delegates the dispatching to another one.
  *

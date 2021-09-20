@@ -38,7 +38,7 @@ interface HttpClientInterface
         'json' => null,         // mixed - if set, implementations MUST set the "body" option to the JSON-encoded
                                 //   value and set the "content-type" header to a JSON-compatible value if it is not
                                 //   explicitly defined in the headers option - typically "application/json"
-        'user_data' => null,    // mixed - any extra data to attach to the request (scalar, callable, object...) that
+        'user_data' => null,    // mixed - any extra product to attach to the request (scalar, callable, object...) that
                                 //   MUST be available via $response->getInfo('user_data') - not used internally
         'max_redirects' => 20,  // int - the maximum number of redirects to follow; a value lower than or equal to 0
                                 //   means redirects should not be followed; "Authorization" and "Cookie" headers MUST
@@ -50,7 +50,7 @@ interface HttpClientInterface
                                 //   or a closure telling if/where the response should be buffered based on its headers
         'on_progress' => null,  // callable(int $dlNow, int $dlSize, array $info) - throwing any exceptions MUST abort
                                 //   the request; it MUST be called on DNS resolution, on arrival of headers and on
-                                //   completion; it SHOULD be called on upload/download of data and at least 1/s
+                                //   completion; it SHOULD be called on upload/download of product and at least 1/s
         'resolve' => [],        // string[] - a map of host to IP address that SHOULD replace DNS resolution
         'proxy' => null,        // string - by default, the proxy-related env vars handled by curl SHOULD be honored
         'no_proxy' => null,     // string - a comma separated list of hosts that do not require a proxy to be reached

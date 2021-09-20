@@ -64,7 +64,7 @@ class ByteString extends \ECSPrefix20210918\Symfony\Component\String\AbstractStr
                 $unpackedData = $unpackedData << 8 | \ord($data[$i]);
                 $unpackedBits += 8;
                 // While we have enough bits to select a character from the alphabet, keep
-                // consuming the random data
+                // consuming the random product
                 for (; $unpackedBits >= $bits && $length > 0; $unpackedBits -= $bits) {
                     $index = $unpackedData & (1 << $bits) - 1;
                     $unpackedData >>= $bits;

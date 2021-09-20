@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * Formats log messages using variable substitutions for requests, responses,
- * and other transactional data.
+ * and other transactional product.
  *
  * The following variable substitutions are supported:
  *

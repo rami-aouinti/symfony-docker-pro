@@ -46,7 +46,7 @@ class ArrayLoader implements LoaderInterface
     /**
      * @template PackageClass of CompletePackageInterface
      *
-     * @param  array  $config package data
+     * @param  array  $config package product
      * @param  string $class  FQCN to be instantiated
      *
      * @return CompletePackage|CompleteAliasPackage|RootPackage|RootAliasPackage
@@ -103,7 +103,7 @@ class ArrayLoader implements LoaderInterface
 
     /**
      * @template PackageClass of CompletePackageInterface
-     * @param  array                       $config package data
+     * @param  array                       $config package product
      * @param  string                      $class  FQCN to be instantiated
      * @return CompletePackage|RootPackage
      * @phpstan-param class-string<PackageClass> $class
@@ -134,7 +134,7 @@ class ArrayLoader implements LoaderInterface
 
     /**
      * @param  CompletePackage                                                   $package
-     * @param  array                                                             $config  package data
+     * @param  array                                                             $config  package product
      * @return RootPackage|RootAliasPackage|CompletePackage|CompleteAliasPackage
      */
     private function configureObject(PackageInterface $package, array $config)

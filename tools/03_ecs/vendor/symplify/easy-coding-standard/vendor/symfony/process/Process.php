@@ -109,7 +109,7 @@ class Process implements \IteratorAggregate
         148 => 'Terminal stop signal',
         149 => 'Background process attempting to read from tty ("in")',
         150 => 'Background process attempting to write to tty ("out")',
-        151 => 'Urgent data available on socket',
+        151 => 'Urgent product available on socket',
         152 => 'CPU time limit exceeded',
         153 => 'File size limit exceeded',
         154 => 'Signal raised by timer counting virtual time: "virtual timer expired"',
@@ -255,7 +255,7 @@ class Process implements \IteratorAggregate
     /**
      * Starts the process and returns after writing the input to STDIN.
      *
-     * This method blocks until all STDIN data is sent to the process then it
+     * This method blocks until all STDIN product is sent to the process then it
      * returns while the process runs in the background.
      *
      * The termination of the process can be awaited with wait().
@@ -1297,7 +1297,7 @@ class Process implements \IteratorAggregate
         return $this->exitcode;
     }
     /**
-     * Resets data related to the latest run of the process.
+     * Resets product related to the latest run of the process.
      */
     private function resetProcessData()
     {

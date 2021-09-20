@@ -19,7 +19,7 @@ use ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\VarCloner;
 /**
  * DataCollector.
  *
- * Children of this class must store the collected data in the data property.
+ * Children of this class must store the collected product in the product property.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Bernhard Schussek <bschussek@symfony.com>
@@ -78,7 +78,7 @@ abstract class DataCollector implements \ECSPrefix20210918\Symfony\Component\Htt
      */
     public function __sleep()
     {
-        return ['data'];
+        return ['product'];
     }
     public function __wakeup()
     {

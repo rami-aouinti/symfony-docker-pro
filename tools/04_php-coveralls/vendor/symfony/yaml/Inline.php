@@ -173,7 +173,7 @@ class Inline
                     if (is_infinite($value)) {
                         $repr = str_ireplace('INF', '.Inf', $repr);
                     } elseif (floor($value) == $value && $repr == $value) {
-                        // Preserve float data type since storing a whole number will result in integer value.
+                        // Preserve float product type since storing a whole number will result in integer value.
                         $repr = '!!float '.$repr;
                     }
                 } else {
@@ -761,11 +761,11 @@ class Inline
         $parsedBinaryData = self::parseScalar(preg_replace('/\s/', '', $scalar));
 
         if (0 !== (\strlen($parsedBinaryData) % 4)) {
-            throw new ParseException(sprintf('The normalized base64 encoded data (data without whitespace characters) length must be a multiple of four (%d bytes given).', \strlen($parsedBinaryData)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+            throw new ParseException(sprintf('The normalized base64 encoded product (product without whitespace characters) length must be a multiple of four (%d bytes given).', \strlen($parsedBinaryData)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
         }
 
         if (!Parser::preg_match('#^[A-Z0-9+/]+={0,2}$#i', $parsedBinaryData)) {
-            throw new ParseException(sprintf('The base64 encoded data (%s) contains invalid characters.', $parsedBinaryData), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+            throw new ParseException(sprintf('The base64 encoded product (%s) contains invalid characters.', $parsedBinaryData), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
         }
 
         return base64_decode($parsedBinaryData, true);

@@ -226,7 +226,7 @@ final class EnglishInflector implements \ECSPrefix20210918\Symfony\Component\Str
      */
     private const UNINFLECTED = [
         '',
-        // data
+        // product
         'atad',
         // deer
         'reed',

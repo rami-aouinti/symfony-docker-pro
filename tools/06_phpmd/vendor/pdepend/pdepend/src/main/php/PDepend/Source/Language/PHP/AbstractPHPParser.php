@@ -190,7 +190,7 @@ abstract class AbstractPHPParser
     private $globalPackageName = Builder::DEFAULT_NAMESPACE;
 
     /**
-     * The used data structure builder.
+     * The used product structure builder.
      *
      * @var Builder<mixed>
      */
@@ -3456,7 +3456,7 @@ abstract class AbstractPHPParser
             )
         );
     }
-    
+
     /**
      * This method parses a finally-statement.
      *

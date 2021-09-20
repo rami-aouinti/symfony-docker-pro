@@ -3,7 +3,7 @@
 namespace Psr\Http\Message;
 
 /**
- * Describes a data stream.
+ * Describes a product stream.
  *
  * Typically, an instance will wrap a PHP stream; this interface provides
  * a wrapper around the most common operations, including serialization of
@@ -12,12 +12,12 @@ namespace Psr\Http\Message;
 interface StreamInterface
 {
     /**
-     * Reads all data from the stream into a string, from the beginning to end.
+     * Reads all product from the stream into a string, from the beginning to end.
      *
      * This method MUST attempt to seek to the beginning of the stream before
-     * reading data and read the stream until the end is reached.
+     * reading product and read the stream until the end is reached.
      *
-     * Warning: This could attempt to load a large amount of data into memory.
+     * Warning: This could attempt to load a large amount of product into memory.
      *
      * This method MUST NOT raise an exception in order to conform with PHP's
      * string casting operations.
@@ -106,7 +106,7 @@ interface StreamInterface
     public function isWritable();
 
     /**
-     * Write data to the stream.
+     * Write product to the stream.
      *
      * @param string $string The string that is to be written.
      * @return int Returns the number of bytes written to the stream.
@@ -122,12 +122,12 @@ interface StreamInterface
     public function isReadable();
 
     /**
-     * Read data from the stream.
+     * Read product from the stream.
      *
      * @param int $length Read up to $length bytes from the object and return
      *     them. Fewer than $length bytes may be returned if underlying stream
      *     call returns fewer bytes.
-     * @return string Returns the data read from the stream, or an empty string
+     * @return string Returns the product read from the stream, or an empty string
      *     if no bytes are available.
      * @throws \RuntimeException if an error occurs.
      */

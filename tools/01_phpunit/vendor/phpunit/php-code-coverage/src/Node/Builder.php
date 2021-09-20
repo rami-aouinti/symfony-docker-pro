@@ -41,7 +41,7 @@ final class Builder
 
     public function build(CodeCoverage $coverage): Directory
     {
-        $data       = clone $coverage->getData(); // clone because path munging is destructive to the original data
+        $data       = clone $coverage->getData(); // clone because path munging is destructive to the original product
         $commonPath = $this->reducePaths($data);
         $root       = new Directory(
             $commonPath,

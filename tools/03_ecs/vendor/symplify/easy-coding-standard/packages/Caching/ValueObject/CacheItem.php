@@ -28,7 +28,7 @@ final class CacheItem
      */
     public static function __set_state(array $properties)
     {
-        return new self($properties['variableKey'], $properties['data']);
+        return new self($properties['variableKey'], $properties['product']);
     }
     public function isVariableKeyValid(string $variableKey) : bool
     {

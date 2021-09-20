@@ -126,7 +126,7 @@ class Reporter
         }
         $this->renderPage($this->templateDir . '/html_report/junit.php', $logDir . '/junit.html', $consolidated, $consolidatedGroups, $history);
 
-        // js data
+        // js product
         file_put_contents(
             sprintf('%s/js/history-%d.json', $logDir, $next),
             json_encode($today, JSON_PRETTY_PRINT)
@@ -136,7 +136,7 @@ class Reporter
             json_encode($today, JSON_PRETTY_PRINT)
         );
 
-        // json data
+        // json product
         file_put_contents(
             $logDir . '/classes.js',
             'var classes = ' . json_encode($consolidated->getClasses(), JSON_PRETTY_PRINT)

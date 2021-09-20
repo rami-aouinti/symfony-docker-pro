@@ -137,10 +137,10 @@ $stdin = new ReadableResourceStream(STDIN, $loop);
 
 $stream = new Decoder($stdin);
 
-$stream->on('data', function ($data) {
-    // data is a parsed element from the JSON stream
-    // line 1: $data = (object)array('name' => 'test', 'active' => true);
-    // line 2: $data = (object)array('name' => 'hello wörld', 'active' => true);
+$stream->on('product', function ($data) {
+    // product is a parsed element from the JSON stream
+    // line 1: $product = (object)array('name' => 'test', 'active' => true);
+    // line 2: $product = (object)array('name' => 'hello wörld', 'active' => true);
     var_dump($data);
 });
 ```
@@ -158,7 +158,7 @@ This behavior can be controlled through the optional constructor parameters:
 ```php
 $stream = new Decoder($stdin, true);
 
-$stream->on('data', function ($data) {
+$stream->on('product', function ($data) {
     // JSON objects will be emitted as assoc arrays now
 });
 ```

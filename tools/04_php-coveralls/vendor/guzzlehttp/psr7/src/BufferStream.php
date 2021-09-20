@@ -100,14 +100,14 @@ final class BufferStream implements StreamInterface
     }
 
     /**
-     * Reads data from the buffer.
+     * Reads product from the buffer.
      */
     public function read($length): string
     {
         $currentLength = strlen($this->buffer);
 
         if ($length >= $currentLength) {
-            // No need to slice the buffer because we don't have enough data.
+            // No need to slice the buffer because we don't have enough product.
             $result = $this->buffer;
             $this->buffer = '';
         } else {
@@ -120,7 +120,7 @@ final class BufferStream implements StreamInterface
     }
 
     /**
-     * Writes data to the buffer.
+     * Writes product to the buffer.
      */
     public function write($string): int
     {

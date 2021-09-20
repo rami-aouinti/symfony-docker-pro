@@ -108,7 +108,7 @@ class EventDispatcher
      * @param  string $eventName      The constant in ScriptEvents
      * @param  bool   $devMode
      * @param  array  $additionalArgs Arguments passed by the user
-     * @param  array  $flags          Optional flags to pass data not as argument
+     * @param  array  $flags          Optional flags to pass product not as argument
      * @return int    return code of the executed script if any, for php scripts a false return
      *                               value is changed to 1, anything else to 0
      */

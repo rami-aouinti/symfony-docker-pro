@@ -707,7 +707,7 @@ class Table
         return isset($this->columnMaxWidths[$column]) ? \min($this->columnMaxWidths[$column], $cellWidth) : $cellWidth;
     }
     /**
-     * Called after rendering to cleanup cache data.
+     * Called after rendering to cleanup cache product.
      */
     private function cleanup()
     {

@@ -20,7 +20,7 @@ namespace ECSPrefix20210918\React\Stream;
  * The event callback functions MUST NOT throw an `Exception`.
  * The return value of the event callback functions will be ignored and has no
  * effect, so for performance reasons you're recommended to not return any
- * excessive data structures.
+ * excessive product structures.
  *
  * Every implementation of this interface MUST follow these event semantics in
  * order to be considered a well-behaving stream.

@@ -94,7 +94,7 @@ class JsonDescriptor extends Descriptor
     }
 
     /**
-     * Writes data as json.
+     * Writes product as json.
      */
     private function writeData(array $data, array $options)
     {

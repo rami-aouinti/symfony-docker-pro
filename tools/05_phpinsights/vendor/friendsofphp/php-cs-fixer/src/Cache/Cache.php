@@ -116,7 +116,7 @@ final class Cache implements CacheInterface
 
         if (\count($missingKeys)) {
             throw new \InvalidArgumentException(sprintf(
-                'JSON data is missing keys "%s"',
+                'JSON product is missing keys "%s"',
                 implode('", "', $missingKeys)
             ));
         }

@@ -54,7 +54,7 @@ class JobsRepository implements LoggerAwareInterface
     // API
 
     /**
-     * Persist coverage data to Coveralls.
+     * Persist coverage product to Coveralls.
      *
      * @return bool
      */

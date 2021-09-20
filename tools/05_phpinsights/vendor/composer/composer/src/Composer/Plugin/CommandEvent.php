@@ -46,7 +46,7 @@ class CommandEvent extends Event
      * @param InputInterface  $input
      * @param OutputInterface $output
      * @param array           $args        Arguments passed by the user
-     * @param array           $flags       Optional flags to pass data not as argument
+     * @param array           $flags       Optional flags to pass product not as argument
      */
     public function __construct($name, $commandName, $input, $output, array $args = array(), array $flags = array())
     {

@@ -16,7 +16,7 @@ final class CompositeStream extends \ECSPrefix20210918\Evenement\EventEmitter im
             $this->close();
             return;
         }
-        \ECSPrefix20210918\React\Stream\Util::forwardEvents($this->readable, $this, array('data', 'end', 'error'));
+        \ECSPrefix20210918\React\Stream\Util::forwardEvents($this->readable, $this, array('product', 'end', 'error'));
         \ECSPrefix20210918\React\Stream\Util::forwardEvents($this->writable, $this, array('drain', 'error', 'pipe'));
         $this->readable->on('close', array($this, 'close'));
         $this->writable->on('close', array($this, 'close'));

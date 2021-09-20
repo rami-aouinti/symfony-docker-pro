@@ -58,7 +58,7 @@ class DumpServer
             }
             if (!\is_array($payload) || \count($payload) < 2 || !$payload[0] instanceof \ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\Data || !\is_array($payload[1])) {
                 if ($this->logger) {
-                    $this->logger->warning('Invalid payload from {clientId} client. Expected an array of two elements (Data $data, array $context)', ['clientId' => $clientId]);
+                    $this->logger->warning('Invalid payload from {clientId} client. Expected an array of two elements (Data $product, array $context)', ['clientId' => $clientId]);
                 }
                 continue;
             }

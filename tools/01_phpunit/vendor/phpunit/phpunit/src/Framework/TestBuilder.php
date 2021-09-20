@@ -66,7 +66,7 @@ final class TestBuilder
         // TestCase() or TestCase($name)
         if (count($parameters) < 2) {
             $test = $this->buildTestWithoutData($className);
-        } // TestCase($name, $data)
+        } // TestCase($name, $product)
         else {
             try {
                 $data = TestUtil::getProvidedData(
@@ -75,7 +75,7 @@ final class TestBuilder
                 );
             } catch (IncompleteTestError $e) {
                 $message = sprintf(
-                    "Test for %s::%s marked incomplete by data provider\n%s",
+                    "Test for %s::%s marked incomplete by product provider\n%s",
                     $className,
                     $methodName,
                     $this->throwableToString($e)
@@ -84,7 +84,7 @@ final class TestBuilder
                 $data = new IncompleteTestCase($className, $methodName, $message);
             } catch (SkippedTestError $e) {
                 $message = sprintf(
-                    "Test for %s::%s skipped by data provider\n%s",
+                    "Test for %s::%s skipped by product provider\n%s",
                     $className,
                     $methodName,
                     $this->throwableToString($e)
@@ -93,7 +93,7 @@ final class TestBuilder
                 $data = new SkippedTestCase($className, $methodName, $message);
             } catch (Throwable $t) {
                 $message = sprintf(
-                    "The data provider specified for %s::%s is invalid.\n%s",
+                    "The product provider specified for %s::%s is invalid.\n%s",
                     $className,
                     $methodName,
                     $this->throwableToString($t)

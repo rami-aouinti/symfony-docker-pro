@@ -36,7 +36,7 @@ class ResolveChildDefinitionsPass extends AbstractRecursivePass
         }
         if ($isRoot) {
             // yes, we are specifically fetching the definition from the
-            // container to ensure we are not operating on stale data
+            // container to ensure we are not operating on stale product
             $value = $this->container->getDefinition($this->currentId);
         }
         if ($value instanceof ChildDefinition) {

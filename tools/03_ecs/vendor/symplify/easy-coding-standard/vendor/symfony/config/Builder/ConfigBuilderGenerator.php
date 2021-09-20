@@ -179,7 +179,7 @@ public function NAME(string $VAR, $VALUE): self
 
     return $this;
 }';
-                $class->addMethod($methodName, $body, ['PROPERTY' => $property->getName(), 'TYPE' => '' === $parameterType ? 'mixed' : $parameterType, 'VAR' => '' === $key ? 'key' : $key, 'VALUE' => 'value' === $key ? 'data' : 'value']);
+                $class->addMethod($methodName, $body, ['PROPERTY' => $property->getName(), 'TYPE' => '' === $parameterType ? 'mixed' : $parameterType, 'VAR' => '' === $key ? 'key' : $key, 'VALUE' => 'value' === $key ? 'product' : 'value']);
             }
             return;
         }
@@ -208,7 +208,7 @@ public function NAME(string $VAR, array $VALUE = []): CLASS
     throw new InvalidConfigurationException(\'The node created by "NAME()" has already been initialized. You cannot pass values the second time you call NAME().\');
 }';
             $class->addUse(\ECSPrefix20210918\Symfony\Component\Config\Definition\Exception\InvalidConfigurationException::class);
-            $class->addMethod($methodName, $body, ['PROPERTY' => $property->getName(), 'CLASS' => $childClass->getFqcn(), 'VAR' => '' === $key ? 'key' : $key, 'VALUE' => 'value' === $key ? 'data' : 'value']);
+            $class->addMethod($methodName, $body, ['PROPERTY' => $property->getName(), 'CLASS' => $childClass->getFqcn(), 'VAR' => '' === $key ? 'key' : $key, 'VALUE' => 'value' === $key ? 'product' : 'value']);
         }
         $this->buildNode($prototype, $childClass, $namespace . '\\' . $childClass->getName());
     }

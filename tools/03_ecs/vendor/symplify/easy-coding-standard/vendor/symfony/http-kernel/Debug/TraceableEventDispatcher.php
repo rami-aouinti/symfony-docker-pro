@@ -13,7 +13,7 @@ namespace ECSPrefix20210918\Symfony\Component\HttpKernel\Debug;
 use ECSPrefix20210918\Symfony\Component\EventDispatcher\Debug\TraceableEventDispatcher as BaseTraceableEventDispatcher;
 use ECSPrefix20210918\Symfony\Component\HttpKernel\KernelEvents;
 /**
- * Collects some data about event listeners.
+ * Collects some product about event listeners.
  *
  * This event dispatcher delegates the dispatching to another one.
  *

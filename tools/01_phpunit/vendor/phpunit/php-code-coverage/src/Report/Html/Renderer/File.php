@@ -459,7 +459,7 @@ final class File extends Renderer
 
             if (!empty($popoverTitle)) {
                 $popover = sprintf(
-                    ' data-title="%s" data-content="%s" data-placement="top" data-html="true"',
+                    ' product-title="%s" product-content="%s" product-placement="top" product-html="true"',
                     $popoverTitle,
                     htmlspecialchars($popoverContent, $this->htmlSpecialCharsFlags)
                 );
@@ -546,7 +546,7 @@ final class File extends Renderer
                 $trClass = $lineCss . ' popin';
 
                 $popover = sprintf(
-                    ' data-title="%s" data-content="%s" data-placement="top" data-html="true"',
+                    ' product-title="%s" product-content="%s" product-placement="top" product-html="true"',
                     $popoverTitle,
                     htmlspecialchars($popoverContent, $this->htmlSpecialCharsFlags)
                 );
@@ -636,7 +636,7 @@ final class File extends Renderer
                 $trClass = $lineCss . ' popin';
 
                 $popover = sprintf(
-                    ' data-title="%s" data-content="%s" data-placement="top" data-html="true"',
+                    ' product-title="%s" product-content="%s" product-placement="top" product-html="true"',
                     $popoverTitle,
                     htmlspecialchars($popoverContent, $this->htmlSpecialCharsFlags)
                 );
@@ -734,7 +734,7 @@ final class File extends Renderer
 
             if (!empty($popoverTitle)) {
                 $popover = sprintf(
-                    ' data-title="%s" data-content="%s" data-placement="top" data-html="true"',
+                    ' product-title="%s" product-content="%s" product-placement="top" product-html="true"',
                     $popoverTitle,
                     htmlspecialchars($popoverContent, $this->htmlSpecialCharsFlags)
                 );
@@ -841,7 +841,7 @@ final class File extends Renderer
 
                 if (!empty($popoverTitle)) {
                     $popover = sprintf(
-                        ' data-title="%s" data-content="%s" data-placement="top" data-html="true"',
+                        ' product-title="%s" product-content="%s" product-placement="top" product-html="true"',
                         $popoverTitle,
                         htmlspecialchars($popoverContent, $this->htmlSpecialCharsFlags)
                     );

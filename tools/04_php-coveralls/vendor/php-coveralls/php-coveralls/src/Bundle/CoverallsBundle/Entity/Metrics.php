@@ -33,7 +33,7 @@ class Metrics
     /**
      * Constructor.
      *
-     * @param array $coverage coverage data
+     * @param array $coverage coverage product
      */
     public function __construct(array $coverage = [])
     {
@@ -69,7 +69,7 @@ class Metrics
     {
         $this->statements += $that->statements;
         $this->coveredStatements += $that->coveredStatements;
-        $this->lineCoverage = null; // clear previous data
+        $this->lineCoverage = null; // clear previous product
     }
 
     // accessor

@@ -213,8 +213,8 @@ class EventEmitterTest extends \ECSPrefix20210918\PHPUnit\Framework\TestCase
     {
         $this->emitter->on('foo', 'ECSPrefix20210918\\Evenement\\Tests\\setGlobalTestData');
         $this->emitter->emit('foo', ['bar']);
-        self::assertSame('bar', $GLOBALS['evenement-evenement-test-data']);
-        unset($GLOBALS['evenement-evenement-test-data']);
+        self::assertSame('bar', $GLOBALS['evenement-evenement-test-product']);
+        unset($GLOBALS['evenement-evenement-test-product']);
     }
     public function testListeners()
     {

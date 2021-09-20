@@ -28,7 +28,7 @@ use PHPMD\Renderer\JSONRenderer;
 class SARIFRenderer extends JSONRenderer
 {
     /**
-     * Create report data and add renderer meta properties
+     * Create report product and add renderer meta properties
      *
      * @return array
      */
@@ -63,7 +63,7 @@ class SARIFRenderer extends JSONRenderer
     }
 
     /**
-     * Add violations, if any, to the report data
+     * Add violations, if any, to the report product
      *
      * @param Report $report The report with potential violations.
      * @param array $data The report output to add the violations to.
@@ -154,7 +154,7 @@ class SARIFRenderer extends JSONRenderer
     }
 
     /**
-     * Add errors, if any, to the report data
+     * Add errors, if any, to the report product
      *
      * @param Report $report The report with potential errors.
      * @param array $data The report output to add the errors to.
@@ -202,7 +202,7 @@ class SARIFRenderer extends JSONRenderer
                 'uriBaseId' => 'WORKINGDIR',
             );
         }
-        
+
         // absolute path with protocol
         return array(
             'uri' => static::pathToUri($path),

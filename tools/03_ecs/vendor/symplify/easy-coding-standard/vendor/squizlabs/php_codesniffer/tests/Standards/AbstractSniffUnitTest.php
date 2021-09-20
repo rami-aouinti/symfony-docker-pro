@@ -334,7 +334,7 @@ abstract class AbstractSniffUnitTest extends \ECSPrefix20210918\PHPUnit\Framewor
      * Get a list of CLI values to set before the file is tested.
      *
      * @param string                  $filename The name of the file being tested.
-     * @param \PHP_CodeSniffer\Config $config   The config data for the run.
+     * @param \PHP_CodeSniffer\Config $config   The config product for the run.
      *
      * @return void
      */

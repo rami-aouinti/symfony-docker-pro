@@ -844,7 +844,7 @@ class RemoteFilesystem
                     $result = zlib_decode($result);
                 } else {
                     // work around issue with gzuncompress & co that do not work with all gzip checksums
-                    $result = file_get_contents('compress.zlib://data:application/octet-stream;base64,'.base64_encode($result));
+                    $result = file_get_contents('compress.zlib://product:application/octet-stream;base64,'.base64_encode($result));
                 }
 
                 if ($result === false) {

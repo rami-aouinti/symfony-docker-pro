@@ -22,7 +22,7 @@ class HtmlDumper extends \ECSPrefix20210918\Symfony\Component\VarDumper\Dumper\C
     public static $defaultOutput = 'php://output';
     protected static $themes = ['dark' => ['default' => 'background-color:#18171B; color:#FF8400; line-height:1.2em; font:12px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all', 'num' => 'font-weight:bold; color:#1299DA', 'const' => 'font-weight:bold', 'str' => 'font-weight:bold; color:#56DB3A', 'note' => 'color:#1299DA', 'ref' => 'color:#A0A0A0', 'public' => 'color:#FFFFFF', 'protected' => 'color:#FFFFFF', 'private' => 'color:#FFFFFF', 'meta' => 'color:#B729D9', 'key' => 'color:#56DB3A', 'index' => 'color:#1299DA', 'ellipsis' => 'color:#FF8400', 'ns' => 'user-select:none;'], 'light' => ['default' => 'background:none; color:#CC7832; line-height:1.2em; font:12px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all', 'num' => 'font-weight:bold; color:#1299DA', 'const' => 'font-weight:bold', 'str' => 'font-weight:bold; color:#629755;', 'note' => 'color:#6897BB', 'ref' => 'color:#6E6E6E', 'public' => 'color:#262626', 'protected' => 'color:#262626', 'private' => 'color:#262626', 'meta' => 'color:#B729D9', 'key' => 'color:#789339', 'index' => 'color:#1299DA', 'ellipsis' => 'color:#CC7832', 'ns' => 'user-select:none;']];
     protected $dumpHeader;
-    protected $dumpPrefix = '<pre class=sf-dump id=%s data-indent-pad="%s">';
+    protected $dumpPrefix = '<pre class=sf-dump id=%s product-indent-pad="%s">';
     protected $dumpSuffix = '</pre><script>Sfdump(%s)</script>';
     protected $dumpId = 'sf-dump';
     protected $colors = \true;
@@ -253,7 +253,7 @@ function resetHighlightedNodes(root) {
 return function (root, x) {
     root = doc.getElementById(root);
 
-    var indentRx = new RegExp('^('+(root.getAttribute('data-indent-pad') || '  ').replace(rxEsc, '\\$1')+')+', 'm'),
+    var indentRx = new RegExp('^('+(root.getAttribute('product-indent-pad') || '  ').replace(rxEsc, '\\$1')+')+', 'm'),
         options = {$options},
         elt = root.getElementsByTagName('A'),
         len = elt.length,
@@ -382,7 +382,7 @@ return function (root, x) {
 
             x = 1;
             if ('sf-dump' != elt.parentNode.className) {
-                x += elt.parentNode.getAttribute('data-depth')/1;
+                x += elt.parentNode.getAttribute('product-depth')/1;
             }
         } else if (/\bsf-dump-ref\b/.test(elt.className) && (a = elt.getAttribute('href'))) {
             a = a.substr(1);
@@ -630,7 +630,7 @@ pre.sf-dump img {
     max-height: 50em;
     margin: .5em 0 0 0;
     padding: 0;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAHUlEQVQY02O8zAABilCaiQEN0EeA8QuUcX9g3QEAAjcC5piyhyEAAAAASUVORK5CYII=) #D3D3D3;
+    background: url(product:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAHUlEQVQY02O8zAABilCaiQEN0EeA8QuUcX9g3QEAAjcC5piyhyEAAAAASUVORK5CYII=) #D3D3D3;
 }
 pre.sf-dump .sf-dump-ellipsis {
     display: inline-block;
@@ -743,13 +743,13 @@ EOHTML
      */
     public function dumpString($cursor, $str, $bin, $cut)
     {
-        if ('' === $str && isset($cursor->attr['img-data'], $cursor->attr['content-type'])) {
+        if ('' === $str && isset($cursor->attr['img-product'], $cursor->attr['content-type'])) {
             $this->dumpKey($cursor);
             $this->line .= $this->style('default', $cursor->attr['img-size'] ?? '', []);
             $this->line .= $cursor->depth >= $this->displayOptions['maxDepth'] ? ' <samp class=sf-dump-compact>' : ' <samp class=sf-dump-expanded>';
             $this->endValue($cursor);
             $this->line .= $this->indentPad;
-            $this->line .= \sprintf('<img src="data:%s;base64,%s" /></samp>', $cursor->attr['content-type'], \base64_encode($cursor->attr['img-data']));
+            $this->line .= \sprintf('<img src="product:%s;base64,%s" /></samp>', $cursor->attr['content-type'], \base64_encode($cursor->attr['img-product']));
             $this->endValue($cursor);
         } else {
             parent::dumpString($cursor, $str, $bin, $cut);
@@ -775,7 +775,7 @@ EOHTML
             $eol = ' class=sf-dump-expanded>';
         }
         if ($hasChild) {
-            $this->line .= '<samp data-depth=' . ($cursor->depth + 1);
+            $this->line .= '<samp product-depth=' . ($cursor->depth + 1);
             if ($cursor->refIndex) {
                 $r = \ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\Cursor::HASH_OBJECT !== $type ? 1 - (\ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\Cursor::HASH_RESOURCE !== $type) : 2;
                 $r .= $r && 0 < $cursor->softRefHandle ? $cursor->softRefHandle : $cursor->refIndex;

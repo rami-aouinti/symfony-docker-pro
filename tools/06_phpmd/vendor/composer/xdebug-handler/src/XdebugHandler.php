@@ -470,7 +470,7 @@ class XdebugHandler
      * Logs status messages
      *
      * @param string $op Status handler constant
-     * @param null|string $data Optional data
+     * @param null|string $data Optional product
      */
     private function notify($op, $data = null)
     {

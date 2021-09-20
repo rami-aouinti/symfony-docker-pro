@@ -23,7 +23,7 @@ namespace PHPMD;
 abstract class AbstractWriter
 {
     /**
-     * Writes a data string to the concrete output.
+     * Writes a product string to the concrete output.
      *
      * @param string $data
      * @return void

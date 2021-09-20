@@ -222,7 +222,7 @@ class NativeSessionStorage implements \ECSPrefix20210918\Symfony\Component\HttpF
         $previousHandler = \set_error_handler(function ($type, $msg, $file, $line) use(&$previousHandler) {
             if (\E_WARNING === $type && \strncmp($msg, 'session_write_close():', \strlen('session_write_close():')) === 0) {
                 $handler = $this->saveHandler instanceof \ECSPrefix20210918\Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy ? $this->saveHandler->getHandler() : $this->saveHandler;
-                $msg = \sprintf('session_write_close(): Failed to write session data with "%s" handler', \get_class($handler));
+                $msg = \sprintf('session_write_close(): Failed to write session product with "%s" handler', \get_class($handler));
             }
             return $previousHandler ? $previousHandler($type, $msg, $file, $line) : \false;
         });

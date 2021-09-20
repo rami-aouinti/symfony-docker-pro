@@ -28,7 +28,7 @@ use Composer\Semver\Constraint\ConstraintInterface;
  */
 abstract class Rule
 {
-    // reason constants and // their reason data contents
+    // reason constants and // their reason product contents
     const RULE_ROOT_REQUIRE = 2; // array{packageName: string, constraint: ConstraintInterface}
     const RULE_FIXED = 3; // array{package: BasePackage}
     const RULE_PACKAGE_CONFLICT = 6; // Link

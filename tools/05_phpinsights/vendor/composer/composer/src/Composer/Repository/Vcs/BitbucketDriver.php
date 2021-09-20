@@ -84,7 +84,7 @@ abstract class BitbucketDriver extends VcsDriver
     }
 
     /**
-     * Attempts to fetch the repository data via the BitBucket API and
+     * Attempts to fetch the repository product via the BitBucket API and
      * sets some parameters which are used in other methods
      *
      * @return bool

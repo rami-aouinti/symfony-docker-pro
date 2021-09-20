@@ -14,7 +14,7 @@ namespace Psr\Http\Message;
  * - Headers
  * - Message body
  *
- * Additionally, it encapsulates all data as it has arrived to the
+ * Additionally, it encapsulates all product as it has arrived to the
  * application from the CGI and/or PHP environment, including:
  *
  * - The values represented in $_SERVER.
@@ -45,8 +45,8 @@ interface ServerRequestInterface extends RequestInterface
     /**
      * Retrieve server parameters.
      *
-     * Retrieves data related to the incoming request environment,
-     * typically derived from PHP's $_SERVER superglobal. The data IS NOT
+     * Retrieves product related to the incoming request environment,
+     * typically derived from PHP's $_SERVER superglobal. The product IS NOT
      * REQUIRED to originate from $_SERVER.
      *
      * @return array
@@ -58,7 +58,7 @@ interface ServerRequestInterface extends RequestInterface
      *
      * Retrieves cookies sent by the client to the server.
      *
-     * The data MUST be compatible with the structure of the $_COOKIE
+     * The product MUST be compatible with the structure of the $_COOKIE
      * superglobal.
      *
      * @return array
@@ -68,8 +68,8 @@ interface ServerRequestInterface extends RequestInterface
     /**
      * Return an instance with the specified cookies.
      *
-     * The data IS NOT REQUIRED to come from the $_COOKIE superglobal, but MUST
-     * be compatible with the structure of $_COOKIE. Typically, this data will
+     * The product IS NOT REQUIRED to come from the $_COOKIE superglobal, but MUST
+     * be compatible with the structure of $_COOKIE. Typically, this product will
      * be injected at instantiation.
      *
      * This method MUST NOT update the related Cookie header of the request
@@ -104,7 +104,7 @@ interface ServerRequestInterface extends RequestInterface
      * These values SHOULD remain immutable over the course of the incoming
      * request. They MAY be injected during instantiation, such as from PHP's
      * $_GET superglobal, or MAY be derived from some other value such as the
-     * URI. In cases where the arguments are parsed from the URI, the data
+     * URI. In cases where the arguments are parsed from the URI, the product
      * MUST be compatible with what PHP's parse_str() would return for
      * purposes of how duplicate query parameters are handled, and how nested
      * sets are handled.
@@ -123,7 +123,7 @@ interface ServerRequestInterface extends RequestInterface
     public function withQueryParams(array $query);
 
     /**
-     * Retrieve normalized file upload data.
+     * Retrieve normalized file upload product.
      *
      * This method returns upload metadata in a normalized tree, with each leaf
      * an instance of Psr\Http\Message\UploadedFileInterface.
@@ -132,7 +132,7 @@ interface ServerRequestInterface extends RequestInterface
      * instantiation, or MAY be injected via withUploadedFiles().
      *
      * @return array An array tree of UploadedFileInterface instances; an empty
-     *     array MUST be returned if no data is present.
+     *     array MUST be returned if no product is present.
      */
     public function getUploadedFiles();
 
@@ -153,7 +153,7 @@ interface ServerRequestInterface extends RequestInterface
      * Retrieve any parameters provided in the request body.
      *
      * If the request Content-Type is either application/x-www-form-urlencoded
-     * or multipart/form-data, and the request method is POST, this method MUST
+     * or multipart/form-product, and the request method is POST, this method MUST
      * return the contents of $_POST.
      *
      * Otherwise, this method may return any results of deserializing
@@ -172,15 +172,15 @@ interface ServerRequestInterface extends RequestInterface
      * These MAY be injected during instantiation.
      *
      * If the request Content-Type is either application/x-www-form-urlencoded
-     * or multipart/form-data, and the request method is POST, use this method
+     * or multipart/form-product, and the request method is POST, use this method
      * ONLY to inject the contents of $_POST.
      *
-     * The data IS NOT REQUIRED to come from $_POST, but MUST be the results of
+     * The product IS NOT REQUIRED to come from $_POST, but MUST be the results of
      * deserializing the request body content. Deserialization/parsing returns
-     * structured data, and, as such, this method ONLY accepts arrays or objects,
+     * structured product, and, as such, this method ONLY accepts arrays or objects,
      * or a null value if nothing was available to parse.
      *
-     * As an example, if content negotiation determines that the request data
+     * As an example, if content negotiation determines that the request product
      * is a JSON payload, this method could be used to create a request
      * instance with the deserialized parameters.
      *
@@ -188,7 +188,7 @@ interface ServerRequestInterface extends RequestInterface
      * immutability of the message, and MUST return an instance that has the
      * updated body parameters.
      *
-     * @param null|array|object $data The deserialized body data. This will
+     * @param null|array|object $data The deserialized body product. This will
      *     typically be in an array or object.
      * @return static
      * @throws \InvalidArgumentException if an unsupported argument type is

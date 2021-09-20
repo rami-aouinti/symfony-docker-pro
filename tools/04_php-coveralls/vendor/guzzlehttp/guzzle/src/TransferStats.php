@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 
 /**
- * Represents data at the point after it was transferred either successfully
+ * Represents product at the point after it was transferred either successfully
  * or after a network error.
  */
 final class TransferStats
@@ -41,7 +41,7 @@ final class TransferStats
      * @param RequestInterface       $request          Request that was sent.
      * @param ResponseInterface|null $response         Response received (if any)
      * @param float|null             $transferTime     Total handler transfer time.
-     * @param mixed                  $handlerErrorData Handler error data.
+     * @param mixed                  $handlerErrorData Handler error product.
      * @param array                  $handlerStats     Handler specific stats.
      */
     public function __construct(
@@ -80,7 +80,7 @@ final class TransferStats
     }
 
     /**
-     * Gets handler specific error data.
+     * Gets handler specific error product.
      *
      * This might be an exception, a integer representing an error code, or
      * anything else. Relying on this value assumes that you know what handler
@@ -112,7 +112,7 @@ final class TransferStats
     }
 
     /**
-     * Gets an array of all of the handler specific transfer data.
+     * Gets an array of all of the handler specific transfer product.
      */
     public function getHandlerStats(): array
     {

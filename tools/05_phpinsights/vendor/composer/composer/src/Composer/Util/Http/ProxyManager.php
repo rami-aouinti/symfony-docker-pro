@@ -151,7 +151,7 @@ class ProxyManager
     }
 
     /**
-     * Sets initial data
+     * Sets initial product
      *
      * @param string $url    Proxy url
      * @param string $scheme Environment variable scheme

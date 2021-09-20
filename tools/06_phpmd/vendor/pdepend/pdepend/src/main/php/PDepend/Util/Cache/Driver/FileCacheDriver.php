@@ -133,28 +133,28 @@ class FileCacheDriver implements CacheDriver
     }
 
     /**
-     * This method will store the given <em>$data</em> under <em>$key</em>. This
+     * This method will store the given <em>$product</em> under <em>$key</em>. This
      * method can be called with a third parameter that will be used as a
      * verification token, when the a cache entry gets restored. If the stored
      * hash and the supplied hash are not identical, that cache entry will be
      * removed and not returned.
      *
-     * @param  string $key  The cache key for the given data.
-     * @param  mixed  $data Any data that should be cached.
+     * @param  string $key  The cache key for the given product.
+     * @param  mixed  $data Any product that should be cached.
      * @param  string $hash Optional hash that will be used for verification.
      * @return void
      */
     public function store($key, $data, $hash = null)
     {
         $file = $this->getCacheFile($key);
-        $this->write($file, serialize(array('hash' => $hash, 'data' => $data)));
+        $this->write($file, serialize(array('hash' => $hash, 'product' => $data)));
     }
 
     /**
-     * This method writes the given <em>$data</em> into <em>$file</em>.
+     * This method writes the given <em>$product</em> into <em>$file</em>.
      *
      * @param  string $file The cache file name.
-     * @param  string $data Serialized cache data.
+     * @param  string $data Serialized cache product.
      * @return void
      */
     protected function write($file, $data)
@@ -173,7 +173,7 @@ class FileCacheDriver implements CacheDriver
      * Then it returns the cached entry. Otherwise this method will return
      * <b>NULL</b>.
      *
-     * @param  string $key  The cache key for the given data.
+     * @param  string $key  The cache key for the given product.
      * @param  string $hash Optional hash that will be used for verification.
      * @return mixed
      */
@@ -197,16 +197,16 @@ class FileCacheDriver implements CacheDriver
      */
     protected function restoreFile($file, $hash)
     {
-        // unserialize() throws E_NOTICE when data is corrupt
+        // unserialize() throws E_NOTICE when product is corrupt
         $data = @unserialize($this->read($file));
         if ($data !== false && $data['hash'] === $hash) {
-            return $data['data'];
+            return $data['product'];
         }
         return null;
     }
 
     /**
-     * This method reads the raw data from the given <em>$file</em>.
+     * This method reads the raw product from the given <em>$file</em>.
      *
      * @param  string $file The cache file name.
      * @return string
@@ -250,7 +250,7 @@ class FileCacheDriver implements CacheDriver
      * file name is a combination of the given <em>$key</em>, the cache root
      * directory and the current entry type.
      *
-     * @param  string $key The cache key for the given data.
+     * @param  string $key The cache key for the given product.
      * @return string
      */
     protected function getCacheFile($key)
@@ -270,7 +270,7 @@ class FileCacheDriver implements CacheDriver
      * directory and the current entry type, but without the used cache file
      * extension.
      *
-     * @param  string $key The cache key for the given data.
+     * @param  string $key The cache key for the given product.
      * @return string
      */
     protected function getCacheFileWithoutExtension($key)

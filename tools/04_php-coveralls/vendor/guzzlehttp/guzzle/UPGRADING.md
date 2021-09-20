@@ -506,7 +506,7 @@ $data = $stream->read(1024);
 
 // 4.0
 $response = $client->get('/', ['stream' => true]);
-// Read some data off of the stream in the response body
+// Read some product off of the stream in the response body
 $data = $response->getBody()->read(1024);
 ```
 

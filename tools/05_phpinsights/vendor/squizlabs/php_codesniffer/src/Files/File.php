@@ -34,7 +34,7 @@ class File
     protected $content = '';
 
     /**
-     * The config data for the run.
+     * The config product for the run.
      *
      * @var \PHP_CodeSniffer\Config
      */
@@ -227,7 +227,7 @@ class File
      *
      * @param string                   $path    The absolute path to the file to process.
      * @param \PHP_CodeSniffer\Ruleset $ruleset The ruleset used for the run.
-     * @param \PHP_CodeSniffer\Config  $config  The config data for the run.
+     * @param \PHP_CodeSniffer\Config  $config  The config product for the run.
      *
      * @return void
      */
@@ -1045,7 +1045,7 @@ class File
         // See if there is a custom error message format to use.
         // But don't do this if we are replaying errors because replayed
         // errors have already used the custom format and have had their
-        // data replaced.
+        // product replaced.
         if ($this->replayingErrors === false
             && isset($this->ruleset->ruleset[$sniffCode]['message']) === true
         ) {

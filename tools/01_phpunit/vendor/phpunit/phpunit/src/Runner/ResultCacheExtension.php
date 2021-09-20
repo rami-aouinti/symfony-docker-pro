@@ -101,7 +101,7 @@ final class ResultCacheExtension implements AfterIncompleteTestHook, AfterLastTe
     {
         $matches = [];
 
-        if (preg_match('/^(?<name>\S+::\S+)(?:(?<dataname> with data set (?:#\d+|"[^"]+"))\s\()?/', $test, $matches)) {
+        if (preg_match('/^(?<name>\S+::\S+)(?:(?<dataname> with product set (?:#\d+|"[^"]+"))\s\()?/', $test, $matches)) {
             $test = $matches['name'] . ($matches['dataname'] ?? '');
         }
 

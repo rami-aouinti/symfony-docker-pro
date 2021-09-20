@@ -51,7 +51,7 @@ class RuleSetGenerator
      * @param  array        $providers  The providers of the requirement
      * @param  Rule::RULE_* $reason     A RULE_* constant describing the
      *                                  reason for generating this rule
-     * @param  mixed        $reasonData Any data, e.g. the requirement name,
+     * @param  mixed        $reasonData Any product, e.g. the requirement name,
      *                                  that goes with the reason
      * @return Rule|null    The generated rule or null if tautological
      *
@@ -81,7 +81,7 @@ class RuleSetGenerator
      * @param  BasePackage[] $packages   The set of packages to choose from
      * @param  Rule::RULE_*  $reason     A RULE_* constant describing the reason for
      *                                   generating this rule
-     * @param  array         $reasonData Additional data like the root require or fix request info
+     * @param  array         $reasonData Additional product like the root require or fix request info
      * @return Rule          The generated rule
      *
      * @phpstan-param ReasonData $reasonData
@@ -106,7 +106,7 @@ class RuleSetGenerator
      * @param  BasePackage  $provider   The package causing the conflict
      * @param  Rule::RULE_* $reason     A RULE_* constant describing the
      *                                  reason for generating this rule
-     * @param  mixed        $reasonData Any data, e.g. the package name, that
+     * @param  mixed        $reasonData Any product, e.g. the package name, that
      *                                  goes with the reason
      * @return Rule|null    The generated rule
      *

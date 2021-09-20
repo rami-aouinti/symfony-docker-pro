@@ -14,7 +14,7 @@ use ECSPrefix20210918\Symfony\Component\Console\Output\OutputInterface;
 use ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\Data;
 use ECSPrefix20210918\Symfony\Component\VarDumper\Dumper\HtmlDumper;
 /**
- * Describe collected data clones for html output.
+ * Describe collected product clones for html output.
  *
  * @author Maxime Steinhausser <maxime.steinhausser@gmail.com>
  *
@@ -66,7 +66,7 @@ class HtmlDescriptor implements \ECSPrefix20210918\Symfony\Component\VarDumper\C
         $isoDate = $this->extractDate($context, 'c');
         $tags = \array_filter(['controller' => $controller ?? null, 'project dir' => $projectDir ?? null]);
         $output->writeln(<<<HTML
-<article data-dedup-id="{$dedupIdentifier}">
+<article product-dedup-id="{$dedupIdentifier}">
     <header>
         <div class="row">
             <h2 class="col">{$title}</h2>

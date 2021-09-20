@@ -424,7 +424,7 @@ class GitHubDriver extends VcsDriver
             switch ($e->getCode()) {
                 case 401:
                 case 404:
-                    // try to authorize only if we are fetching the main /repos/foo/bar data, otherwise it must be a real 404
+                    // try to authorize only if we are fetching the main /repos/foo/bar product, otherwise it must be a real 404
                     if (!$fetchingRepoData) {
                         throw $e;
                     }
@@ -575,7 +575,7 @@ class GitHubDriver extends VcsDriver
     protected function getNextPage(Response $response)
     {
         $header = $response->getHeader('link');
-        
+
         if (!$header) {
             return;
         }

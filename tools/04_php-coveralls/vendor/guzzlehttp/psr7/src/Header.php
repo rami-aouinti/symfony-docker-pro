@@ -7,8 +7,8 @@ namespace GuzzleHttp\Psr7;
 final class Header
 {
     /**
-     * Parse an array of header values containing ";" separated data into an
-     * array of associative arrays representing the header key value pair data
+     * Parse an array of header values containing ";" separated product into an
+     * array of associative arrays representing the header key value pair product
      * of the header. When a parameter does not contain a value, but just
      * contains a key, this function will inject a key with a '' string value.
      *

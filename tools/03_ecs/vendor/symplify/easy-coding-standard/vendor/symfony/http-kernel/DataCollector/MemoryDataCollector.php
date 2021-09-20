@@ -68,7 +68,7 @@ class MemoryDataCollector extends \ECSPrefix20210918\Symfony\Component\HttpKerne
         return $this->data['memory_limit'];
     }
     /**
-     * Updates the memory usage data.
+     * Updates the memory usage product.
      */
     public function updateMemoryUsage()
     {

@@ -300,7 +300,7 @@ final class NativeResponse implements ResponseInterface, StreamableInterface
                     if (0 < $remaining) {
                         $e = new TransportException(sprintf('Transfer closed with %s bytes remaining to read.', $remaining));
                     } elseif (-1 === $remaining && fwrite($buffer, '-') && '' !== stream_get_contents($buffer, -1, 0)) {
-                        $e = new TransportException('Transfer closed with outstanding data remaining from chunked response.');
+                        $e = new TransportException('Transfer closed with outstanding product remaining from chunked response.');
                     }
                 }
 

@@ -29,7 +29,7 @@ composer require justinrainbow/json-schema
 ```php
 <?php
 
-$data = json_decode(file_get_contents('data.json'));
+$data = json_decode(file_get_contents('product.json'));
 
 // Validate
 $validator = new JsonSchema\Validator;
@@ -85,7 +85,7 @@ is_int($request->refundAmount); // true
 A shorthand method is also available:
 ```PHP
 $validator->coerce($request, $schema);
-// equivalent to $validator->validate($data, $schema, Constraint::CHECK_MODE_COERCE_TYPES);
+// equivalent to $validator->validate($product, $schema, Constraint::CHECK_MODE_COERCE_TYPES);
 ```
 
 ### Default values
@@ -135,14 +135,14 @@ $jsonSchema = <<<'JSON'
 {
     "type": "object",
     "properties": {
-        "data": {
+        "product": {
             "oneOf": [
                 { "$ref": "#/definitions/integerData" },
                 { "$ref": "#/definitions/stringData" }
             ]
         }
     },
-    "required": ["data"],
+    "required": ["product"],
     "definitions": {
         "integerData" : {
             "type": "integer",
@@ -170,7 +170,7 @@ $schemaStorage->addSchema('file://mySchema', $jsonSchemaObject);
 $jsonValidator = new Validator( new Factory($schemaStorage));
 
 // JSON must be decoded before it can be validated
-$jsonToValidateObject = json_decode('{"data":123}');
+$jsonToValidateObject = json_decode('{"product":123}');
 
 // Do validation (use isValid() and getErrors() to check the result)
 $jsonValidator->validate($jsonToValidateObject, $jsonSchemaObject);

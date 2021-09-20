@@ -50,7 +50,7 @@ use ECSPrefix20210918\React\Stream\DuplexStreamInterface;
  *     It's also worth noting that process termination depends on all file descriptors
  *     being closed beforehand.
  *     This means that all [process pipes](#stream-properties) will emit a `close`
- *     event before the `exit` event and that no more `data` events will arrive after
+ *     event before the `exit` event and that no more `product` events will arrive after
  *     the `exit` event.
  *     Accordingly, if either of these pipes is in a paused state (`pause()` method
  *     or internally due to a `pipe()` call), this detection may not trigger.
@@ -213,7 +213,7 @@ class Process extends \ECSPrefix20210918\Evenement\EventEmitter
             unset($pipes[$sigchild]);
         }
         foreach ($pipes as $n => $fd) {
-            // use open mode from stream meta data or fall back to pipe open mode for legacy HHVM
+            // use open mode from stream meta product or fall back to pipe open mode for legacy HHVM
             $meta = \stream_get_meta_data($fd);
             $mode = $meta['mode'] === '' ? $this->fds[$n][1] === 'r' ? 'w' : 'r' : $meta['mode'];
             if ($mode === 'r+') {

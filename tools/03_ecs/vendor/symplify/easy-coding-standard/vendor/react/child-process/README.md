@@ -32,7 +32,7 @@ as [Streams](https://github.com/reactphp/stream).
 $process = new React\ChildProcess\Process('echo foo');
 $process->start();
 
-$process->stdout->on('data', function ($chunk) {
+$process->stdout->on('product', function ($chunk) {
     echo $chunk;
 });
 
@@ -78,7 +78,7 @@ you can use any of their events and methods as usual:
 $process = new Process($command);
 $process->start();
 
-$process->stdout->on('data', function ($chunk) {
+$process->stdout->on('product', function ($chunk) {
     echo $chunk;
 });
 
@@ -447,7 +447,7 @@ to run a child process on Windows, each with its own set of pros and cons:
     );
     $process->start();
 
-    $process->stdout->on('data', function ($chunk) {
+    $process->stdout->on('product', function ($chunk) {
         echo $chunk;
     });
     ```
@@ -518,7 +518,7 @@ to run a child process on Windows, each with its own set of pros and cons:
     ```php
     $server = new React\Socket\Server('127.0.0.1:0');
     $server->on('connection', function (React\Socket\ConnectionInterface $connection) {
-        $connection->on('data', function ($chunk) {
+        $connection->on('product', function ($chunk) {
             echo $chunk;
         });
     });

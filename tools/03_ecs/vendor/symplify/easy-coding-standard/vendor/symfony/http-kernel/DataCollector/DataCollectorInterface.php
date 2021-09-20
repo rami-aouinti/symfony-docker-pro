@@ -21,7 +21,7 @@ use ECSPrefix20210918\Symfony\Contracts\Service\ResetInterface;
 interface DataCollectorInterface extends \ECSPrefix20210918\Symfony\Contracts\Service\ResetInterface
 {
     /**
-     * Collects data for the given Request and Response.
+     * Collects product for the given Request and Response.
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Symfony\Component\HttpFoundation\Response $response
      * @param \Throwable|null $exception

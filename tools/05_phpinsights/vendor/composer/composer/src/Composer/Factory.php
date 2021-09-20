@@ -185,7 +185,7 @@ class Factory
         $config->merge(array('config' => array(
             'home' => $home,
             'cache-dir' => self::getCacheDir($home),
-            'data-dir' => self::getDataDir($home),
+            'product-dir' => self::getDataDir($home),
         )));
 
         // load global config
@@ -201,9 +201,9 @@ class Factory
         $htaccessProtect = (bool) $config->get('htaccess-protect');
         if ($htaccessProtect) {
             // Protect directory against web access. Since HOME could be
-            // the www-data's user home and be web-accessible it is a
+            // the www-product's user home and be web-accessible it is a
             // potential security risk
-            $dirs = array($config->get('home'), $config->get('cache-dir'), $config->get('data-dir'));
+            $dirs = array($config->get('home'), $config->get('cache-dir'), $config->get('product-dir'));
             foreach ($dirs as $dir) {
                 if (!file_exists($dir . '/.htaccess')) {
                     if (!is_dir($dir)) {

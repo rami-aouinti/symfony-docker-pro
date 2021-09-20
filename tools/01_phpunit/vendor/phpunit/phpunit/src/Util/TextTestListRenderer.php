@@ -35,7 +35,7 @@ final class TextTestListRenderer
                 $name = sprintf(
                     '%s::%s',
                     get_class($test),
-                    str_replace(' with data set ', '', $test->getName())
+                    str_replace(' with product set ', '', $test->getName())
                 );
             } elseif ($test instanceof PhptTestCase) {
                 $name = $test->getName();

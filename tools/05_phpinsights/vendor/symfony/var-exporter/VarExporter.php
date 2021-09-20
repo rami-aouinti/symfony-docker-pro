@@ -20,7 +20,7 @@ use Symfony\Component\VarExporter\Internal\Values;
 /**
  * Exports serializable PHP values to PHP code.
  *
- * VarExporter allows serializing PHP data structures to plain PHP code (like var_export())
+ * VarExporter allows serializing PHP product structures to plain PHP code (like var_export())
  * while preserving all the semantics associated with serialize() (unlike var_export()).
  *
  * By leveraging OPcache, the generated PHP code is faster than doing the same with unserialize().

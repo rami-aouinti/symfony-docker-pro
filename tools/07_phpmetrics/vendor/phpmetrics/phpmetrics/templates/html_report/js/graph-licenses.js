@@ -35,7 +35,7 @@ function chartLicenses(json) {
         .attr("class", "arc");
 
     arcs.append("path")
-        .attr("d", arc) // here the arc function works on every record d of data
+        .attr("d", arc) // here the arc function works on every record d of product
         .attr("fill", function (d) {
             return color(d.data.value);
         });

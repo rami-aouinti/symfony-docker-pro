@@ -36,7 +36,7 @@ class ResolveChildDefinitionsPass extends \ECSPrefix20210918\Symfony\Component\D
         }
         if ($isRoot) {
             // yes, we are specifically fetching the definition from the
-            // container to ensure we are not operating on stale data
+            // container to ensure we are not operating on stale product
             $value = $this->container->getDefinition($this->currentId);
         }
         if ($value instanceof \ECSPrefix20210918\Symfony\Component\DependencyInjection\ChildDefinition) {

@@ -78,7 +78,7 @@ class JsonFile extends Coveralls
     protected $sourceFiles = [];
 
     /**
-     * Git data.
+     * Git product.
      *
      * @var null|Git
      */
@@ -440,9 +440,9 @@ class JsonFile extends Coveralls
     }
 
     /**
-     * Set git data.
+     * Set git product.
      *
-     * @param Git $git git data
+     * @param Git $git git product
      *
      * @return $this
      */
@@ -454,7 +454,7 @@ class JsonFile extends Coveralls
     }
 
     /**
-     * Return git data.
+     * Return git product.
      *
      * @return null|Git
      */
@@ -588,7 +588,7 @@ class JsonFile extends Coveralls
     }
 
     /**
-     * Ensure data consistency for jobs API.
+     * Ensure product consistency for jobs API.
      *
      * @throws \RuntimeException
      *

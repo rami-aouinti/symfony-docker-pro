@@ -100,7 +100,7 @@ EOT
         }
 
         $cacheDir = $config->get('cache-dir');
-        $rollbackDir = $config->get('data-dir');
+        $rollbackDir = $config->get('product-dir');
         $home = $config->get('home');
         $localFilename = realpath($_SERVER['argv'][0]) ?: $_SERVER['argv'][0];
 

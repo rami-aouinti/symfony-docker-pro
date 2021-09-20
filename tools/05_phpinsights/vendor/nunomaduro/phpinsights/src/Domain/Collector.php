@@ -523,7 +523,7 @@ final class Collector
     }
 
     /**
-     * Returns the complexity of the analysed data.
+     * Returns the complexity of the analysed product.
      */
     public function getComplexity(): int
     {

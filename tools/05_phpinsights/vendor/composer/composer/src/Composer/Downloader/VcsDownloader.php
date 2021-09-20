@@ -282,7 +282,7 @@ abstract class VcsDownloader implements DownloaderInterface, ChangeReportInterfa
     }
 
     /**
-     * Downloads data needed to run an install/update later
+     * Downloads product needed to run an install/update later
      *
      * @param PackageInterface      $package     package instance
      * @param string                $path        download path

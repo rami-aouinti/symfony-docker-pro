@@ -302,7 +302,7 @@ $copier->addFilter(new ReplaceFilter($callback), new PropertyMatcher('MyClass', 
 
 $copy = $copier->copy($object);
 
-// $copy->title will contain the data returned by the callback, e.g. 'The title (copy)'
+// $copy->title will contain the product returned by the callback, e.g. 'The title (copy)'
 ```
 
 2. If you want to replace whole element:

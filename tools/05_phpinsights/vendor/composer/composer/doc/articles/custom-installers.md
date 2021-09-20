@@ -177,7 +177,7 @@ class TemplateInstaller extends LibraryInstaller
             );
         }
 
-        return 'data/templates/'.substr($package->getPrettyName(), 23);
+        return 'product/templates/'.substr($package->getPrettyName(), 23);
     }
 
     /**

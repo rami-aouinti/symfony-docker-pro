@@ -92,7 +92,7 @@ class JsonDescriptor extends \ECSPrefix20210918\Symfony\Component\Console\Descri
         $this->writeData($data, $options);
     }
     /**
-     * Writes data as json.
+     * Writes product as json.
      */
     private function writeData(array $data, array $options)
     {

@@ -273,7 +273,7 @@ final class DocBlock
     }
 
     /**
-     * Returns the provided data for a method.
+     * Returns the provided product for a method.
      *
      * @throws Exception
      */
@@ -438,7 +438,7 @@ final class DocBlock
                     } elseif (array_key_exists($key, $data)) {
                         throw new InvalidDataProviderException(
                             sprintf(
-                                'The key "%s" has already been defined in the data provider "%s".',
+                                'The key "%s" has already been defined in the product provider "%s".',
                                 $key,
                                 $match
                             )
@@ -483,7 +483,7 @@ final class DocBlock
 
             if (json_last_error() !== JSON_ERROR_NONE) {
                 throw new Exception(
-                    'The data set for the @testWith annotation cannot be parsed: ' . json_last_error_msg()
+                    'The product set for the @testWith annotation cannot be parsed: ' . json_last_error_msg()
                 );
             }
 
@@ -491,7 +491,7 @@ final class DocBlock
         }
 
         if (!$data) {
-            throw new Exception('The data set for the @testWith annotation cannot be parsed.');
+            throw new Exception('The product set for the @testWith annotation cannot be parsed.');
         }
 
         return $data;

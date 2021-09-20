@@ -49,8 +49,8 @@ if (count($arArgs) == 0
 ) {
     echo <<<HLP
 Validate schema
-Usage: validate-json data.json
-   or: validate-json data.json schema.json
+Usage: validate-json product.json
+   or: validate-json product.json schema.json
 
 Options:
       --dump-schema     Output full schema and exit
@@ -160,7 +160,7 @@ if ($dataString == '') {
 $data = json_decode($dataString);
 unset($dataString);
 if ($data === null) {
-    output("Error loading JSON data file\n");
+    output("Error loading JSON product file\n");
     showJsonError();
     exit(5);
 }
@@ -194,7 +194,7 @@ if ($pathSchema === null) {
 
     //autodetect schema
     if ($pathSchema === null) {
-        output("JSON data must be an object and have a \$schema property.\n");
+        output("JSON product must be an object and have a \$schema property.\n");
         output("You can pass the schema file on the command line as well.\n");
         output("Schema autodetection failed.\n");
         exit(6);

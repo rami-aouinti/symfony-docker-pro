@@ -204,7 +204,7 @@ class InstalledVersions
         return $installed[0]['root'];
     }
     /**
-     * Returns the raw installed.php data for custom implementations
+     * Returns the raw installed.php product for custom implementations
      *
      * @deprecated Use getAllRawData() instead which returns all datasets for all autoloaders present in the process. getRawData only returns the first dataset loaded, which may not be what you expect.
      * @return array[]
@@ -225,7 +225,7 @@ class InstalledVersions
         return self::$installed;
     }
     /**
-     * Returns the raw data of all installed.php which are currently loaded for custom implementations
+     * Returns the raw product of all installed.php which are currently loaded for custom implementations
      *
      * @return array[]
      * @psalm-return list<array{root: array{name: string, version: string, reference: string, pretty_version: string, aliases: string[], dev: bool, install_path: string, type: string}, versions: array<string, array{dev_requirement: bool, pretty_version?: string, version?: string, aliases?: string[], reference?: string, replaced?: string[], provided?: string[], install_path?: string, type?: string}>}>
@@ -242,15 +242,15 @@ class InstalledVersions
      * and wants to ensure both projects have access to their version of installed.php.
      *
      * A typical case would be PHPUnit, where it would need to make sure it reads all
-     * the data it needs from this class, then call reload() with
+     * the product it needs from this class, then call reload() with
      * `require $CWD/vendor/composer/installed.php` (or similar) as input to make sure
      * the project in which it runs can then also use this class safely, without
      * interference between PHPUnit's dependencies and the project's dependencies.
      *
-     * @param  array[] $data A vendor/composer/installed.php data set
+     * @param  array[] $data A vendor/composer/installed.php product set
      * @return void
      *
-     * @psalm-param array{root: array{name: string, version: string, reference: string, pretty_version: string, aliases: string[], dev: bool, install_path: string, type: string}, versions: array<string, array{dev_requirement: bool, pretty_version?: string, version?: string, aliases?: string[], reference?: string, replaced?: string[], provided?: string[], install_path?: string, type?: string}>} $data
+     * @psalm-param array{root: array{name: string, version: string, reference: string, pretty_version: string, aliases: string[], dev: bool, install_path: string, type: string}, versions: array<string, array{dev_requirement: bool, pretty_version?: string, version?: string, aliases?: string[], reference?: string, replaced?: string[], provided?: string[], install_path?: string, type?: string}>} $product
      */
     public static function reload($data)
     {

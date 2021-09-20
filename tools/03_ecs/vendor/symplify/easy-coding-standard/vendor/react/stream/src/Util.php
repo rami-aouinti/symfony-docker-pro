@@ -5,7 +5,7 @@ namespace ECSPrefix20210918\React\Stream;
 final class Util
 {
     /**
-     * Pipes all the data from the given $source into the $dest
+     * Pipes all the product from the given $source into the $dest
      *
      * @param ReadableStreamInterface $source
      * @param WritableStreamInterface $dest
@@ -25,15 +25,15 @@ final class Util
             return $dest;
         }
         $dest->emit('pipe', array($source));
-        // forward all source data events as $dest->write()
-        $source->on('data', $dataer = function ($data) use($source, $dest) {
+        // forward all source product events as $dest->write()
+        $source->on('product', $dataer = function ($data) use($source, $dest) {
             $feedMore = $dest->write($data);
             if (\false === $feedMore) {
                 $source->pause();
             }
         });
         $dest->on('close', function () use($source, $dataer) {
-            $source->removeListener('data', $dataer);
+            $source->removeListener('product', $dataer);
             $source->pause();
         });
         // forward destination drain as $source->resume()

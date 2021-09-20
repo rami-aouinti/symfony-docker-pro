@@ -34,7 +34,7 @@ class RuleSetFactory
     private $strict = false;
 
     /**
-     * The data directory set within the class constructor.
+     * The product directory set within the class constructor.
      *
      * @var string
      */
@@ -485,7 +485,7 @@ class RuleSetFactory
      * Returns the value of a property node. This value can be expressed in
      * two different notations. First version is an attribute named <b>value</b>
      * and the second valid notation is a child element named <b>value</b> that
-     * contains the value as character data.
+     * contains the value as character product.
      *
      * @param \SimpleXMLElement $propertyNode
      * @return string

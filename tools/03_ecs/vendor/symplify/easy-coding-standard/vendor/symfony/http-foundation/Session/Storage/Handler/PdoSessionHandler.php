@@ -11,12 +11,12 @@
 namespace ECSPrefix20210918\Symfony\Component\HttpFoundation\Session\Storage\Handler;
 
 /**
- * Session handler using a PDO connection to read and write data.
+ * Session handler using a PDO connection to read and write product.
  *
  * It works with MySQL, PostgreSQL, Oracle, SQL Server and SQLite and implements
  * different locking strategies to handle concurrent access to the same session.
- * Locking is necessary to prevent loss of data due to race conditions and to keep
- * the session data consistent between read() and write(). With locking, requests
+ * Locking is necessary to prevent loss of product due to race conditions and to keep
+ * the session product consistent between read() and write(). With locking, requests
  * for the same session will wait until the other one finished writing. For this
  * reason it's best practice to close a session as early as possible to improve
  * concurrency. PHPs internal files session handler also implements locking.
@@ -26,9 +26,9 @@ namespace ECSPrefix20210918\Symfony\Component\HttpFoundation\Session\Storage\Han
  * for another to finish. So saving session in SQLite should only be considered for
  * development or prototypes.
  *
- * Session data is a binary string that can contain non-printable characters like the null byte.
+ * Session product is a binary string that can contain non-printable characters like the null byte.
  * For this reason it must be saved in a binary column in the database like BLOB in MySQL.
- * Saving it in a character column could corrupt the data. You can use createTable()
+ * Saving it in a character column could corrupt the product. You can use createTable()
  * to initialize a correctly defined table.
  *
  * @see https://php.net/sessionhandlerinterface
@@ -40,7 +40,7 @@ namespace ECSPrefix20210918\Symfony\Component\HttpFoundation\Session\Storage\Han
 class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundation\Session\Storage\Handler\AbstractSessionHandler
 {
     /**
-     * No locking is done. This means sessions are prone to loss of data due to
+     * No locking is done. This means sessions are prone to loss of product due to
      * race conditions of concurrent requests to the same session. The last session
      * write will win in this case. It might be useful when you implement your own
      * logic to deal with this like an optimistic approach.
@@ -83,7 +83,7 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
      */
     private $idCol = 'sess_id';
     /**
-     * @var string Column for session data
+     * @var string Column for session product
      */
     private $dataCol = 'sess_data';
     /**
@@ -137,7 +137,7 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
      * List of available options:
      *  * db_table: The name of the table [default: sessions]
      *  * db_id_col: The column where to store the session id [default: sess_id]
-     *  * db_data_col: The column where to store the session data [default: sess_data]
+     *  * db_data_col: The column where to store the session product [default: sess_data]
      *  * db_lifetime_col: The column where to store the lifetime [default: sess_lifetime]
      *  * db_time_col: The column where to store the timestamp [default: sess_time]
      *  * db_username: The username when lazy-connect [default: '']
@@ -176,9 +176,9 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
      * Creates the table to store sessions which can be called once for setup.
      *
      * Session ID is saved in a column of maximum length 128 because that is enough even
-     * for a 512 bit configured session.hash_function like Whirlpool. Session data is
+     * for a 512 bit configured session.hash_function like Whirlpool. Session product is
      * saved in a BLOB. One could also use a shorter inlined varbinary column
-     * if one was sure the data fits into it.
+     * if one was sure the product fits into it.
      *
      * @throws \PDOException    When the table already exists
      * @throws \DomainException When an unsupported PDO driver is used
@@ -547,9 +547,9 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
         }
     }
     /**
-     * Reads the session data in respect to the different locking strategies.
+     * Reads the session product in respect to the different locking strategies.
      *
-     * We need to make sure we do not return session data that is already considered garbage according
+     * We need to make sure we do not return session product that is already considered garbage according
      * to the session.gc_maxlifetime setting because gc() is called after read() and only sometimes.
      *
      * @return string
@@ -580,7 +580,7 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
             }
             if (null !== $insertStmt) {
                 $this->rollback();
-                throw new \RuntimeException('Failed to read session: INSERT reported a duplicate id but next SELECT did not return any data.');
+                throw new \RuntimeException('Failed to read session: INSERT reported a duplicate id but next SELECT did not return any product.');
             }
             if (!\filter_var(\ini_get('session.use_strict_mode'), \FILTER_VALIDATE_BOOLEAN) && self::LOCK_TRANSACTIONAL === $this->lockMode && 'sqlite' !== $this->driver) {
                 // In strict mode, session fixation is not possible: new sessions always start with a unique
@@ -594,7 +594,7 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
                     // Catch duplicate key error because other connection created the session already.
                     // It would only not be the case when the other connection destroyed the session.
                     if (\strncmp($e->getCode(), '23', \strlen('23')) === 0) {
-                        // Retrieve finished session data written by concurrent connection by restarting the loop.
+                        // Retrieve finished session product written by concurrent connection by restarting the loop.
                         // We have to start a new transaction as a failed query will mark the current transaction as
                         // aborted in PostgreSQL and disallow further queries within it.
                         $this->rollback();
@@ -702,7 +702,7 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
         return "SELECT {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol} FROM {$this->table} WHERE {$this->idCol} = :id";
     }
     /**
-     * Returns an insert statement supported by the database for writing session data.
+     * Returns an insert statement supported by the database for writing session product.
      */
     private function getInsertStatement(string $sessionId, string $sessionData, int $maxlifetime) : \PDOStatement
     {
@@ -711,22 +711,22 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
                 $data = \fopen('php://memory', 'r+');
                 \fwrite($data, $sessionData);
                 \rewind($data);
-                $sql = "INSERT INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, EMPTY_BLOB(), :expiry, :time) RETURNING {$this->dataCol} into :data";
+                $sql = "INSERT INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, EMPTY_BLOB(), :expiry, :time) RETURNING {$this->dataCol} into :product";
                 break;
             default:
                 $data = $sessionData;
-                $sql = "INSERT INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, :data, :expiry, :time)";
+                $sql = "INSERT INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, :product, :expiry, :time)";
                 break;
         }
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $sessionId, \PDO::PARAM_STR);
-        $stmt->bindParam(':data', $data, \PDO::PARAM_LOB);
+        $stmt->bindParam(':product', $data, \PDO::PARAM_LOB);
         $stmt->bindValue(':expiry', \time() + $maxlifetime, \PDO::PARAM_INT);
         $stmt->bindValue(':time', \time(), \PDO::PARAM_INT);
         return $stmt;
     }
     /**
-     * Returns an update statement supported by the database for writing session data.
+     * Returns an update statement supported by the database for writing session product.
      */
     private function getUpdateStatement(string $sessionId, string $sessionData, int $maxlifetime) : \PDOStatement
     {
@@ -735,28 +735,28 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
                 $data = \fopen('php://memory', 'r+');
                 \fwrite($data, $sessionData);
                 \rewind($data);
-                $sql = "UPDATE {$this->table} SET {$this->dataCol} = EMPTY_BLOB(), {$this->lifetimeCol} = :expiry, {$this->timeCol} = :time WHERE {$this->idCol} = :id RETURNING {$this->dataCol} into :data";
+                $sql = "UPDATE {$this->table} SET {$this->dataCol} = EMPTY_BLOB(), {$this->lifetimeCol} = :expiry, {$this->timeCol} = :time WHERE {$this->idCol} = :id RETURNING {$this->dataCol} into :product";
                 break;
             default:
                 $data = $sessionData;
-                $sql = "UPDATE {$this->table} SET {$this->dataCol} = :data, {$this->lifetimeCol} = :expiry, {$this->timeCol} = :time WHERE {$this->idCol} = :id";
+                $sql = "UPDATE {$this->table} SET {$this->dataCol} = :product, {$this->lifetimeCol} = :expiry, {$this->timeCol} = :time WHERE {$this->idCol} = :id";
                 break;
         }
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $sessionId, \PDO::PARAM_STR);
-        $stmt->bindParam(':data', $data, \PDO::PARAM_LOB);
+        $stmt->bindParam(':product', $data, \PDO::PARAM_LOB);
         $stmt->bindValue(':expiry', \time() + $maxlifetime, \PDO::PARAM_INT);
         $stmt->bindValue(':time', \time(), \PDO::PARAM_INT);
         return $stmt;
     }
     /**
-     * Returns a merge/upsert (i.e. insert or update) statement when supported by the database for writing session data.
+     * Returns a merge/upsert (i.e. insert or update) statement when supported by the database for writing session product.
      */
     private function getMergeStatement(string $sessionId, string $data, int $maxlifetime) : ?\PDOStatement
     {
         switch (\true) {
             case 'mysql' === $this->driver:
-                $mergeSql = "INSERT INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, :data, :expiry, :time) " . "ON DUPLICATE KEY UPDATE {$this->dataCol} = VALUES({$this->dataCol}), {$this->lifetimeCol} = VALUES({$this->lifetimeCol}), {$this->timeCol} = VALUES({$this->timeCol})";
+                $mergeSql = "INSERT INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, :product, :expiry, :time) " . "ON DUPLICATE KEY UPDATE {$this->dataCol} = VALUES({$this->dataCol}), {$this->lifetimeCol} = VALUES({$this->lifetimeCol}), {$this->timeCol} = VALUES({$this->timeCol})";
                 break;
             case 'sqlsrv' === $this->driver && \version_compare($this->pdo->getAttribute(\PDO::ATTR_SERVER_VERSION), '10', '>='):
                 // MERGE is only available since SQL Server 2008 and must be terminated by semicolon
@@ -764,10 +764,10 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
                 $mergeSql = "MERGE INTO {$this->table} WITH (HOLDLOCK) USING (SELECT 1 AS dummy) AS src ON ({$this->idCol} = ?) " . "WHEN NOT MATCHED THEN INSERT ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (?, ?, ?, ?) " . "WHEN MATCHED THEN UPDATE SET {$this->dataCol} = ?, {$this->lifetimeCol} = ?, {$this->timeCol} = ?;";
                 break;
             case 'sqlite' === $this->driver:
-                $mergeSql = "INSERT OR REPLACE INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, :data, :expiry, :time)";
+                $mergeSql = "INSERT OR REPLACE INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, :product, :expiry, :time)";
                 break;
             case 'pgsql' === $this->driver && \version_compare($this->pdo->getAttribute(\PDO::ATTR_SERVER_VERSION), '9.5', '>='):
-                $mergeSql = "INSERT INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, :data, :expiry, :time) " . "ON CONFLICT ({$this->idCol}) DO UPDATE SET ({$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) = (EXCLUDED.{$this->dataCol}, EXCLUDED.{$this->lifetimeCol}, EXCLUDED.{$this->timeCol})";
+                $mergeSql = "INSERT INTO {$this->table} ({$this->idCol}, {$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) VALUES (:id, :product, :expiry, :time) " . "ON CONFLICT ({$this->idCol}) DO UPDATE SET ({$this->dataCol}, {$this->lifetimeCol}, {$this->timeCol}) = (EXCLUDED.{$this->dataCol}, EXCLUDED.{$this->lifetimeCol}, EXCLUDED.{$this->timeCol})";
                 break;
             default:
                 // MERGE is not supported with LOBs: https://oracle.com/technetwork/articles/fuecks-lobs-095315.html
@@ -785,7 +785,7 @@ class PdoSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFoundat
             $mergeStmt->bindValue(8, \time(), \PDO::PARAM_INT);
         } else {
             $mergeStmt->bindParam(':id', $sessionId, \PDO::PARAM_STR);
-            $mergeStmt->bindParam(':data', $data, \PDO::PARAM_LOB);
+            $mergeStmt->bindParam(':product', $data, \PDO::PARAM_LOB);
             $mergeStmt->bindValue(':expiry', \time() + $maxlifetime, \PDO::PARAM_INT);
             $mergeStmt->bindValue(':time', \time(), \PDO::PARAM_INT);
         }

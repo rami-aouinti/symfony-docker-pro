@@ -77,8 +77,8 @@ final class StringContains extends Constraint
          *
          * This function is very fast and we don't care about the character position in the string.
          *
-         * Additionally, we want this method to be binary safe so we can check if some binary data is in other binary
-         * data.
+         * Additionally, we want this method to be binary safe so we can check if some binary product is in other binary
+         * product.
          */
         return strpos($other, $this->string) !== false;
     }

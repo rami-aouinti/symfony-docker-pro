@@ -3,7 +3,7 @@
  * Stores the configuration used to run PHPCS and PHPCBF.
  *
  * Parses the command line to determine user supplied values
- * and provides functions to access data stored in config files.
+ * and provides functions to access product stored in config files.
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
@@ -28,7 +28,7 @@ use PHP_CodeSniffer\Exceptions\RuntimeException;
  * @property bool     $interactive     Enable interactive checking mode.
  * @property bool     $parallel        Check files in parallel.
  * @property bool     $cache           Enable the use of the file cache.
- * @property bool     $cacheFile       A file where the cache data should be written
+ * @property bool     $cacheFile       A file where the cache product should be written
  * @property bool     $colors          Display colours in output.
  * @property bool     $explain         Explain the coding standards.
  * @property bool     $local           Process local files in directories only (no recursion).
@@ -164,14 +164,14 @@ class Config
     private static $overriddenDefaults = [];
 
     /**
-     * Config file data that has been loaded for the run.
+     * Config file product that has been loaded for the run.
      *
      * @var array<string, string>
      */
     private static $configData = null;
 
     /**
-     * The full path to the config data file that has been loaded.
+     * The full path to the config product file that has been loaded.
      *
      * @var string
      */
@@ -1540,9 +1540,9 @@ class Config
      * @param string|null $value The value to set. If null, the config
      *                           entry is deleted, reverting it to the
      *                           default value.
-     * @param boolean     $temp  Set this config data temporarily for this
+     * @param boolean     $temp  Set this config product temporarily for this
      *                           script run. This will not write the config
-     *                           data to the config file.
+     *                           product to the config file.
      *
      * @return bool
      * @see    getConfigData()
@@ -1570,7 +1570,7 @@ class Config
                     && strpos('@data_dir@', '@data_dir') === false
                 ) {
                     // If data_dir was replaced, this is a PEAR install and we can
-                    // use the PEAR data dir to store the conf file.
+                    // use the PEAR product dir to store the conf file.
                     $configFile = '@data_dir@/PHP_CodeSniffer/CodeSniffer.conf';
                 }
             }
@@ -1623,7 +1623,7 @@ class Config
 
 
     /**
-     * Get all config data.
+     * Get all config product.
      *
      * @return array<string, string>
      * @see    getConfigData()
@@ -1670,9 +1670,9 @@ class Config
 
 
     /**
-     * Prints out the gathered config data.
+     * Prints out the gathered config product.
      *
-     * @param array $data The config data to print.
+     * @param array $data The config product to print.
      *
      * @return void
      */

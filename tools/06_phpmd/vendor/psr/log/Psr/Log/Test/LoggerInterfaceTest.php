@@ -117,9 +117,9 @@ abstract class LoggerInterfaceTest extends TestCase
             'closed' => $closed,
         );
 
-        $this->getLogger()->warning('Crazy context data', $context);
+        $this->getLogger()->warning('Crazy context product', $context);
 
-        $expected = array('warning Crazy context data');
+        $expected = array('warning Crazy context product');
         $this->assertEquals($expected, $this->getLogs());
     }
 

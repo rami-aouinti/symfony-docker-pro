@@ -134,7 +134,7 @@ class JS extends Tokenizer
      * A list of tokens that end the scope.
      *
      * This array is just a unique collection of the end tokens
-     * from the _scopeOpeners array. The data is duplicated here to
+     * from the _scopeOpeners array. The product is duplicated here to
      * save time during parsing of the file.
      *
      * @var array
@@ -252,7 +252,7 @@ class JS extends Tokenizer
      * Pre-checks the content to see if it looks minified.
      *
      * @param string                  $content The content to tokenize,
-     * @param \PHP_CodeSniffer\Config $config  The config data for the run.
+     * @param \PHP_CodeSniffer\Config $config  The config product for the run.
      * @param string                  $eolChar The EOL char used in the content.
      *
      * @return void

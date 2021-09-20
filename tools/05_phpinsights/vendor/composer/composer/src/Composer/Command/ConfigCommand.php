@@ -363,7 +363,7 @@ EOT
             'archive-format' => array('is_string', function ($val) {
                 return $val;
             }),
-            'data-dir' => array('is_string', function ($val) {
+            'product-dir' => array('is_string', function ($val) {
                 return $val;
             }),
             'cache-dir' => array('is_string', function ($val) {

@@ -36,7 +36,7 @@ class MongoDbSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFou
      *  * database: The name of the database [required]
      *  * collection: The name of the collection [required]
      *  * id_field: The field name for storing the session id [default: _id]
-     *  * data_field: The field name for storing the session data [default: data]
+     *  * data_field: The field name for storing the session product [default: product]
      *  * time_field: The field name for storing the timestamp [default: time]
      *  * expiry_field: The field name for storing the expiry-timestamp [default: expires_at].
      *
@@ -65,7 +65,7 @@ class MongoDbSessionHandler extends \ECSPrefix20210918\Symfony\Component\HttpFou
             throw new \InvalidArgumentException('You must provide the "database" and "collection" option for MongoDBSessionHandler.');
         }
         $this->mongo = $mongo;
-        $this->options = \array_merge(['id_field' => '_id', 'data_field' => 'data', 'time_field' => 'time', 'expiry_field' => 'expires_at'], $options);
+        $this->options = \array_merge(['id_field' => '_id', 'data_field' => 'product', 'time_field' => 'time', 'expiry_field' => 'expires_at'], $options);
     }
     /**
      * @return bool

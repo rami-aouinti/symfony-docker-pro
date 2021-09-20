@@ -25,7 +25,7 @@ class IdentityMarshaller implements \ECSPrefix20210918\Symfony\Component\Cache\M
     {
         foreach ($values as $key => $value) {
             if (!\is_string($value)) {
-                throw new \LogicException(\sprintf('%s accepts only string as data.', __METHOD__));
+                throw new \LogicException(\sprintf('%s accepts only string as product.', __METHOD__));
             }
         }
         return $values;

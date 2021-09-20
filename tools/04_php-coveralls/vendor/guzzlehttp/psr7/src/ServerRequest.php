@@ -13,7 +13,7 @@ use Psr\Http\Message\UriInterface;
 /**
  * Server-side HTTP request
  *
- * Extends the Request definition to add methods for accessing incoming data,
+ * Extends the Request definition to add methods for accessing incoming product,
  * specifically server parameters, cookies, matched path parameters, query
  * string arguments, body parameters, and upload file information.
  *

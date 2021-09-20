@@ -109,7 +109,7 @@ class Ruleset
     protected $rulesetDirs = [];
 
     /**
-     * The config data for the run.
+     * The config product for the run.
      *
      * @var \PHP_CodeSniffer\Config
      */
@@ -119,7 +119,7 @@ class Ruleset
     /**
      * Initialise the ruleset that the run will use.
      *
-     * @param \PHP_CodeSniffer\Config $config The config data for the run.
+     * @param \PHP_CodeSniffer\Config $config The config product for the run.
      *
      * @return void
      * @throws \PHP_CodeSniffer\Exceptions\RuntimeException If no sniffs were registered.

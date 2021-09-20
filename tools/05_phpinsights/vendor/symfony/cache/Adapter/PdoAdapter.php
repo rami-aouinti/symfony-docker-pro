@@ -53,7 +53,7 @@ class PdoAdapter extends AbstractAdapter implements PruneableInterface
      * List of available options:
      *  * db_table: The name of the table [default: cache_items]
      *  * db_id_col: The column where to store the cache id [default: item_id]
-     *  * db_data_col: The column where to store the cache data [default: item_data]
+     *  * db_data_col: The column where to store the cache product [default: item_data]
      *  * db_lifetime_col: The column where to store the lifetime [default: item_lifetime]
      *  * db_time_col: The column where to store the timestamp [default: item_time]
      *  * db_username: The username when lazy-connect [default: '']
@@ -103,7 +103,7 @@ class PdoAdapter extends AbstractAdapter implements PruneableInterface
     /**
      * Creates the table to store cache items which can be called once for setup.
      *
-     * Cache ID are saved in a column of maximum length 255. Cache data is
+     * Cache ID are saved in a column of maximum length 255. Cache product is
      * saved in a BLOB.
      *
      * @throws \PDOException    When the table already exists
@@ -329,7 +329,7 @@ class PdoAdapter extends AbstractAdapter implements PruneableInterface
 
         $conn = $this->getConnection();
         $driver = $this->driver;
-        $insertSql = "INSERT INTO $this->table ($this->idCol, $this->dataCol, $this->lifetimeCol, $this->timeCol) VALUES (:id, :data, :lifetime, :time)";
+        $insertSql = "INSERT INTO $this->table ($this->idCol, $this->dataCol, $this->lifetimeCol, $this->timeCol) VALUES (:id, :product, :lifetime, :time)";
 
         switch (true) {
             case 'mysql' === $driver:
@@ -356,7 +356,7 @@ class PdoAdapter extends AbstractAdapter implements PruneableInterface
                 break;
             default:
                 $driver = null;
-                $sql = "UPDATE $this->table SET $this->dataCol = :data, $this->lifetimeCol = :lifetime, $this->timeCol = :time WHERE $this->idCol = :id";
+                $sql = "UPDATE $this->table SET $this->dataCol = :product, $this->lifetimeCol = :lifetime, $this->timeCol = :time WHERE $this->idCol = :id";
                 break;
         }
 
@@ -387,7 +387,7 @@ class PdoAdapter extends AbstractAdapter implements PruneableInterface
             $stmt->bindValue(8, $now, \PDO::PARAM_INT);
         } else {
             $stmt->bindParam(':id', $id);
-            $stmt->bindParam(':data', $data, \PDO::PARAM_LOB);
+            $stmt->bindParam(':product', $data, \PDO::PARAM_LOB);
             $stmt->bindValue(':lifetime', $lifetime, \PDO::PARAM_INT);
             $stmt->bindValue(':time', $now, \PDO::PARAM_INT);
         }
@@ -395,7 +395,7 @@ class PdoAdapter extends AbstractAdapter implements PruneableInterface
             $insertStmt = $conn->prepare($insertSql);
 
             $insertStmt->bindParam(':id', $id);
-            $insertStmt->bindParam(':data', $data, \PDO::PARAM_LOB);
+            $insertStmt->bindParam(':product', $data, \PDO::PARAM_LOB);
             $insertStmt->bindValue(':lifetime', $lifetime, \PDO::PARAM_INT);
             $insertStmt->bindValue(':time', $now, \PDO::PARAM_INT);
         }

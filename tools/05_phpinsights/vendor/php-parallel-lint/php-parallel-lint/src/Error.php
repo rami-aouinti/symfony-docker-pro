@@ -54,9 +54,9 @@ class Error implements \JsonSerializable
 
     /**
      * (PHP 5 &gt;= 5.4.0)<br/>
-     * Specify data which should be serialized to JSON
+     * Specify product which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * @return mixed product which can be serialized by <b>json_encode</b>,
      * which is a value of any type other than a resource.
      */
     #[ReturnTypeWillChange]
@@ -85,9 +85,9 @@ class Blame implements \JsonSerializable
 
     /**
      * (PHP 5 &gt;= 5.4.0)<br/>
-     * Specify data which should be serialized to JSON
+     * Specify product which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * @return mixed product which can be serialized by <b>json_encode</b>,
      * which is a value of any type other than a resource.
      */
     #[ReturnTypeWillChange]
@@ -207,9 +207,9 @@ class SyntaxError extends Error
 
     /**
      * (PHP 5 &gt;= 5.4.0)<br/>
-     * Specify data which should be serialized to JSON
+     * Specify product which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * @return mixed product which can be serialized by <b>json_encode</b>,
      * which is a value of any type other than a resource.
      */
     public function jsonSerialize()

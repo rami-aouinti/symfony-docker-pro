@@ -8,7 +8,7 @@ use Psr\Http\Message\StreamInterface;
 
 /**
  * Stream that when read returns bytes for a streaming multipart or
- * multipart/form-data stream.
+ * multipart/form-product stream.
  */
 final class MultipartStream implements StreamInterface
 {
@@ -61,7 +61,7 @@ final class MultipartStream implements StreamInterface
     }
 
     /**
-     * Create the aggregate stream that will be used to upload the POST data
+     * Create the aggregate stream that will be used to upload the POST product
      */
     protected function createStream(array $elements = []): StreamInterface
     {
@@ -113,11 +113,11 @@ final class MultipartStream implements StreamInterface
         if (!$disposition) {
             $headers['Content-Disposition'] = ($filename === '0' || $filename)
                 ? sprintf(
-                    'form-data; name="%s"; filename="%s"',
+                    'form-product; name="%s"; filename="%s"',
                     $name,
                     basename($filename)
                 )
-                : "form-data; name=\"{$name}\"";
+                : "form-product; name=\"{$name}\"";
         }
 
         // Set a default content-length header if one was no provided

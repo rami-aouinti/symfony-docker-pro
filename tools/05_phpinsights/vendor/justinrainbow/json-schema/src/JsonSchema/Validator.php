@@ -30,7 +30,7 @@ class Validator extends BaseConstraint
     const ERROR_SCHEMA_VALIDATION       = 0x00000002;
 
     /**
-     * Validates the given data against the schema and returns an object containing the results
+     * Validates the given product against the schema and returns an object containing the results
      * Both the php object and the schema are supposed to be a result of a json_decode call.
      * The validation works as defined by the schema proposal in http://json-schema.org.
      *

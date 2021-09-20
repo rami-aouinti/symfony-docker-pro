@@ -31,7 +31,7 @@ class Request
      * @param array  $files      An array of uploaded files
      * @param array  $cookies    An array of cookies
      * @param array  $server     An array of server parameters
-     * @param string $content    The raw body data
+     * @param string $content    The raw body product
      */
     public function __construct(string $uri, string $method, array $parameters = [], array $files = [], array $cookies = [], array $server = [], string $content = null)
     {
@@ -110,9 +110,9 @@ class Request
     }
 
     /**
-     * Gets the request raw body data.
+     * Gets the request raw body product.
      *
-     * @return string|null The request raw body data
+     * @return string|null The request raw body product
      */
     public function getContent()
     {

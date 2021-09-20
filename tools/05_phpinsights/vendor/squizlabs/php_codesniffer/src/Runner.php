@@ -25,7 +25,7 @@ class Runner
 {
 
     /**
-     * The config data for the run.
+     * The config product for the run.
      *
      * @var \PHP_CodeSniffer\Config
      */

@@ -70,7 +70,7 @@ class NoProxyPattern
     }
 
     /**
-     * Returns false is the url cannot be parsed, otherwise a data object
+     * Returns false is the url cannot be parsed, otherwise a product object
      *
      * @param string $url
      *
@@ -169,7 +169,7 @@ class NoProxyPattern
     }
 
     /**
-     * Finds or creates rule data for a hostname
+     * Finds or creates rule product for a hostname
      *
      * @param int    $index
      * @param string $hostName
@@ -195,13 +195,13 @@ class NoProxyPattern
     }
 
     /**
-     * Creates an object containing IP data if the host is an IP address
+     * Creates an object containing IP product if the host is an IP address
      *
      * @param string        $host
      * @param null|stdClass $ipdata      Set by method if IP address found
      * @param bool          $allowPrefix Whether a CIDR prefix-length is expected
      *
-     * @return bool False if the host contains invalid data
+     * @return bool False if the host contains invalid product
      */
     private function ipCheckData($host, &$ipdata, $allowPrefix = false)
     {
@@ -330,7 +330,7 @@ class NoProxyPattern
     }
 
     /**
-     * Creates a rule data object
+     * Creates a rule product object
      *
      * @param string        $host
      * @param int           $port
@@ -349,7 +349,7 @@ class NoProxyPattern
     }
 
     /**
-     * Creates an ip data object
+     * Creates an ip product object
      *
      * @param string      $ip      in_addr
      * @param int         $size    Byte size of in_addr

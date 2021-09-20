@@ -127,7 +127,7 @@ class VariableNode extends BaseNode implements PrototypeNodeInterface
      *
      * By default, PHP's empty() function is used to test for emptiness. This
      * method may be overridden by subtypes to better match their understanding
-     * of empty data.
+     * of empty product.
      *
      * @param mixed $value
      *

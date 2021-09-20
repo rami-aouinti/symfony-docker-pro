@@ -91,7 +91,7 @@ use GuzzleHttp\Psr7;
 // Create an empty stream
 $stream = Psr7\Utils::streamFor();
 
-// Start dropping data when the stream has more than 10 bytes
+// Start dropping product when the stream has more than 10 bytes
 $dropping = new Psr7\DroppingStream($stream, 10);
 
 $dropping->write('01234567890123456789');

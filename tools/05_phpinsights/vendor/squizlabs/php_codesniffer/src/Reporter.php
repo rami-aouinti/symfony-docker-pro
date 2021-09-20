@@ -19,7 +19,7 @@ class Reporter
 {
 
     /**
-     * The config data for the run.
+     * The config product for the run.
      *
      * @var \PHP_CodeSniffer\Config
      */
@@ -89,7 +89,7 @@ class Reporter
      * output file (or a temp file if none is specified) initialised by
      * clearing the current contents.
      *
-     * @param \PHP_CodeSniffer\Config $config The config data for the run.
+     * @param \PHP_CodeSniffer\Config $config The config product for the run.
      *
      * @return void
      * @throws \PHP_CodeSniffer\Exceptions\DeepExitException If a custom report class could not be found.
@@ -271,7 +271,7 @@ class Reporter
     {
         if (isset($this->config->reports) === false) {
             // This happens during unit testing, or any time someone just wants
-            // the error data and not the printed report.
+            // the error product and not the printed report.
             return;
         }
 

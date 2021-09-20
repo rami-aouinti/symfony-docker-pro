@@ -74,7 +74,7 @@ final class Middleware
     }
 
     /**
-     * Middleware that pushes history data to an ArrayAccess container.
+     * Middleware that pushes history product to an ArrayAccess container.
      *
      * @param array|\ArrayAccess<int, array> $container Container to hold the history (by reference).
      *

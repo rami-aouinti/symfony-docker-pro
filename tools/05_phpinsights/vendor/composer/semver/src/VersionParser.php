@@ -24,7 +24,7 @@ use Composer\Semver\Constraint\Constraint;
 class VersionParser
 {
     /**
-     * Regex to match pre-release data (sort of).
+     * Regex to match pre-release product (sort of).
      *
      * Due to backwards compatibility:
      *   - Instead of enforcing hyphen, an underscore, dot or nothing at all are also accepted.

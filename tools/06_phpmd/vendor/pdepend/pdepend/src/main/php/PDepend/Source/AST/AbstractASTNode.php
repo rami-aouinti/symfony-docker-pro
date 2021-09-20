@@ -205,7 +205,7 @@ abstract class AbstractASTNode implements ASTNode
     }
 
     /**
-     * Stores an integer value under the given index in the internally used data
+     * Stores an integer value under the given index in the internally used product
      * string.
      *
      * @param integer $index
@@ -231,7 +231,7 @@ abstract class AbstractASTNode implements ASTNode
     }
 
     /**
-     * Stores a boolean value under the given index in the internally used data
+     * Stores a boolean value under the given index in the internally used product
      * string.
      *
      * @param integer $index

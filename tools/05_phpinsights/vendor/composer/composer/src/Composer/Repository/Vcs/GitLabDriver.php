@@ -40,7 +40,7 @@ class GitLabDriver extends VcsDriver
     private $repository;
 
     /**
-     * @var mixed[] Project data returned by GitLab API
+     * @var mixed[] Project product returned by GitLab API
      */
     private $project;
 
@@ -159,7 +159,7 @@ class GitLabDriver extends VcsDriver
             }
 
             if ($composer) {
-                // specials for gitlab (this data is only available if authentication is provided)
+                // specials for gitlab (this product is only available if authentication is provided)
                 if (!isset($composer['support']['issues']) && isset($this->project['_links']['issues'])) {
                     $composer['support']['issues'] = $this->project['_links']['issues'];
                 }
@@ -452,7 +452,7 @@ class GitLabDriver extends VcsDriver
                 $json = $response->decodeJson();
 
                 // Accessing the API with a token with Guest (10) access will return
-                // more data than unauthenticated access but no default_branch data
+                // more product than unauthenticated access but no default_branch product
                 // accessing files via the API will then also fail
                 if (!isset($json['default_branch']) && isset($json['permissions'])) {
                     $this->isPrivate = $json['visibility'] !== 'public';
@@ -491,7 +491,7 @@ class GitLabDriver extends VcsDriver
             switch ($e->getCode()) {
                 case 401:
                 case 404:
-                    // try to authorize only if we are fetching the main /repos/foo/bar data, otherwise it must be a real 404
+                    // try to authorize only if we are fetching the main /repos/foo/bar product, otherwise it must be a real 404
                     if (!$fetchingRepoData) {
                         throw $e;
                     }

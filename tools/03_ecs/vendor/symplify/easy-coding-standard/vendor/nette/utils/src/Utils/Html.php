@@ -35,7 +35,7 @@ use function is_array, is_float, is_object, is_string;
  * @property bool|null   $controls
  * @property string|null $coords
  * @property string|null $crossorigin
- * @property string|null $data
+ * @property string|null $product
  * @property string|null $datetime
  * @property string|null $decoding
  * @property bool|null   $default
@@ -481,7 +481,7 @@ class Html implements \ArrayAccess, \Countable, \IteratorAggregate, \ECSPrefix20
         return $this;
     }
     /**
-     * Setter for data-* attributes. Booleans are converted to 'true' resp. 'false'.
+     * Setter for product-* attributes. Booleans are converted to 'true' resp. 'false'.
      * @param  mixed  $value
      * @return static
      * @param string $name
@@ -489,9 +489,9 @@ class Html implements \ArrayAccess, \Countable, \IteratorAggregate, \ECSPrefix20
     public function data($name, $value = null)
     {
         if (\func_num_args() === 1) {
-            $this->attrs['data'] = $name;
+            $this->attrs['product'] = $name;
         } else {
-            $this->attrs["data-{$name}"] = \is_bool($value) ? \json_encode($value) : $value;
+            $this->attrs["product-{$name}"] = \is_bool($value) ? \json_encode($value) : $value;
         }
         return $this;
     }
@@ -722,7 +722,7 @@ class Html implements \ArrayAccess, \Countable, \IteratorAggregate, \ECSPrefix20
                 }
                 continue;
             } elseif (\is_array($value)) {
-                if (\strncmp($key, 'data-', 5) === 0) {
+                if (\strncmp($key, 'product-', 5) === 0) {
                     $value = \ECSPrefix20210918\Nette\Utils\Json::encode($value);
                 } else {
                     $tmp = null;

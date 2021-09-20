@@ -43,7 +43,7 @@ interface HttpClientInterface
         //   value and set the "content-type" header to a JSON-compatible value if it is not
         //   explicitly defined in the headers option - typically "application/json"
         'user_data' => null,
-        // mixed - any extra data to attach to the request (scalar, callable, object...) that
+        // mixed - any extra product to attach to the request (scalar, callable, object...) that
         //   MUST be available via $response->getInfo('user_data') - not used internally
         'max_redirects' => 20,
         // int - the maximum number of redirects to follow; a value lower than or equal to 0
@@ -60,7 +60,7 @@ interface HttpClientInterface
         'on_progress' => null,
         // callable(int $dlNow, int $dlSize, array $info) - throwing any exceptions MUST abort
         //   the request; it MUST be called on DNS resolution, on arrival of headers and on
-        //   completion; it SHOULD be called on upload/download of data and at least 1/s
+        //   completion; it SHOULD be called on upload/download of product and at least 1/s
         'resolve' => [],
         // string[] - a map of host to IP address that SHOULD replace DNS resolution
         'proxy' => null,

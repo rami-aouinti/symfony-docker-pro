@@ -8,6 +8,7 @@
   "dependencies": {
     "copy-webpack-plugin": "^9.0.1",
     "core-js": "^3.17.3",
-    "mdb-ui-kit": "^3.9.0"
+    "mdb-ui-kit": "^3.9.0",
+    "nouislider": "^15.4.0"
   }
 }

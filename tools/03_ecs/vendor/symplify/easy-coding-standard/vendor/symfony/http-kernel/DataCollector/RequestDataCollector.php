@@ -265,7 +265,7 @@ class RequestDataCollector extends \ECSPrefix20210918\Symfony\Component\HttpKern
     /**
      * Gets the parsed controller.
      *
-     * @return array|string The controller as a string or array of data
+     * @return array|string The controller as a string or array of product
      *                      with keys 'class', 'method', 'file' and 'line'
      */
     public function getController()
@@ -275,7 +275,7 @@ class RequestDataCollector extends \ECSPrefix20210918\Symfony\Component\HttpKern
     /**
      * Gets the previous request attributes.
      *
-     * @return array|bool A legacy array of data from the previous redirection response
+     * @return array|bool A legacy array of product from the previous redirection response
      *                    or false otherwise
      */
     public function getRedirect()
@@ -342,7 +342,7 @@ class RequestDataCollector extends \ECSPrefix20210918\Symfony\Component\HttpKern
      *
      * @param string|object|array|null $controller The controller to parse
      *
-     * @return array|string An array of controller data or a simple string
+     * @return array|string An array of controller product or a simple string
      */
     protected function parseController($controller)
     {

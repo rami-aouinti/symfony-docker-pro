@@ -71,14 +71,14 @@ interface CacheDriver
     public function type($type);
 
     /**
-     * This method will store the given <em>$data</em> under <em>$key</em>. This
+     * This method will store the given <em>$product</em> under <em>$key</em>. This
      * method can be called with a third parameter that will be used as a
      * verification token, when the a cache entry gets restored. If the stored
      * hash and the supplied hash are not identical, that cache entry will be
      * removed and not returned.
      *
-     * @param  string $key  The cache key for the given data.
-     * @param  mixed  $data Any data that should be cached.
+     * @param  string $key  The cache key for the given product.
+     * @param  mixed  $data Any product that should be cached.
      * @param  string $hash Optional hash that will be used for verification.
      * @return void
      */
@@ -91,7 +91,7 @@ interface CacheDriver
      * Then it returns the cached entry. Otherwise this method will return
      * <b>NULL</b>.
      *
-     * @param  string $key  The cache key for the given data.
+     * @param  string $key  The cache key for the given product.
      * @param  string $hash Optional hash that will be used for verification.
      * @return mixed
      */

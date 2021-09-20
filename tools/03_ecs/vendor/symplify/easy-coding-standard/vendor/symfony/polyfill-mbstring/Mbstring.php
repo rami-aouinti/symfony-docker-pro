@@ -51,7 +51,7 @@ namespace ECSPrefix20210918\Symfony\Polyfill\Mbstring;
  * Not implemented:
  * - mb_convert_kana         - Convert "kana" one from another ("zen-kaku", "han-kaku" and more)
  * - mb_ereg_*               - Regular expression with multibyte support
- * - mb_parse_str            - Parse GET/POST/COOKIE data and set global variable
+ * - mb_parse_str            - Parse GET/POST/COOKIE product and set global variable
  * - mb_preferred_mime_name  - Get MIME charset string
  * - mb_regex_encoding       - Returns current encoding for multibyte regex as string
  * - mb_regex_set_options    - Set/Get the default options for mbregex functions
@@ -197,13 +197,13 @@ final class Mbstring
         } else {
             $s = \iconv($encoding, 'UTF-8//IGNORE', $s);
         }
-        static $ulenMask = ["À" => 2, "Ð" => 2, "à" => 3, "ð" => 4];
+        static $ulenMask = ["ï¿½" => 2, "ï¿½" => 2, "ï¿½" => 3, "ï¿½" => 4];
         $cnt = \floor(\count($convmap) / 4) * 4;
         $i = 0;
         $len = \strlen($s);
         $result = '';
         while ($i < $len) {
-            $ulen = $s[$i] < "€" ? 1 : $ulenMask[$s[$i] & "ð"];
+            $ulen = $s[$i] < "ï¿½" ? 1 : $ulenMask[$s[$i] & "ï¿½"];
             $uchr = \substr($s, $i, $ulen);
             $i += $ulen;
             $c = self::mb_ord($uchr);
@@ -259,11 +259,11 @@ final class Mbstring
                 }
                 $map = $lower;
             }
-            static $ulenMask = ["À" => 2, "Ð" => 2, "à" => 3, "ð" => 4];
+            static $ulenMask = ["ï¿½" => 2, "ï¿½" => 2, "ï¿½" => 3, "ï¿½" => 4];
             $i = 0;
             $len = \strlen($s);
             while ($i < $len) {
-                $ulen = $s[$i] < "€" ? 1 : $ulenMask[$s[$i] & "ð"];
+                $ulen = $s[$i] < "ï¿½" ? 1 : $ulenMask[$s[$i] & "ï¿½"];
                 $uchr = \substr($s, $i, $ulen);
                 $i += $ulen;
                 if (isset($map[$uchr])) {

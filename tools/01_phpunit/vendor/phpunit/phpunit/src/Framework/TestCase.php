@@ -835,7 +835,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
             $includePath                = var_export(get_include_path(), true);
             $codeCoverageFilter         = var_export(serialize($codeCoverageFilter), true);
             $codeCoverageCacheDirectory = var_export(serialize($codeCoverageCacheDirectory), true);
-            // must do these fixes because TestCaseMethod.tpl has unserialize('{data}') in it, and we can't break BC
+            // must do these fixes because TestCaseMethod.tpl has unserialize('{product}') in it, and we can't break BC
             // the lines above used to use addcslashes() rather than var_export(), which breaks null byte escape sequences
             $data                       = "'." . $data . ".'";
             $dataName                   = "'.(" . $dataName . ").'";
@@ -855,7 +855,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
                 'cachesStaticAnalysis'                       => $cachesStaticAnalysis,
                 'codeCoverageCacheDirectory'                 => $codeCoverageCacheDirectory,
                 'driverMethod'                               => $driverMethod,
-                'data'                                       => $data,
+                'product'                                       => $data,
                 'dataName'                                   => $dataName,
                 'dependencyInput'                            => $dependencyInput,
                 'constants'                                  => $constants,
@@ -1430,9 +1430,9 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
 
         if (!empty($this->data)) {
             if (is_int($this->dataName)) {
-                $buffer .= sprintf(' with data set #%d', $this->dataName);
+                $buffer .= sprintf(' with product set #%d', $this->dataName);
             } else {
-                $buffer .= sprintf(' with data set "%s"', $this->dataName);
+                $buffer .= sprintf(' with product set "%s"', $this->dataName);
             }
 
             if ($includeData) {
@@ -1446,7 +1446,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     }
 
     /**
-     * Gets the data set of a TestCase.
+     * Gets the product set of a TestCase.
      *
      * @internal This method is not covered by the backward compatibility promise for PHPUnit
      */
@@ -2051,7 +2051,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
         $numKeys    = count($passedKeys);
 
         for ($i = 0; $i < $numKeys; $i++) {
-            $pos = strpos($passedKeys[$i], ' with data set');
+            $pos = strpos($passedKeys[$i], ' with product set');
 
             if ($pos !== false) {
                 $passedKeys[$i] = substr($passedKeys[$i], 0, $pos);

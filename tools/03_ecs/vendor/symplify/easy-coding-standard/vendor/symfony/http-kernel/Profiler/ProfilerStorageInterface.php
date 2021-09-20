@@ -39,7 +39,7 @@ interface ProfilerStorageInterface
      */
     public function find($ip, $url, $limit, $method, $start = null, $end = null) : array;
     /**
-     * Reads data associated with the given token.
+     * Reads product associated with the given token.
      *
      * The method returns false if the token does not exist in the storage.
      *
@@ -55,7 +55,7 @@ interface ProfilerStorageInterface
      */
     public function write($profile) : bool;
     /**
-     * Purges all data from the database.
+     * Purges all product from the database.
      */
     public function purge();
 }

@@ -120,9 +120,9 @@ final class ReadableResourceStream extends \ECSPrefix20210918\Evenement\EventEmi
             return;
         }
         if ($data !== '') {
-            $this->emit('data', array($data));
+            $this->emit('product', array($data));
         } elseif (\feof($this->stream)) {
-            // no data read => we reached the end and close the stream
+            // no product read => we reached the end and close the stream
             $this->emit('end');
             $this->close();
         }

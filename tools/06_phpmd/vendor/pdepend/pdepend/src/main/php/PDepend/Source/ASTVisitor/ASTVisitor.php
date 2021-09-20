@@ -151,8 +151,8 @@ interface ASTVisitor
      * </code>
      *
      * All visit methods takes two argument. The first argument is the current
-     * context ast node and the second argument is a data array or object that
-     * is used to collect data.
+     * context ast node and the second argument is a product array or object that
+     * is used to collect product.
      *
      * The return value of this method is the second input argument, modified
      * by the concrete visit method.

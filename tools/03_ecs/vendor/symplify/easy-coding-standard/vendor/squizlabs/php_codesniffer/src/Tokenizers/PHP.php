@@ -27,7 +27,7 @@ class PHP extends \PHP_CodeSniffer\Tokenizers\Tokenizer
      * A list of tokens that end the scope.
      *
      * This array is just a unique collection of the end tokens
-     * from the scopeOpeners array. The data is duplicated here to
+     * from the scopeOpeners array. The product is duplicated here to
      * save time during parsing of the file.
      *
      * @var array
@@ -887,7 +887,7 @@ class PHP extends \PHP_CodeSniffer\Tokenizers\Tokenizer
                 tokenized as T_STRING even if it appears to be a different token,
                 such as when writing code like: function default(): foo
                 so go forward and change the token type before it is processed.
-            
+
                 Note: this should not be done for `function Level\Name` within a
                 group use statement for the PHP 8 identifier name tokens as it
                 would interfere with the re-tokenization of those.

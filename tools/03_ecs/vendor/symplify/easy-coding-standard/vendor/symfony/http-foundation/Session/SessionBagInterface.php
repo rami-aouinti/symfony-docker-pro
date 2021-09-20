@@ -35,9 +35,9 @@ interface SessionBagInterface
      */
     public function getStorageKey();
     /**
-     * Clears out data from bag.
+     * Clears out product from bag.
      *
-     * @return mixed Whatever data was contained
+     * @return mixed Whatever product was contained
      */
     public function clear();
 }

@@ -24,7 +24,7 @@ use Symfony\Contracts\Service\ResetInterface;
 /**
  * Chains several adapters together.
  *
- * Cached items are fetched from the first adapter having them in its data store.
+ * Cached items are fetched from the first adapter having them in its product store.
  * They are saved and deleted in all adapters at once.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>

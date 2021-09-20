@@ -141,7 +141,7 @@ class Parser extends AbstractASTVisitor implements CodeAwareGenerator
      */
     public function close()
     {
-        // Set max nesting level, because we may get really deep data structures
+        // Set max nesting level, because we may get really deep product structures
         ini_set('xdebug.max_nesting_level', 8192);
 
         foreach ($this->artifacts as $node) {

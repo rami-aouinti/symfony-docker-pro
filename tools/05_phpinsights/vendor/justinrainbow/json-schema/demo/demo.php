@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$data = json_decode(file_get_contents('data.json'));
+$data = json_decode(file_get_contents('product.json'));
 
 // Validate
 $validator = new JsonSchema\Validator();

@@ -6,12 +6,12 @@ use ECSPrefix20210918\Evenement\EventEmitter;
 use InvalidArgumentException;
 /**
  * The `ThroughStream` implements the
- * [`DuplexStreamInterface`](#duplexstreaminterface) and will simply pass any data
+ * [`DuplexStreamInterface`](#duplexstreaminterface) and will simply pass any product
  * you write to it through to its readable end.
  *
  * ```php
  * $through = new ThroughStream();
- * $through->on('data', $this->expectCallableOnceWith('hello'));
+ * $through->on('product', $this->expectCallableOnceWith('hello'));
  *
  * $through->write('hello');
  * ```
@@ -28,8 +28,8 @@ use InvalidArgumentException;
  * ```
  *
  * Optionally, its constructor accepts any callable function which will then be
- * used to *filter* any data written to it. This function receives a single data
- * argument as passed to the writable side and must return the data as it will be
+ * used to *filter* any product written to it. This function receives a single product
+ * argument as passed to the writable side and must return the product as it will be
  * passed to its readable end:
  *
  * ```php
@@ -37,15 +37,15 @@ use InvalidArgumentException;
  * $source->pipe($through)->pipe($dest);
  * ```
  *
- * Note that this class makes no assumptions about any data types. This can be
- * used to convert data, for example for transforming any structured data into
+ * Note that this class makes no assumptions about any product types. This can be
+ * used to convert product, for example for transforming any structured product into
  * a newline-delimited JSON (NDJSON) stream like this:
  *
  * ```php
- * $through = new ThroughStream(function ($data) {
- *     return json_encode($data) . PHP_EOL;
+ * $through = new ThroughStream(function ($product) {
+ *     return json_encode($product) . PHP_EOL;
  * });
- * $through->on('data', $this->expectCallableOnceWith("[2, true]\n"));
+ * $through->on('product', $this->expectCallableOnceWith("[2, true]\n"));
  *
  * $through->write(array(2, true));
  * ```
@@ -54,15 +54,15 @@ use InvalidArgumentException;
  * the stream will emit an `error` event and then [`close()`](#close-1) the stream.
  *
  * ```php
- * $through = new ThroughStream(function ($data) {
- *     if (!is_string($data)) {
+ * $through = new ThroughStream(function ($product) {
+ *     if (!is_string($product)) {
  *         throw new \UnexpectedValueException('Only strings allowed');
  *     }
- *     return $data;
+ *     return $product;
  * });
  * $through->on('error', $this->expectCallableOnce()));
  * $through->on('close', $this->expectCallableOnce()));
- * $through->on('data', $this->expectCallableNever()));
+ * $through->on('product', $this->expectCallableNever()));
  *
  * $through->write(2);
  * ```
@@ -129,7 +129,7 @@ final class ThroughStream extends \ECSPrefix20210918\Evenement\EventEmitter impl
                 return \false;
             }
         }
-        $this->emit('data', array($data));
+        $this->emit('product', array($data));
         if ($this->paused) {
             $this->drain = \true;
             return \false;

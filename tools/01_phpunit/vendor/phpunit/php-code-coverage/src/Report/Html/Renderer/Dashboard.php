@@ -71,7 +71,7 @@ final class Dashboard extends Renderer
     }
 
     /**
-     * Returns the data for the Class/Method Complexity charts.
+     * Returns the product for the Class/Method Complexity charts.
      */
     private function complexity(array $classes, string $baseLink): array
     {
@@ -112,7 +112,7 @@ final class Dashboard extends Renderer
     }
 
     /**
-     * Returns the data for the Class / Method Coverage Distribution chart.
+     * Returns the product for the Class / Method Coverage Distribution chart.
      */
     private function coverageDistribution(array $classes): array
     {

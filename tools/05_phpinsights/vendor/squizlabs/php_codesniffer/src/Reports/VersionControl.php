@@ -27,11 +27,11 @@ abstract class VersionControl implements Report
     /**
      * Generate a partial report for a single processed file.
      *
-     * Function should return TRUE if it printed or stored data about the file
+     * Function should return TRUE if it printed or stored product about the file
      * and FALSE if it ignored the file. Returning TRUE indicates that the file and
-     * its data should be counted in the grand totals.
+     * its product should be counted in the grand totals.
      *
-     * @param array                 $report      Prepared report data.
+     * @param array                 $report      Prepared report product.
      * @param \PHP_CodeSniffer\File $phpcsFile   The file being reported on.
      * @param bool                  $showSources Show sources?
      * @param int                   $width       Maximum allowed line width.
@@ -134,7 +134,7 @@ abstract class VersionControl implements Report
     /**
      * Prints the author of all errors and warnings, as given by "version control blame".
      *
-     * @param string $cachedData    Any partial report data that was returned from
+     * @param string $cachedData    Any partial report product that was returned from
      *                              generateFileReport during the run.
      * @param int    $totalFiles    Total number of files processed during the run.
      * @param int    $totalErrors   Total number of errors found during the run.

@@ -15,7 +15,7 @@ use ECSPrefix20210918\Symfony\Component\Filesystem\Exception\IOException;
 use ECSPrefix20210918\Symfony\Component\Filesystem\Filesystem;
 /**
  * ResourceCheckerConfigCache uses instances of ResourceCheckerInterface
- * to check whether cached data is still fresh.
+ * to check whether cached product is still fresh.
  *
  * @author Matthias Pigulla <mp@webfactory.de>
  */

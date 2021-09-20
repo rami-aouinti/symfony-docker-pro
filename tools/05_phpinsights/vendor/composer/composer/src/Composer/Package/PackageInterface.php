@@ -87,9 +87,9 @@ interface PackageInterface
     public function getTargetDir();
 
     /**
-     * Returns the package extra data
+     * Returns the package extra product
      *
-     * @return mixed[] The package extra data
+     * @return mixed[] The package extra product
      */
     public function getExtra();
 

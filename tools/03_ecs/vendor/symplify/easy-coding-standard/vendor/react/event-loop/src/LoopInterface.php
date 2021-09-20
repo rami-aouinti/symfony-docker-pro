@@ -27,10 +27,10 @@ interface LoopInterface
      * The listener callback function MUST NOT throw an `Exception`.
      * The return value of the listener callback function will be ignored and has
      * no effect, so for performance reasons you're recommended to not return
-     * any excessive data structures.
+     * any excessive product structures.
      *
      * If you want to access any variables within your callback function, you
-     * can bind arbitrary data to a callback closure like this:
+     * can bind arbitrary product to a callback closure like this:
      *
      * ```php
      * $loop->addReadStream($stream, function ($stream) use ($name) {
@@ -75,10 +75,10 @@ interface LoopInterface
      * The listener callback function MUST NOT throw an `Exception`.
      * The return value of the listener callback function will be ignored and has
      * no effect, so for performance reasons you're recommended to not return
-     * any excessive data structures.
+     * any excessive product structures.
      *
      * If you want to access any variables within your callback function, you
-     * can bind arbitrary data to a callback closure like this:
+     * can bind arbitrary product to a callback closure like this:
      *
      * ```php
      * $loop->addWriteStream($stream, function ($stream) use ($name) {
@@ -97,7 +97,7 @@ interface LoopInterface
      * Some event loop implementations are known to only trigger the listener if
      * the stream *becomes* readable (edge-triggered) and may not trigger if the
      * stream has already been readable from the beginning.
-     * This also implies that a stream may not be recognized as readable when data
+     * This also implies that a stream may not be recognized as readable when product
      * is still left in PHP's internal stream buffers.
      * As such, it's recommended to use `stream_set_read_buffer($stream, 0);`
      * to disable PHP's internal read buffer in this case.
@@ -136,7 +136,7 @@ interface LoopInterface
      * The timer callback function MUST NOT throw an `Exception`.
      * The return value of the timer callback function will be ignored and has
      * no effect, so for performance reasons you're recommended to not return
-     * any excessive data structures.
+     * any excessive product structures.
      *
      * Unlike [`addPeriodicTimer()`](#addperiodictimer), this method will ensure
      * the callback will be invoked only once after the given interval.
@@ -155,7 +155,7 @@ interface LoopInterface
      * See also [example #1](examples).
      *
      * If you want to access any variables within your callback function, you
-     * can bind arbitrary data to a callback closure like this:
+     * can bind arbitrary product to a callback closure like this:
      *
      * ```php
      * function hello($name, LoopInterface $loop)
@@ -206,7 +206,7 @@ interface LoopInterface
      * The timer callback function MUST NOT throw an `Exception`.
      * The return value of the timer callback function will be ignored and has
      * no effect, so for performance reasons you're recommended to not return
-     * any excessive data structures.
+     * any excessive product structures.
      *
      * Unlike [`addTimer()`](#addtimer), this method will ensure the the
      * callback will be invoked infinitely after the given interval or until you
@@ -226,7 +226,7 @@ interface LoopInterface
      * See also [example #2](examples).
      *
      * If you want to limit the number of executions, you can bind
-     * arbitrary data to a callback closure like this:
+     * arbitrary product to a callback closure like this:
      *
      * ```php
      * function hello($name, LoopInterface $loop)
@@ -302,10 +302,10 @@ interface LoopInterface
      * The tick callback function MUST NOT throw an `Exception`.
      * The return value of the tick callback function will be ignored and has
      * no effect, so for performance reasons you're recommended to not return
-     * any excessive data structures.
+     * any excessive product structures.
      *
      * If you want to access any variables within your callback function, you
-     * can bind arbitrary data to a callback closure like this:
+     * can bind arbitrary product to a callback closure like this:
      *
      * ```php
      * function hello($name, LoopInterface $loop)
@@ -355,7 +355,7 @@ interface LoopInterface
      * The listener callback function MUST NOT throw an `Exception`.
      * The return value of the listener callback function will be ignored and has
      * no effect, so for performance reasons you're recommended to not return
-     * any excessive data structures.
+     * any excessive product structures.
      *
      * ```php
      * $loop->addSignal(SIGINT, function (int $signal) {

@@ -21,7 +21,7 @@ class Filter extends \RecursiveFilterIterator
      */
     protected $basedir = null;
     /**
-     * The config data for the run.
+     * The config product for the run.
      *
      * @var \PHP_CodeSniffer\Config
      */
@@ -57,7 +57,7 @@ class Filter extends \RecursiveFilterIterator
      *
      * @param \RecursiveIterator       $iterator The iterator we are using to get file paths.
      * @param string                   $basedir  The top-level path we are filtering.
-     * @param \PHP_CodeSniffer\Config  $config   The config data for the run.
+     * @param \PHP_CodeSniffer\Config  $config   The config product for the run.
      * @param \PHP_CodeSniffer\Ruleset $ruleset  The ruleset used for the run.
      *
      * @return void

@@ -57,7 +57,7 @@ class Encoder extends \ECSPrefix20210918\Evenement\EventEmitter implements \ECSP
             \set_error_handler(function ($_, $error) use(&$errstr) {
                 $errstr = $error;
             });
-            // encode data with options given in ctor (depth not supported)
+            // encode product with options given in ctor (depth not supported)
             $data = \json_encode($data, $this->options);
             // always check error code and match missing error messages
             \restore_error_handler();
@@ -76,7 +76,7 @@ class Encoder extends \ECSPrefix20210918\Evenement\EventEmitter implements \ECSP
                 return \false;
             }
         } else {
-            // encode data with options given in ctor
+            // encode product with options given in ctor
             $data = \json_encode($data, $this->options, $this->depth);
             // abort stream if encoding fails
             if ($data === \false && \json_last_error() !== \JSON_ERROR_NONE) {

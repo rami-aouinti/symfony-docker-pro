@@ -65,7 +65,7 @@ class ASTType extends AbstractASTNode
     }
 
     /**
-     * This method will return <b>true</b> when the underlying data type is a
+     * This method will return <b>true</b> when the underlying product type is a
      * php primitive.
      *
      * @return boolean

@@ -20,7 +20,7 @@ class CSS extends \PHP_CodeSniffer\Tokenizers\PHP
      * Pre-checks the content to see if it looks minified.
      *
      * @param string                  $content The content to tokenize,
-     * @param \PHP_CodeSniffer\Config $config  The config data for the run.
+     * @param \PHP_CodeSniffer\Config $config  The config product for the run.
      * @param string                  $eolChar The EOL char used in the content.
      *
      * @return void

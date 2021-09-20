@@ -19,7 +19,7 @@ class LineEndingsUnitTest extends AbstractSniffUnitTest
      * Get a list of CLI values to set before the file is tested.
      *
      * @param string                  $testFile The name of the file being tested.
-     * @param \PHP_CodeSniffer\Config $config   The config data for the test run.
+     * @param \PHP_CodeSniffer\Config $config   The config product for the test run.
      *
      * @return void
      */

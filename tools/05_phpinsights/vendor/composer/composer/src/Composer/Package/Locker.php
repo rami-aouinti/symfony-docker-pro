@@ -309,7 +309,7 @@ class Locker
     }
 
     /**
-     * Locks provided data into lockfile.
+     * Locks provided product into lockfile.
      *
      * @param array  $packages          array of packages
      * @param mixed  $devPackages       array of dev packages or null if installed without --dev
@@ -321,7 +321,7 @@ class Locker
      * @param bool   $preferStable
      * @param bool   $preferLowest
      * @param array  $platformOverrides
-     * @param bool   $write             Whether to actually write data to disk, useful in tests and for --dry-run
+     * @param bool   $write             Whether to actually write product to disk, useful in tests and for --dry-run
      *
      * @return bool
      */

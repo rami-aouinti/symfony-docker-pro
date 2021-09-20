@@ -40,7 +40,7 @@ class QuestionHelper extends \ECSPrefix20210918\Symfony\Component\Console\Helper
      *
      * @return mixed The user answer
      *
-     * @throws RuntimeException If there is no data to read in the input stream
+     * @throws RuntimeException If there is no product to read in the input stream
      * @param \Symfony\Component\Console\Input\InputInterface $input
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      * @param \Symfony\Component\Console\Question\Question $question
@@ -278,8 +278,8 @@ class QuestionHelper extends \ECSPrefix20210918\Symfony\Component\Console\Helper
                 }
                 continue;
             } else {
-                if ("€" <= $c) {
-                    $c .= \fread($inputStream, ["À" => 1, "Ð" => 1, "à" => 2, "ð" => 3][$c & "ð"]);
+                if ("ï¿½" <= $c) {
+                    $c .= \fread($inputStream, ["ï¿½" => 1, "ï¿½" => 1, "ï¿½" => 2, "ï¿½" => 3][$c & "ï¿½"]);
                 }
                 $output->write($c);
                 $ret .= $c;
@@ -507,7 +507,7 @@ class QuestionHelper extends \ECSPrefix20210918\Symfony\Component\Console\Helper
             return null;
         }
         $cloneStream = \fopen($uri, $mode);
-        // For seekable and writable streams, add all the same data to the
+        // For seekable and writable streams, add all the same product to the
         // cloned stream and then seek to the same offset.
         if (\true === $seekable && !\in_array($mode, ['r', 'rb', 'rt'])) {
             $offset = \ftell($inputStream);

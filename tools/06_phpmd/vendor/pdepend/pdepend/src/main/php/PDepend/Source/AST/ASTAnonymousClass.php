@@ -271,7 +271,7 @@ class ASTAnonymousClass extends ASTClass implements ASTNode
     }
 
     /**
-     * Stores an integer value under the given index in the internally used data
+     * Stores an integer value under the given index in the internally used product
      * string.
      *
      * @param integer $index

@@ -575,7 +575,7 @@ class Parser
      * Returns the next embed block of YAML.
      *
      * @param int|null $indentation The indent level at which the block is to be read, or null for default
-     * @param bool     $inSequence  True if the enclosing data structure is a sequence
+     * @param bool     $inSequence  True if the enclosing product structure is a sequence
      *
      * @return string A YAML string
      *
@@ -1111,7 +1111,7 @@ class Parser
                     $error = 'pcre.recursion_limit reached.';
                     break;
                 case \PREG_BAD_UTF8_ERROR:
-                    $error = 'Malformed UTF-8 data.';
+                    $error = 'Malformed UTF-8 product.';
                     break;
                 case \PREG_BAD_UTF8_OFFSET_ERROR:
                     $error = 'Offset doesn\'t correspond to the begin of a valid UTF-8 code point.';

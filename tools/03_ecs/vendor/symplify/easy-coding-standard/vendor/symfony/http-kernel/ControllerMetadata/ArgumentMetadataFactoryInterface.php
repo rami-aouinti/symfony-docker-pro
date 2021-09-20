@@ -11,7 +11,7 @@
 namespace ECSPrefix20210918\Symfony\Component\HttpKernel\ControllerMetadata;
 
 /**
- * Builds method argument data.
+ * Builds method argument product.
  *
  * @author Iltar van der Berg <kjarli@gmail.com>
  */

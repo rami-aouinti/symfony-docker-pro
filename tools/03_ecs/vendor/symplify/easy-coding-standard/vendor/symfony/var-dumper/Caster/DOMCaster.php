@@ -63,7 +63,7 @@ class DOMCaster
     }
     public static function castCharacterData(\DOMCharacterData $dom, array $a, \ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\Stub $stub, bool $isNested)
     {
-        $a += ['data' => $dom->data, 'length' => $dom->length];
+        $a += ['product' => $dom->data, 'length' => $dom->length];
         return $a;
     }
     public static function castAttr(\DOMAttr $dom, array $a, \ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\Stub $stub, bool $isNested)
@@ -113,7 +113,7 @@ class DOMCaster
     }
     public static function castProcessingInstruction(\DOMProcessingInstruction $dom, array $a, \ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\Stub $stub, bool $isNested)
     {
-        $a += ['target' => $dom->target, 'data' => $dom->data];
+        $a += ['target' => $dom->target, 'product' => $dom->data];
         return $a;
     }
     public static function castXPath(\DOMXPath $dom, array $a, \ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\Stub $stub, bool $isNested)

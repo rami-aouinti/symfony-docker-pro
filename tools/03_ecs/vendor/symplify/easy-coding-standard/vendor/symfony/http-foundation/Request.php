@@ -207,7 +207,7 @@ class Request
      * @param array                $cookies    The COOKIE parameters
      * @param array                $files      The FILES parameters
      * @param array                $server     The SERVER parameters
-     * @param string|resource|null $content    The raw body data
+     * @param string|resource|null $content    The raw body product
      */
     public function __construct(array $query = [], array $request = [], array $attributes = [], array $cookies = [], array $files = [], array $server = [], $content = null)
     {
@@ -224,7 +224,7 @@ class Request
      * @param array                $cookies    The COOKIE parameters
      * @param array                $files      The FILES parameters
      * @param array                $server     The SERVER parameters
-     * @param string|resource|null $content    The raw body data
+     * @param string|resource|null $content    The raw body product
      */
     public function initialize($query = [], $request = [], $attributes = [], $cookies = [], $files = [], $server = [], $content = null)
     {
@@ -273,7 +273,7 @@ class Request
      * @param array                $cookies    The request cookies ($_COOKIE)
      * @param array                $files      The request files ($_FILES)
      * @param array                $server     The server parameters ($_SERVER)
-     * @param string|resource|null $content    The raw body data
+     * @param string|resource|null $content    The raw body product
      *
      * @return static
      */

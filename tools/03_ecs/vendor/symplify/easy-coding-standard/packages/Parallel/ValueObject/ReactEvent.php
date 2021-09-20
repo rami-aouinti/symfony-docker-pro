@@ -15,7 +15,7 @@ final class ReactEvent
     /**
      * @var string
      */
-    public const DATA = 'data';
+    public const DATA = 'product';
     /**
      * @var string
      */

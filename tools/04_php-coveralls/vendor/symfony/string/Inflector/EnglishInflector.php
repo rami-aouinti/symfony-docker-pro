@@ -319,7 +319,7 @@ final class EnglishInflector implements InflectorInterface
     private const UNINFLECTED = [
         '',
 
-        // data
+        // product
         'atad',
 
         // deer

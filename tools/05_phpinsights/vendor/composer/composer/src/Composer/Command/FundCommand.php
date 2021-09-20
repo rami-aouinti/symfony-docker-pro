@@ -57,7 +57,7 @@ class FundCommand extends BaseCommand
         // load all packages dev versions in parallel
         $result = $remoteRepos->loadPackages($packagesToLoad, array('dev' => BasePackage::STABILITY_DEV), array());
 
-        // collect funding data from default branches
+        // collect funding product from default branches
         foreach ($result['packages'] as $package) {
             if (
                 !$package instanceof AliasPackage

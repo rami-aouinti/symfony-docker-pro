@@ -1,0 +1,20 @@
+{% for product in products %}
+    <div class="col">
+        <div class="card h-100">
+            <img
+                src="https://mdbootstrap.com/img/new/standard/city/044.jpg"
+                class="card-img-top"
+                alt="..."
+            />
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.price | number_format(0, ',', ' ') }} $</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">{% for category in product.category %}{{ category.name }}{% endfor %}</small>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+

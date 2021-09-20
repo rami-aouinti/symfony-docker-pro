@@ -1,0 +1,15 @@
+<div class="input-group">
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.q) }}
+    {{ form_row(form.categories) }}
+    {{ form_row(form.min) }}
+    {{ form_row(form.max) }}
+    <div id="price-slider" data-min="{{ min }}" data-max="{{ max }}" style="margin-bottom: 3rem;"></div>
+    {{ form_row(form.promo) }}
+    <button type="submit" class="btn btn-outline-primary">search</button>
+    {{ form_end(form) }}
+</div>
+
+
+

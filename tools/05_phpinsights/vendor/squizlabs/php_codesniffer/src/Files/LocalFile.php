@@ -23,7 +23,7 @@ class LocalFile extends File
      *
      * @param string                   $path    The absolute path to the file.
      * @param \PHP_CodeSniffer\Ruleset $ruleset The ruleset used for the run.
-     * @param \PHP_CodeSniffer\Config  $config  The config data for the run.
+     * @param \PHP_CodeSniffer\Config  $config  The config product for the run.
      *
      * @return void
      */

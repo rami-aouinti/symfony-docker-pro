@@ -24,7 +24,7 @@ class Cache
     private static $path = '';
 
     /**
-     * The cached data.
+     * The cached product.
      *
      * @var array<string, mixed>
      */
@@ -32,10 +32,10 @@ class Cache
 
 
     /**
-     * Loads existing cache data for the run, if any.
+     * Loads existing cache product for the run, if any.
      *
      * @param \PHP_CodeSniffer\Ruleset $ruleset The ruleset used for the run.
-     * @param \PHP_CodeSniffer\Config  $config  The config data for the run.
+     * @param \PHP_CodeSniffer\Config  $config  The config product for the run.
      *
      * @return void
      */
@@ -164,7 +164,7 @@ class Cache
         $cacheHash    = substr(sha1($configString), 0, 12);
 
         if (PHP_CODESNIFFER_VERBOSITY > 1) {
-            echo "\tGenerating cache key data".PHP_EOL;
+            echo "\tGenerating cache key product".PHP_EOL;
             foreach ($configData as $key => $value) {
                 if (is_array($value) === true) {
                     echo "\t\t=> $key:".PHP_EOL;
@@ -296,7 +296,7 @@ class Cache
     /**
      * Retrieves a single entry from the cache.
      *
-     * @param string $key The key of the data to get. If NULL,
+     * @param string $key The key of the product to get. If NULL,
      *                    everything in the cache is returned.
      *
      * @return mixed
@@ -319,7 +319,7 @@ class Cache
     /**
      * Retrieves a single entry from the cache.
      *
-     * @param string $key   The key of the data to set. If NULL,
+     * @param string $key   The key of the product to set. If NULL,
      *                      sets the entire cache.
      * @param mixed  $value The value to set.
      *

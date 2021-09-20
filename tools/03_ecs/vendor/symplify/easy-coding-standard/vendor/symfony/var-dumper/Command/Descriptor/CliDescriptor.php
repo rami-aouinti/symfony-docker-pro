@@ -17,7 +17,7 @@ use ECSPrefix20210918\Symfony\Component\Console\Style\SymfonyStyle;
 use ECSPrefix20210918\Symfony\Component\VarDumper\Cloner\Data;
 use ECSPrefix20210918\Symfony\Component\VarDumper\Dumper\CliDumper;
 /**
- * Describe collected data clones for cli output.
+ * Describe collected product clones for cli output.
  *
  * @author Maxime Steinhausser <maxime.steinhausser@gmail.com>
  *

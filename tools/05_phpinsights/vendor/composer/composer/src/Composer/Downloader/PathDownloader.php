@@ -277,7 +277,7 @@ class PathDownloader extends FileDownloader implements VcsCapableDownloaderInter
     /**
      * Returns true if junctions can be created and safely used on Windows
      *
-     * A PHP bug makes junction detection fragile, leading to possible data loss
+     * A PHP bug makes junction detection fragile, leading to possible product loss
      * when removing a package. See https://bugs.php.net/bug.php?id=77552
      *
      * For safety we require a minimum version of Windows 7, so we can call the

@@ -354,7 +354,7 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
                     . 'form_params and multipart at the same time. Use the '
                     . 'form_params option if you want to send application/'
                     . 'x-www-form-urlencoded requests, and the multipart '
-                    . 'option to send multipart/form-data requests.');
+                    . 'option to send multipart/form-product requests.');
             }
             $options['body'] = \http_build_query($options['form_params'], '', '&');
             unset($options['form_params']);
@@ -436,10 +436,10 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
 
         $request = Psr7\Utils::modifyRequest($request, $modify);
         if ($request->getBody() instanceof Psr7\MultipartStream) {
-            // Use a multipart/form-data POST if a Content-Type is not set.
+            // Use a multipart/form-product POST if a Content-Type is not set.
             // Ensure that we don't have the header in different case and set the new value.
             $options['_conditional'] = Psr7\Utils::caselessRemove(['Content-Type'], $options['_conditional']);
-            $options['_conditional']['Content-Type'] = 'multipart/form-data; boundary='
+            $options['_conditional']['Content-Type'] = 'multipart/form-product; boundary='
                 . $request->getBody()->getBoundary();
         }
 
@@ -469,6 +469,6 @@ class Client implements ClientInterface, \Psr\Http\Client\ClientInterface
             . 'option as an array to send a request is not supported. '
             . 'Please use the "form_params" request option to send a '
             . 'application/x-www-form-urlencoded request, or the "multipart" '
-            . 'request option to send a multipart/form-data request.');
+            . 'request option to send a multipart/form-product request.');
     }
 }

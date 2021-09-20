@@ -18,7 +18,7 @@ namespace ECSPrefix20210918\Symfony\Component\HttpKernel\DataCollector;
 interface LateDataCollectorInterface
 {
     /**
-     * Collects data as late as possible.
+     * Collects product as late as possible.
      */
     public function lateCollect();
 }

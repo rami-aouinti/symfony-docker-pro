@@ -51,7 +51,7 @@ namespace PDepend\Util;
 final class Type
 {
     /**
-     * Constants for valid php data types.
+     * Constants for valid php product types.
      */
     const PHP_TYPE_ARRAY   = 'array',
           PHP_TYPE_BOOLEAN = 'boolean',
@@ -59,7 +59,7 @@ final class Type
           PHP_TYPE_INTEGER = 'integer',
           PHP_TYPE_STRING  = 'string';
     /**
-     * Constants with valid php data type identifiers.
+     * Constants with valid php product type identifiers.
      */
     const IMAGE_ARRAY    = 'array',
           IMAGE_BOOL     = 'bool',
@@ -77,7 +77,7 @@ final class Type
           IMAGE_VOID     = 'void';
 
     /**
-     * Constants with the metaphone representation of multiple php data types.
+     * Constants with the metaphone representation of multiple php product types.
      */
     const IMAGE_METAPHONE_ARRAY        = 'AR',
           IMAGE_METAPHONE_BOOL         = 'BL',
@@ -96,7 +96,7 @@ final class Type
           IMAGE_METAPHONE_UNKNOWN_TYPE = 'UNKNNTP';
 
     /**
-     * Constants with the soundex representation of multiple php data types.
+     * Constants with the soundex representation of multiple php product types.
      */
     const IMAGE_SOUNDEX_ARRAY        = 'A600',
           IMAGE_SOUNDEX_BOOL         = 'B450',
@@ -112,7 +112,7 @@ final class Type
           IMAGE_SOUNDEX_STRING       = 'S365',
           IMAGE_SOUNDEX_STDCLASS     = 'S324',
           IMAGE_SOUNDEX_UNKNOWN      = 'U525';
- 
+
     /**
      * Constants for other types/keywords frequently used.
      */
@@ -375,7 +375,7 @@ final class Type
     /**
      * This method reads all available classes and interfaces and checks whether
      * this type belongs to an extension or is internal. All internal and extension
-     * classes are collected in an internal data structure.
+     * classes are collected in an internal product structure.
      *
      * @return array<string, string>
      */

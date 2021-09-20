@@ -112,7 +112,7 @@ class DumpDataCollector extends \ECSPrefix20210918\Symfony\Component\HttpKernel\
                 }
             }
             foreach ($this->data as $dump) {
-                $this->doDump($dumper, $dump['data'], $dump['name'], $dump['file'], $dump['line']);
+                $this->doDump($dumper, $dump['product'], $dump['name'], $dump['file'], $dump['line']);
             }
         }
     }
@@ -183,8 +183,8 @@ class DumpDataCollector extends \ECSPrefix20210918\Symfony\Component\HttpKernel\
             return $this->data = [];
         }
         foreach ($this->data as $dump) {
-            $dumper->dump($dump['data']->withMaxDepth($maxDepthLimit)->withMaxItemsPerDepth($maxItemsPerDepth));
-            $dump['data'] = \stream_get_contents($data, -1, 0);
+            $dumper->dump($dump['product']->withMaxDepth($maxDepthLimit)->withMaxItemsPerDepth($maxItemsPerDepth));
+            $dump['product'] = \stream_get_contents($data, -1, 0);
             \ftruncate($data, 0);
             \rewind($data);
             $dumps[] = $dump;
@@ -217,7 +217,7 @@ class DumpDataCollector extends \ECSPrefix20210918\Symfony\Component\HttpKernel\
             }
             foreach ($this->data as $i => $dump) {
                 $this->data[$i] = null;
-                $this->doDump($dumper, $dump['data'], $dump['name'], $dump['file'], $dump['line']);
+                $this->doDump($dumper, $dump['product'], $dump['name'], $dump['file'], $dump['line']);
             }
             $this->data = [];
             $this->dataCount = 0;

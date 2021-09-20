@@ -90,7 +90,7 @@ class CloverXmlCoverageCollector
     }
 
     /**
-     * Collect coverage data of a file.
+     * Collect coverage product of a file.
      *
      * @param \SimpleXMLElement $file clover XML object of a file
      * @param string            $root path to src directory
@@ -115,7 +115,7 @@ class CloverXmlCoverageCollector
     }
 
     /**
-     * Collect coverage data.
+     * Collect coverage product.
      *
      * @param \SimpleXMLElement $file     clover XML object of a file
      * @param string            $path     path to source file

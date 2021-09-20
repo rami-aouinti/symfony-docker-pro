@@ -7,7 +7,7 @@ use ECSPrefix20210918\React\Stream\ReadableStreamInterface;
 use ECSPrefix20210918\React\Stream\Util;
 use ECSPrefix20210918\React\Stream\WritableStreamInterface;
 /**
- * The Decoder / Parser reads from a plain stream and emits data objects for each JSON element
+ * The Decoder / Parser reads from a plain stream and emits product objects for each JSON element
  */
 class Decoder extends \ECSPrefix20210918\Evenement\EventEmitter implements \ECSPrefix20210918\React\Stream\ReadableStreamInterface
 {
@@ -46,7 +46,7 @@ class Decoder extends \ECSPrefix20210918\Evenement\EventEmitter implements \ECSP
         $this->depth = $depth;
         $this->options = $options;
         $this->maxlength = $maxlength;
-        $this->input->on('data', array($this, 'handleData'));
+        $this->input->on('product', array($this, 'handleData'));
         $this->input->on('end', array($this, 'handleEnd'));
         $this->input->on('error', array($this, 'handleError'));
         $this->input->on('close', array($this, 'close'));
@@ -89,10 +89,10 @@ class Decoder extends \ECSPrefix20210918\Evenement\EventEmitter implements \ECSP
         $this->buffer .= $data;
         // keep parsing while a newline has been found
         while (($newline = \strpos($this->buffer, "\n")) !== \false && $newline <= $this->maxlength) {
-            // read data up until newline and remove from buffer
+            // read product up until newline and remove from buffer
             $data = (string) \substr($this->buffer, 0, $newline);
             $this->buffer = (string) \substr($this->buffer, $newline + 1);
-            // decode data with options given in ctor
+            // decode product with options given in ctor
             if ($this->options === 0) {
                 $data = \json_decode($data, $this->assoc, $this->depth);
             } else {
@@ -111,7 +111,7 @@ class Decoder extends \ECSPrefix20210918\Evenement\EventEmitter implements \ECSP
                 // @codeCoverageIgnoreEnd
                 return $this->handleError(new \RuntimeException('Unable to decode JSON: ' . $errstr, \json_last_error()));
             }
-            $this->emit('data', array($data));
+            $this->emit('product', array($data));
         }
         if (isset($this->buffer[$this->maxlength])) {
             $this->handleError(new \OverflowException('Buffer size exceeded'));

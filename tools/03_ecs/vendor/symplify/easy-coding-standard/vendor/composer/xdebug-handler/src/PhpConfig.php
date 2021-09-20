@@ -51,7 +51,7 @@ class PhpConfig
         return array();
     }
     /**
-     * Returns restart data if available and resets the environment
+     * Returns restart product if available and resets the environment
      *
      * @return array|null
      */
